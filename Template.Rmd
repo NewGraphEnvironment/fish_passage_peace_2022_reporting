@@ -1,18 +1,22 @@
 --- 
-title: "My Report"
+title: "Restoring Fish Passage in the Peace Region - 2022 - PEA-F23-F-3761-DCA"
 author: |
  |
  | Prepared for
-
+ | Fish and Wildlife Compensation Program 
+ |       and  
+ | Fish Passage Technical Working Group 
  |
  |
  | Prepared by
  | Al Irvine, B.Sc., R.P.Bio.
  | New Graph Environment Ltd.
+ | on behalf of 
+ | Society for Ecosystem Restoration in Northern BC
 
 date: |
  |
- | Version 0.0.2 `r format(Sys.Date(), "%Y-%m-%d")`
+ | Version 0.0.1 `r format(Sys.Date(), "%Y-%m-%d")`
 toc-title: Table of Contents
 site: bookdown::bookdown_site
 output: 
@@ -26,7 +30,7 @@ bibliography: [book.bib, packages.bib, references.bib]
 biblio-style: apalike
 link-citations: no
 github-repo: rstudio/bookdown-demo
-description: "My Description."
+description: "Restoring Fish Passage in the Peace Region"
 
 
 ---
@@ -80,60 +84,153 @@ Modern civilization has a long journey ahead to acknowledge and address the hist
 
 ```{js, logo-header, echo = FALSE, eval= T}
 title=document.getElementById('header');
-title.innerHTML = '<img src="fig/nge-full_white.png" alt="NewGraph">' + title.innerHTML
+title.innerHTML = '<img src="fig/logo_fwcp_sern.png" alt="NewGraph">' + title.innerHTML
 ```
 
 
 <!--chapter:end:index.Rmd-->
 
+# Tributary to Parsnip River - 125000 {-}
 
+```{r  load-data-125000}
+my_site <- 125000
+```
 
-# Introduction {#intro}
-
-`r if(identical(gitbook_on, FALSE))knitr::asis_output("This report is available as pdf and as an online [interactive report](https://newgraphenvironment.github.io/mybookdown-template/) at https://newgraphenvironment.github.io/mybookdown-template/. We recommend viewing online as the web-hosted html version contains more features and is more easily navigable.")` 
-
-
-`r if(identical(gitbook_on, FALSE)){knitr::asis_output("<br>")}`
-
-
+A map of the watershed is provided in map attachment [93I.111]( https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/FishPassage_093I.111.pdf).
 
 <br>
 
+Surveys were conducted with a remotely piloted aircraft at the crossing with resulting images stitched into an orthomosaic and 3-dimensional model `r if(gitbook_on){knitr::asis_output(" presented in Figures \\@ref(fig:ortho-caption-arctic) - \\@ref(fig:model-caption-arctic).")} else knitr::asis_output("presented [here](https://www.mapsmadeeasy.com/maps/public/0b96f06f52be467db7250b3caeeecee3) and [here](https://www.mapsmadeeasy.com/maps/public_3D/0b96f06f52be467db7250b3caeeecee3/).")`
 
-## Header with no number {-}
+```{r ortho-arctic, eval = identical(gitbook_on, TRUE)}
+model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public/0b96f06f52be467db7250b3caeeecee3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'
 
-```{r nice-tab, tidy=FALSE}
-knitr::kable(
-  head(iris, 20), caption = 'Here is a nice table!',
-  booktabs = TRUE
-)
+knitr::asis_output(model_url)
 ```
 
-<!--chapter:end:0100-intro.Rmd-->
 
+```{r ortho-caption-arctic, fig.cap= my_caption, out.width = "0.01%", eval = identical(gitbook_on, TRUE)}
+my_photo = 'fig/pixel.png'
 
+my_caption = paste0('Orthomosaic of site of planned bridge on tributary to Parsnip River. To zoom press "shift" and scroll.')
 
-# Background
+knitr::include_graphics(my_photo, dpi = NA)
 
-
-## Project Location
-
-```{r overview-map, fig.cap = 'Overview map of Study Areas',eval=T}
-knitr::include_graphics("fig/nge-icon_name.png")
 ```
 
 <br>
 
-```{r hydrology-plot, fig.cap = 'Hydrograph for Bulkley River at Quick (Station #08EE004) and near Houston (Station #08EE003).', fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=T}
-knitr::include_graphics("data/TimePhoto_20220814_112459.jpg")
+```{r model-arctic, eval = identical(gitbook_on, TRUE)}
+model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public_3D/0b96f06f52be467db7250b3caeeecee3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'
+
+knitr::asis_output(model_url)
+```
+
+
+```{r model-caption-arctic, fig.cap= my_caption, out.width = "0.01%", eval = identical(gitbook_on, TRUE)}
+my_photo = 'fig/pixel.png'
+
+my_caption = paste0('3D model of crossing 125000 where newly installed bridge is planned on a tributary to Parsnip River. To zoom press "shift" and scroll.')
+
+knitr::include_graphics(my_photo, dpi = NA)
+
+```
+
+
+
+
+<!--chapter:end:0125000-trib-to-parsnip.Rmd-->
+
+# Tributary to Missinka River - 125197 {-}
+
+```{r  load-data-125197}
+my_site <- 125197
+```
+
+A map of the watershed is provided in map attachment [93I.117]( https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/FishPassage_093I.116.pdf).
+
+<br>
+
+In 2019 a video survey was conducted by drone and can be viewed [here](https://www.youtube.com/watch?v=-foWvX1MSkg).  In the summer of 2022 additional surveys were conducted with resulting images stitched into an orthomosaic and 3-dimensional model `r if(gitbook_on){knitr::asis_output(" presented in Figures \\@ref(fig:ortho-caption-missinka) - \\@ref(fig:model-caption-missinka).")} else knitr::asis_output("presented [here](https://www.mapsmadeeasy.com/maps/public/8e3a0c68656c4480a66e067a6e14c0d3) and [here](https://www.mapsmadeeasy.com/maps/public_3D/8e3a0c68656c4480a66e067a6e14c0d3/).")`
+
+```{r ortho-missinka, eval = identical(gitbook_on, TRUE)}
+model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public/8e3a0c68656c4480a66e067a6e14c0d3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'
+
+knitr::asis_output(model_url)
+```
+
+
+```{r ortho-caption-missinka, fig.cap= my_caption, out.width = "0.01%", eval = identical(gitbook_on, TRUE)}
+my_photo = 'fig/pixel.png'
+
+my_caption = paste0('Orthomosaic of bridge on Tributary to Missinka River. To zoom press "shift" and scroll.')
+
+knitr::include_graphics(my_photo, dpi = NA)
+
+```
+
+<br>
+
+```{r model-missinka, eval = identical(gitbook_on, TRUE)}
+model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public_3D/8e3a0c68656c4480a66e067a6e14c0d3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'
+
+knitr::asis_output(model_url)
+```
+
+
+```{r model-caption-missinka, fig.cap= my_caption, out.width = "0.01%", eval = identical(gitbook_on, TRUE)}
+my_photo = 'fig/pixel.png'
+
+my_caption = paste0('3D model of newly installed bridge on a tributary to Missinka Creek. To zoom press "shift" and scroll.')
+
+knitr::include_graphics(my_photo, dpi = NA)
+
+```
+
+<br>
+
+
+
+```{r photo-125197-01-prep, eval=T}
+my_photo1 = fpr::fpr_photo_pull_by_str(site = 125179, str_to_pull = 'crossing_all')
+
+my_caption1 = paste0('Photos of crossing ', my_site, ' in 2019.')
+
+
+# fpr::fpr_photo_flip(site_id = 1802488, str_to_pull = '6257')
+
+```
+
+```{r photo-125197-01, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo1))
+```
+
+<br>
+
+```{r photo-125197-02-prep}
+my_photo2 = fpr::fpr_photo_pull_by_str(str_to_pull = 'crossing_all', site = 1251792022)
+
+my_caption2 = paste0('Photos of crossing ', my_site, ' in 2022.')
+```
+
+```{r photo-125197-02, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo2))
+
+```
+
+<br>
+
+```{r photo-125197-d01, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
+
+my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
+
+knitr::include_graphics(my_photo1)
 knitr::include_graphics("fig/pixel.png")
-knitr::include_graphics("data/TimePhoto_20220814_112923.jpg")
+knitr::include_graphics(my_photo2)
 ```
 
 
-`r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("<br><br><br><br>")`
-
-<!--chapter:end:0200-background.Rmd-->
+<!--chapter:end:0125197-trib-to-missinka.Rmd-->
 
 `r if (knitr::is_html_output()){ '
 # References {-}

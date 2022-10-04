@@ -1,0 +1,48 @@
+# Tributary to Parsnip River - 125000 {-}
+
+```{r  load-data-125000}
+my_site <- 125000
+```
+
+A map of the watershed is provided in map attachment [93I.111]( https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/FishPassage_093I.111.pdf).
+
+<br>
+
+Surveys were conducted with a remotely piloted aircraft at the crossing with resulting images stitched into an orthomosaic and 3-dimensional model `r if(gitbook_on){knitr::asis_output(" presented in Figures \\@ref(fig:ortho-caption-arctic) - \\@ref(fig:model-caption-arctic).")} else knitr::asis_output("presented [here](https://www.mapsmadeeasy.com/maps/public/0b96f06f52be467db7250b3caeeecee3) and [here](https://www.mapsmadeeasy.com/maps/public_3D/0b96f06f52be467db7250b3caeeecee3/).")`
+
+```{r ortho-arctic, eval = identical(gitbook_on, TRUE)}
+model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public/0b96f06f52be467db7250b3caeeecee3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'
+
+knitr::asis_output(model_url)
+```
+
+
+```{r ortho-caption-arctic, fig.cap= my_caption, out.width = "0.01%", eval = identical(gitbook_on, TRUE)}
+my_photo = 'fig/pixel.png'
+
+my_caption = paste0('Orthomosaic of site of planned bridge on tributary to Parsnip River. To zoom press "shift" and scroll.')
+
+knitr::include_graphics(my_photo, dpi = NA)
+
+```
+
+<br>
+
+```{r model-arctic, eval = identical(gitbook_on, TRUE)}
+model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public_3D/0b96f06f52be467db7250b3caeeecee3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'
+
+knitr::asis_output(model_url)
+```
+
+
+```{r model-caption-arctic, fig.cap= my_caption, out.width = "0.01%", eval = identical(gitbook_on, TRUE)}
+my_photo = 'fig/pixel.png'
+
+my_caption = paste0('3D model of crossing 125000 where newly installed bridge is planned on a tributary to Parsnip River. To zoom press "shift" and scroll.')
+
+knitr::include_graphics(my_photo, dpi = NA)
+
+```
+
+
+
