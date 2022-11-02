@@ -7,7 +7,7 @@ source('scripts/packages.R')
 # because we are working in a project our working directory is the root folder so all paths are
 # relative to that
 # path <- '../../repo/dff-2022/data/pars/tag_01_01.csv'
-path <- 'data/pars/tag_01_01.csv'
+path <- 'data/dff/tag_01_01.csv'
 # path <- 'data/skeena/tag_01_02.csv'
 
 
@@ -17,14 +17,16 @@ path <- 'data/pars/tag_01_01.csv'
 pit_tag <- readr::read_csv(path, col_names = T) %>%
   #separate the pit tag out from the rest of the info in the pit tag csv
   # https://stackoverflow.com/questions/66696779/separate-by-pattern-word-in-tidyr-and-dplyr
-  tidyr::separate(col=tag, into=c('date', 'tag_id'), sep='\\s*TAG\\s*') %>%
-  tibble::rowid_to_column()
+  tidyr::separate(col=tag, into=c('date', 'tag_id'), sep='\\s*TAG\\s*')
+  # tibble::rowid_to_column()
 
 
 #import csv with fish data
-path2 <- 'data/pars/fish_data.csv'
+path2 <- 'data/dff/fish_data.csv'
 
 fish <- readr::read_csv(path2)
+  # mutate(tag_row = tag_row - 1) %>%
+  # readr::write_csv('data/inputs_raw/fish_data.csv', na = '')
 
 #join fish csv with pit tag csv based on tag row number
 fish_tags <- dplyr::left_join(fish,
