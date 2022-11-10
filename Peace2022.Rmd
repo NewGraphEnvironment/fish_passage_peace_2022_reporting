@@ -90,6 +90,31 @@ title.innerHTML = '<img src="fig/logo_fwcp_sern.png" alt="NewGraph">' + title.in
 
 <!--chapter:end:index.Rmd-->
 
+
+
+# Introduction {#intro}
+
+`r if(identical(gitbook_on, FALSE))knitr::asis_output("This report is available as pdf and as an online [interactive report](https://newgraphenvironment.github.io/mybookdown-template/) at https://newgraphenvironment.github.io/mybookdown-template/. We recommend viewing online as the web-hosted html version contains more features and is more easily navigable.")` 
+
+
+`r if(identical(gitbook_on, FALSE)){knitr::asis_output("<br>")}`
+
+
+
+<br>
+
+
+## Header with no number {-}
+
+```{r nice-tab, tidy=FALSE}
+knitr::kable(
+  head(iris, 20), caption = 'Here is a nice table!',
+  booktabs = TRUE
+)
+```
+
+<!--chapter:end:0100-intro.Rmd-->
+
 # Tributary to Parsnip River - 125000 {-}
 
 ```{r  load-data-125000}
@@ -100,7 +125,7 @@ A map of the watershed is provided in map attachment [93I.111]( https://hillcres
 
 <br>
 
-Surveys were conducted with a remotely piloted aircraft at the crossing with resulting images stitched into an orthomosaic and 3-dimensional model `r if(gitbook_on){knitr::asis_output(" presented in Figures \\@ref(fig:ortho-caption-arctic) - \\@ref(fig:model-caption-arctic).")} else knitr::asis_output("presented [here](https://www.mapsmadeeasy.com/maps/public/0b96f06f52be467db7250b3caeeecee3) and [here](https://www.mapsmadeeasy.com/maps/public_3D/0b96f06f52be467db7250b3caeeecee3/).")`
+In 2019 a video survey was conducted by drone and can be viewed [here](https://www.youtube.com/watch?v=-foWvX1MSkg). In the summer of 2022 additional surveys were conducted with resulting images stitched into an orthomosaic and 3-dimensional model. Surveys were conducted with a remotely piloted aircraft at the crossing with resulting images stitched into an orthomosaic and 3-dimensional model `r if(gitbook_on){knitr::asis_output(" presented in Figures \\@ref(fig:ortho-caption-arctic) - \\@ref(fig:model-caption-arctic).")} else knitr::asis_output("presented [here](https://www.mapsmadeeasy.com/maps/public/0b96f06f52be467db7250b3caeeecee3) and [here](https://www.mapsmadeeasy.com/maps/public_3D/0b96f06f52be467db7250b3caeeecee3/).")`
 
 ```{r ortho-arctic, eval = identical(gitbook_on, TRUE)}
 model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public/0b96f06f52be467db7250b3caeeecee3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'
@@ -151,7 +176,7 @@ A map of the watershed is provided in map attachment [93I.117]( https://hillcres
 
 <br>
 
-In 2019 a video survey was conducted by drone and can be viewed [here](https://www.youtube.com/watch?v=-foWvX1MSkg).  In the summer of 2022 additional surveys were conducted with resulting images stitched into an orthomosaic and 3-dimensional model `r if(gitbook_on){knitr::asis_output(" presented in Figures \\@ref(fig:ortho-caption-missinka) - \\@ref(fig:model-caption-missinka).")} else knitr::asis_output("presented [here](https://www.mapsmadeeasy.com/maps/public/8e3a0c68656c4480a66e067a6e14c0d3) and [here](https://www.mapsmadeeasy.com/maps/public_3D/8e3a0c68656c4480a66e067a6e14c0d3/).")`
+`r if(gitbook_on){knitr::asis_output(" presented in Figures \\@ref(fig:ortho-caption-missinka) - \\@ref(fig:model-caption-missinka).")} else knitr::asis_output("presented [here](https://www.mapsmadeeasy.com/maps/public/8e3a0c68656c4480a66e067a6e14c0d3) and [here](https://www.mapsmadeeasy.com/maps/public_3D/8e3a0c68656c4480a66e067a6e14c0d3/).")`
 
 ```{r ortho-missinka, eval = identical(gitbook_on, TRUE)}
 model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public/8e3a0c68656c4480a66e067a6e14c0d3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'

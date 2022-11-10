@@ -35,7 +35,7 @@ rmarkdown::render_site(output_format = 'bookdown::gitbook',
 
 
 # define the _bookfile_name from _bookdown.yml
-filename_html <- 'Template'
+filename_html <- 'Peace2022'
 
 {
 

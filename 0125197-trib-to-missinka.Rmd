@@ -8,7 +8,7 @@ A map of the watershed is provided in map attachment [93I.117]( https://hillcres
 
 <br>
 
-In 2019 a video survey was conducted by drone and can be viewed [here](https://www.youtube.com/watch?v=-foWvX1MSkg).  In the summer of 2022 additional surveys were conducted with resulting images stitched into an orthomosaic and 3-dimensional model `r if(gitbook_on){knitr::asis_output(" presented in Figures \\@ref(fig:ortho-caption-missinka) - \\@ref(fig:model-caption-missinka).")} else knitr::asis_output("presented [here](https://www.mapsmadeeasy.com/maps/public/8e3a0c68656c4480a66e067a6e14c0d3) and [here](https://www.mapsmadeeasy.com/maps/public_3D/8e3a0c68656c4480a66e067a6e14c0d3/).")`
+`r if(gitbook_on){knitr::asis_output(" presented in Figures \\@ref(fig:ortho-caption-missinka) - \\@ref(fig:model-caption-missinka).")} else knitr::asis_output("presented [here](https://www.mapsmadeeasy.com/maps/public/8e3a0c68656c4480a66e067a6e14c0d3) and [here](https://www.mapsmadeeasy.com/maps/public_3D/8e3a0c68656c4480a66e067a6e14c0d3/).")`
 
 ```{r ortho-missinka, eval = identical(gitbook_on, TRUE)}
 model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public/8e3a0c68656c4480a66e067a6e14c0d3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'
