@@ -1,0 +1,8 @@
+reference_number,gazetted_name,local_name,waterbody_id,reach_number,site_number,temperature_c,conductivity_m_s_cm,turbidity,sampling_method,method_number,haul_number_pass_number,ef_seconds,ef_length_m,ef_width_m,enclosure,voltage,frequency,pulse,make,model,gill_net_type,length_m,depth_m,mesh_size,set,date_in,time_in,date_out,time_out,soak_time,habitat,species,stage,age,total_number,min_length_mm,max_length_mm,fish_activity,comments
+7,Tributary to Parsnip River,125000_us_ef1,00000PARS,0,7,13.1,49,clear,electrofishing,1,1,167,8,2,Open,450,60,,Other,halltech HT2000,,,,,,,,,,0,,,,,,,,,
+8,Tributary to Parsnip River,125000_us_ef2,00000PARS,0,8,13.1,49,clear,electrofishing,1,1,283,23,3.27,Open,450,60,,Other,halltech HT2001,,,,,,,,,,0,,,,,,,,,
+9,Tributary to Parsnip River,125000_us_ef3,00000PARS,0,9,13.1,49,clear,electrofishing,1,1,472,21,2.9,Open,450,60,,Other,halltech HT2002,,,,,,,,,,0,,,,,,,,,
+10,Tributary to Parsnip River,125000_ds_ef1,00000PARS,0,10,13.1,49,clear,electrofishing,1,1,264,28,3.2,Open,450,60,,Other,halltech HT2003,,,,,,,,,,0,,,,,,,,,
+11,Tributary to Parsnip River,125000_ds_ef2,00000PARS,0,11,13.1,49,clear,electrofishing,1,1,131,7,3.04,Open,350,60,,Other,halltech HT2004,,,,,,,,,,0,,,,,,,,,
+12,Tributary to Parsnip River,125000_ds_ef3,00000PARS,0,12,13.1,49,clear,electrofishing,1,1,110,5,2.88,Open,350,60,,Other,halltech HT2005,,,,,,,,,,0,,,,,,,,,
+13,Tributary to Parsnip River,125180_us_ef1,00000PARS,0,13,11.5,44,clear,electrofishing,1,1,72,3,2.2,Open,450,60,,Other,halltech HT2006,,,,,,,,,,0,,,,,,,,,
