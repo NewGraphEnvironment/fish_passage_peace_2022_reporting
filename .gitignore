@@ -5,7 +5,20 @@ _publish.R
 _book
 _bookdown_files
 rsconnect
-
-
-*/~$*
+data/inputs_extracted/*
+data/~$*
+scripts/private_info.R
+scripts/pers_*
+*.JPG
+!crossing_all.JPG
+!*_k_*
+*.gpkg-wal
+*.gpkg-shm
+docs/Peace.html
+Peace2022.html
+*~$*
+*.Kmz
+*.kml
+data/photos/**/*.pdf
+!data/photos/admin/*
 
