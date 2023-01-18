@@ -55,6 +55,7 @@ pacman::p_load(package_list,
 
 pacman::p_load_gh("poissonconsulting/fwapgr",
                   'poissonconsulting/poisspatial',
-                  # "crsh/citr",
-                  # 'rstudio/pagedown',
-                  "poissonconsulting/fishbc")
+                  "crsh/citr",
+                  'rstudio/pagedown',
+                  "poissonconsulting/fishbc",
+                  "newgraphenvironment/fpr")
