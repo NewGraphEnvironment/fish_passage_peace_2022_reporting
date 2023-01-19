@@ -1,5 +1,10 @@
+stub_from <- 'C:/Users/matwi/OneDrive'
+name_repo <- 'fish_passage_peace_2022_reporting'
+
+
 # read in Mateo gpx file
-gpx <- 'C:/Users/matwi/OneDrive/Projects/repo/fish_passage_peace_2022_reporting/data/gps/parsnip_2022_field_mw.GPX'
+gpx <- paste0(stub_from, '/Projects/repo/', name_repo,
+       '/data/gps/', 'parsnip_2022_field_mw.GPX')
 
 track_points_prep = read_sf(gpx, layer = "track_points")
 
@@ -14,7 +19,8 @@ track_points_mw <- track_points_prep %>%
 # import Mateo photos
 
 # path to photos on OneDrive
-path <- 'C:/Users/matwi/OneDrive/Projects/repo/fish_passage_peace_2022_reporting/data/photos/MW'
+path <- paste0(stub_from, '/Projects/repo/', name_repo,
+               '/data/photos/', 'MW')
 
 photo_metadata <- exifr::read_exif(path,recursive=T)  %>%
   janitor::clean_names() %>%
@@ -24,7 +30,8 @@ photo_metadata <- exifr::read_exif(path,recursive=T)  %>%
   mutate(create_date = lubridate::as_datetime(create_date, tz="America/Vancouver"))
 
 # import Al photos
-path2 <- 'C:/Users/matwi/OneDrive/Projects/repo/fish_passage_peace_2022_reporting/data/photos/AI'
+path2 <- paste0(stub_from, '/Projects/repo/', name_repo,
+                '/data/photos/', 'AI')
 
 photo_metadata2 <- exifr::read_exif(path2,recursive=T)  %>%
   janitor::clean_names() %>%
