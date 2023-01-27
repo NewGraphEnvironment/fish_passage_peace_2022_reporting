@@ -1,12 +1,12 @@
-
 ## QA to be sure that you have all 6 required photos for submission to PSCIS
 ## convert jpg (or other formats - need to code) to JPG for consistency and to avoid issues with submission/reporting
 ##move the photos and spreadsheet ready for submission to pscis
-
+stub_from <- 'C:/Users/matwi/OneDrive'
+name_repo <- 'fish_passage_peace_2022_reporting'
 
 ##path to the photos on onedrive
-# path <- paste0(getwd(), '/data/photos')
-path <- "/Users/airvine/Library/CloudStorage/OneDrive-Personal/Projects/repo/fish_passage_bulkley_2022_reporting/data/"
+path <- paste0(stub_from, '/Projects/repo/', name_repo,
+               '/data/photos/photos_sorted/')
 
 ##use the pscis spreadsheet to make the folders to copy the photos to
 d <- fpr::fpr_import_pscis(workbook_name = 'pscis_phase1.xlsm')
@@ -17,7 +17,7 @@ path_to_photos <- paste0(path, folderstocopy)
 
 
 ##########################here we transfer just the photos with labels over into the PSCIS directory where we will upload from to the gov interface ###################################################################
-targetdir = paste0("/Users/airvine/Library/CloudStorage/OneDrive-Personal/Projects/PSCIS/PSCIS_bulkley_2022_phase1/")
+targetdir = paste0(stub_from, '/Projects/PSCIS/PSCIS_peace_2022_phase1/')
 dir.create(targetdir)
 
 folderstocreate<- paste0(targetdir, folderstocopy)
@@ -86,9 +86,16 @@ file.copy(from = 'data/pscis_phase1.xlsm',
           to = paste0(targetdir, 'pscis_phase1.xlsm'),
           overwrite = T)
 
+#macros don't seem to work in one drive so copy the submission folder to a directory on my machine
+file.copy(from = stub_from, '/Projects/PSCIS/PSCIS_peace_2022_phase1/',
+          to = 'C:/Users/matwi/Projects/current/2022-050-sern-parsnip-fish-passage/',
+          overwrite = T, recursive = T)
+
 # !!!!!!!READ!!!!!!! here I record the command to move everything into the repo via command line on linux.  Suggest moving to your repo using command line on windows (google copy all files and directories on command line with windows or something) as well because then it is easy to repeat when things change.
 # not quite sure how best to deal with sharing the photos yet and might end up being easiest to just work in onedrive and copy things over via command line into the repo (hope not though)
 # Mateo - write down the command to copy over with command line below the linux version
+# windows command prompt line below:
+# xcopy C:\Users\matwi\OneDrive\Projects\repo\fish_passage_peace_2022_reporting\data\photos\photos_sorted /e C:\Users\matwi\Projects\repo\fish_passage_peace_2022_reporting\data\photos
 # cp -R ~/Library/CloudStorage/OneDrive-Personal/Projects/repo/fish_passage_bulkley_2022_reporting/data/* ~/Projects/repo/fish_passage_bulkley_2022_reporting/data/photos/
 
 ## going to make a few notes here about the submission process
