@@ -37,7 +37,7 @@ description: "Restoring Fish Passage in the Peace Region"
 
 ```{r switch-gitbook-html, echo=FALSE}
 gitbook_on <- TRUE
-# gitbook_on <- FALSE  ##we just need turn  this on and off to switch between gitbook and pdf via paged.js
+gitbook_on <- FALSE  ##we just need turn  this on and off to switch between gitbook and pdf via paged.js
 
 ```
 
@@ -89,31 +89,6 @@ title.innerHTML = '<img src="fig/logo_fwcp_sern.png" alt="NewGraph">' + title.in
 
 
 <!--chapter:end:index.Rmd-->
-
-
-
-# Introduction {#intro}
-
-`r if(identical(gitbook_on, FALSE))knitr::asis_output("This report is available as pdf and as an online [interactive report](https://newgraphenvironment.github.io/mybookdown-template/) at https://newgraphenvironment.github.io/mybookdown-template/. We recommend viewing online as the web-hosted html version contains more features and is more easily navigable.")` 
-
-
-`r if(identical(gitbook_on, FALSE)){knitr::asis_output("<br>")}`
-
-
-
-<br>
-
-
-## Header with no number {-}
-
-```{r nice-tab, tidy=FALSE}
-knitr::kable(
-  head(iris, 20), caption = 'Here is a nice table!',
-  booktabs = TRUE
-)
-```
-
-<!--chapter:end:0100-intro.Rmd-->
 
 # Tributary to Parsnip River - 125000 {-}
 
