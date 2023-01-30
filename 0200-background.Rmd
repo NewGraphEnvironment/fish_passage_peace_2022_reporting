@@ -22,7 +22,7 @@ Construction of the 183 m high and 2134 m long W.A.C. Bennett Dam was completed 
 
 ## Project Location
 
-```{r overview-map, fig.cap = 'Overview map of Study Area',eval=T}
+```{r overview-map, fig.cap = 'Overview map of Study Area',eval=F}
 knitr::include_graphics("fig/fishpassage_skeena_2022_bulk.png")
 ```
 
