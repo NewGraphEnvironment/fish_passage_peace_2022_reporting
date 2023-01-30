@@ -37,7 +37,7 @@ description: "Restoring Fish Passage in the Peace Region"
 
 ```{r switch-gitbook-html, echo=FALSE}
 gitbook_on <- TRUE
-gitbook_on <- FALSE  ##we just need turn  this on and off to switch between gitbook and pdf via paged.js
+# gitbook_on <- FALSE  ##we just need turn  this on and off to switch between gitbook and pdf via paged.js
 
 ```
 
@@ -96,7 +96,7 @@ title.innerHTML = '<img src="fig/logo_fwcp_sern.png" alt="NewGraph">' + title.in
 my_site <- 125000
 ```
 
-A map of the watershed is provided in map attachment [93I.111]( https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/FishPassage_093I.111.pdf).
+A map of the watershed is provided in map attachment [93I.111](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/FishPassage_093I.111.pdf).
 
 <br>
 
@@ -147,7 +147,7 @@ knitr::include_graphics(my_photo, dpi = NA)
 my_site <- 125197
 ```
 
-A map of the watershed is provided in map attachment [93I.117]( https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/FishPassage_093I.116.pdf).
+A map of the watershed is provided in map attachment [93I.117](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/FishPassage_093I.116.pdf).
 
 <br>
 

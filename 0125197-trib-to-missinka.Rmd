@@ -4,7 +4,7 @@
 my_site <- 125197
 ```
 
-A map of the watershed is provided in map attachment [93I.117]( https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/FishPassage_093I.116.pdf).
+A map of the watershed is provided in map attachment [93I.117](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/FishPassage_093I.116.pdf).
 
 <br>
 
