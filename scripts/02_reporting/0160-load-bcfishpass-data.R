@@ -60,7 +60,7 @@ pscis_all <- bind_rows(fpr_import_pscis_all())
 
 dat <- pscis_all %>%
   sf::st_as_sf(coords = c("easting", "northing"),
-               crs = 26909, remove = F) %>% ##don't forget to put it in the right crs buds
+               crs = 26910, remove = F) %>% ##don't forget to put it in the right crs buds
   sf::st_transform(crs = 3005) ##get the crs same as the layers we want to hit up
 
 
@@ -94,7 +94,7 @@ CROSS JOIN LATERAL
 ##get all the data and save it as an sqlite database as a snapshot of what is happening.  we can always hopefully update it
 query <- "SELECT *
    FROM bcfishpass.crossings
-   WHERE watershed_group_code IN ('BULK')"
+   WHERE watershed_group_code IN ('PARS')"
 
 
 ##import and grab the coordinates - this is already done
@@ -237,12 +237,12 @@ conn <- DBI::dbConnect(
 
 query <- "SELECT p.*, wsg.watershed_group_code FROM whse_fish.pscis_assessment_svw p INNER JOIN whse_basemapping.fwa_watershed_groups_poly wsg ON ST_Intersects(wsg.geom,p.geom)"
 pscis_ass <-  sf::st_read(conn, query = query) %>%
-  filter(watershed_group_code == 'BULK')
+  filter(watershed_group_code == 'PARS')
 
 
 query <- "SELECT p.*, wsg.watershed_group_code FROM whse_fish.pscis_habitat_confirmation_svw p INNER JOIN whse_basemapping.fwa_watershed_groups_poly wsg ON ST_Intersects(wsg.geom,p.geom)"
 pscis_con <-  sf::st_read(conn, query = query) %>%
-  filter(watershed_group_code == 'BULK')
+  filter(watershed_group_code == 'PARS')
 
 
 dbDisconnect(conn = conn)

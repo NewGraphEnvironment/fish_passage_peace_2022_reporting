@@ -32,11 +32,11 @@ dat <- pscis_all %>%
 #  connect to the database - this can be the remote database by changing the calls
 conn <- DBI::dbConnect(
   RPostgres::Postgres(),
-  dbname = Sys.getenv('PG_DB'),
-  host = Sys.getenv('PG_HOST'),
-  port = 5432,
-  user = Sys.getenv('PG_USER'),
-  password = Sys.getenv('PG_PASS')
+  dbname = Sys.getenv('PG_DB_BCBARRIERS'),
+  host = Sys.getenv('PG_HOST_BCBARRIERS'),
+  port = Sys.getenv('PG_PORT_BCBARRIERS'),
+  user = Sys.getenv('PG_USER_BCBARRIERS'),
+  password = Sys.getenv('PG_PASS_BCBARRIERS')
 )
 #
 # ##listthe schemas in the database
@@ -281,6 +281,7 @@ dat_info <- dbGetQuery(conn,
 
 dbDisconnect(conn = conn)
 
+setdiff(names(dat_joined), names(dat_info))
 ##add the municipality info
 dat_joined2 <- left_join(
   dat_joined,
@@ -317,7 +318,7 @@ tab_rd_tenure_xref <- tibble::tribble(
 
 ##add that to your dat file for later
 dat_joined3 <- left_join(
-  dat_joined2,
+  dat_joined,
   tab_rd_tenure_xref,
   by = 'ften_client_name'
 )
