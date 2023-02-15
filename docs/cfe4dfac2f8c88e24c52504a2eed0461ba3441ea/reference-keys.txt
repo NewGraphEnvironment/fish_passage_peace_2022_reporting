@@ -1,6 +1,0 @@
-fig:ortho-caption-arctic
-fig:model-caption-arctic
-fig:ortho-caption-missinka
-fig:model-caption-missinka
-fig:photo-125197-01
-fig:photo-125197-02
