@@ -1,7 +1,7 @@
-# Tributary to Missinka River - 125197 {-}
+# Tributary to Missinka River - 125179 {-}
 
-```{r  load-data-125197}
-my_site <- 125197
+```{r  load-data-125179}
+my_site <- 125179
 ```
 
 A map of the watershed is provided in map attachment [93I.117](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/FishPassage_093I.116.pdf).

@@ -125,8 +125,8 @@ Figure \@ref(fig:plot-fish-box-125000).
 ## Conclusion {.unnumbered}
 
 Modelling indicates 
-`r fpr::fpr_my_priority_info(col_pull= upstream_habitat_length_km)`km of
-habitat upstream of crossing `r as.character(my_site)` suitable for steelhead rearing with
+`r fpr::fpr_my_priority_info(col_pull= upstream_habitat_length_m)`km of
+habitat upstream of crossing `r as.character(my_site)` suitable for bull trout rearing with
 areas surveyed rated as
 `r fpr::fpr_my_priority_info(sit = my_site, loc = 'us', col_pull = hab_value)`
 value for rearing and spawning. Crossing
