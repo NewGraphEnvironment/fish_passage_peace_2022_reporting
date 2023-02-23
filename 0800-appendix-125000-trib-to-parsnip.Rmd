@@ -1,0 +1,160 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+  markdown: 
+    wrap: 72
+---
+
+```{r setup-125000, eval = F}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE)
+source('scripts/packages.R')
+source('scripts/tables.R')
+
+```
+
+```{r  load-data-125000}
+my_site <- 125000
+
+```
+
+`r fpr::fpr_appendix_title()`
+
+## Site Location {.unnumbered}
+
+PSCIS crossing `r as.character(my_site)` is located on
+`r fpr::fpr_my_pscis_info()`, on
+`r fpr_my_pscis_info(col_pull = road_name)`.
+
+<br>
+
+## Background {.unnumbered}
+
+At crossing `r as.character(my_site)`, `r fpr::fpr_my_pscis_info()` is a
+`r fpr::fpr_my_bcfishpass() %>% english::ordinal()` order stream with a
+watershed area upstream of the crossing of approximately
+`r fpr::fpr_my_wshd()`km^2^. The elevation of the watershed ranges from
+a maximum of `r fpr::fpr_my_wshd(col = 'elev_max')`m to
+`r fpr::fpr_my_wshd(col = 'elev_min')`m near the crossing (Table
+\@ref(tab:tab-wshd-125000)). Upstream of crossing
+`r as.character(my_site)`, `r fpr::fpr_my_fish_sp()` have previously
+been recorded [@moe2020; @norris2022].
+
+<br>
+
+```{r tab-wshd-125000, eval = T}
+fpr::fpr_table_wshd_sum(site_id = my_site) %>% 
+  fpr::fpr_kable(caption_text = paste0('Summary of derived upstream watershed statistics for PSCIS crossing ', my_site, '.'),
+           footnote_text = 'Elev P60 = Elevation at which 60% of the watershed area is above',
+           scroll = F)
+
+```
+
+A map of the watershed is provided in map attachment [93I.111](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/FishPassage_093I.111.pdf).
+
+<br>
+
+```{r tab-culvert-bcfp-125000, eval = T}
+fpr::fpr_table_bcfp(scroll = gitbook_on) 
+```
+
+<br>
+
+## Stream Characteristics at Crossing {.unnumbered}
+
+At the time of the survey, PSCIS crossing `r as.character(my_site)` was
+un-embedded, non-backwatered and ranked as a
+`r fpr::fpr_my_pscis_info(col_pull = barrier_result) %>% stringr::str_to_lower()`
+to upstream fish passage according to the provincial protocol
+[@moe2011] (Table \@ref(tab:tab-culvert-125000)).
+
+`r if(identical(gitbook_on, FALSE)){knitr::asis_output("\\pagebreak")}`
+<br>
+
+```{r tab-culvert-125000, eval = T}
+fpr::fpr_table_cv_summary_memo()
+
+```
+
+## Aerial Imagery {.unnumbered}
+
+In 2019 a video survey was conducted by drone and can be viewed [here](https://www.youtube.com/watch?v=-foWvX1MSkg). In the summer of 2022 additional surveys were conducted with resulting images stitched into an orthomosaic and 3-dimensional model. Surveys were conducted with a remotely piloted aircraft at the crossing with resulting images stitched into an orthomosaic and 3-dimensional model `r if(gitbook_on){knitr::asis_output(" presented in Figures \\@ref(fig:ortho-caption-arctic) - \\@ref(fig:model-caption-arctic).")} else knitr::asis_output("presented [here](https://www.mapsmadeeasy.com/maps/public/0b96f06f52be467db7250b3caeeecee3) and [here](https://www.mapsmadeeasy.com/maps/public_3D/0b96f06f52be467db7250b3caeeecee3/).")`
+
+```{r ortho-arctic, eval = identical(gitbook_on, TRUE)}
+model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public/0b96f06f52be467db7250b3caeeecee3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'
+
+knitr::asis_output(model_url)
+```
+
+
+```{r ortho-caption-arctic, fig.cap= my_caption, out.width = "0.01%", eval = identical(gitbook_on, TRUE)}
+my_photo = 'fig/pixel.png'
+
+my_caption = paste0('Orthomosaic of site of planned bridge on tributary to Parsnip River. To zoom press "shift" and scroll.')
+
+knitr::include_graphics(my_photo, dpi = NA)
+
+```
+
+<br>
+
+```{r model-arctic, eval = identical(gitbook_on, TRUE)}
+model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public_3D/0b96f06f52be467db7250b3caeeecee3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'
+
+knitr::asis_output(model_url)
+```
+
+
+```{r model-caption-arctic, fig.cap= my_caption, out.width = "0.01%", eval = identical(gitbook_on, TRUE)}
+my_photo = 'fig/pixel.png'
+
+my_caption = paste0('3D model of crossing 125000 where newly installed bridge is planned on a tributary to Parsnip River. To zoom press "shift" and scroll.')
+
+knitr::include_graphics(my_photo, dpi = NA)
+
+```
+
+## Fish Sampling {.unnumbered}
+
+Electrofishing was conducted with results summarised in Tables
+\@ref(tab:tab-fish-site-125000) - \@ref(tab:tab-fish-dens-125000) and
+Figure \@ref(fig:plot-fish-box-125000).
+
+<br>
+
+## Conclusion {.unnumbered}
+
+Modelling indicates 
+`r fpr::fpr_my_priority_info(col_pull= upstream_habitat_length_m)`km of
+habitat upstream of crossing `r as.character(my_site)` suitable for bull trout rearing with
+areas surveyed rated as
+`r fpr::fpr_my_priority_info(sit = my_site, loc = 'us', col_pull = hab_value)`
+value for rearing and spawning. Crossing
+`r as.character(my_site)` was ranked as a
+`r fpr::fpr_my_priority_info(col_pull = priority)` priority for
+proceeding to design for replacement.  
+
+`r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
+
+<br>
+
+```{r tab-fish-site-125000, eval=T}
+fpr_table_fish_site()
+
+```
+
+<br>
+
+```{r tab-fish-dens-125000, eval=T}
+fpr_table_fish_density()
+
+```
+
+`r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
+
+```{r plot-fish-box-125000, fig.cap= my_caption, eval=T}
+my_caption <- paste0('Densites of fish (fish/100m2) captured upstream of PSCIS crossing ', my_site, '.')
+
+fpr_plot_fish_box() 
+
+```

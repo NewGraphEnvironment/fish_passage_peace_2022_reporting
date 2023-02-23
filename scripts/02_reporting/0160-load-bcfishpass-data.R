@@ -147,7 +147,7 @@ dat <- bcdata::bcdc_get_data(get_this)
 ## xref_pscis_my_crossing_modelled ----------------
 xref_pscis_my_crossing_modelled <- dat %>%
   purrr::set_names(nm = tolower(names(.))) %>%
-  dplyr::filter(funding_project_number == "bulkley_2022_Phase1") %>% ##funding_project_number == "Bulkley_6-288_Reassessments"
+  dplyr::filter(funding_project_number == "peace_2022_phase1") %>%
   select(external_crossing_reference, stream_crossing_id) %>%
   dplyr::mutate(external_crossing_reference = as.numeric(external_crossing_reference)) %>%
   sf::st_drop_geometry()

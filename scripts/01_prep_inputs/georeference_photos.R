@@ -12,7 +12,7 @@ track_points_prep = read_sf(gpx, layer = "track_points")
 track_points_mw <- track_points_prep %>%
     st_coordinates() %>%
     as_tibble() %>%
-    setNames(c("gps_latitude","gps_longitude")) %>%
+    setNames(c("gps_longitude","gps_latitude")) %>%
     rowid_to_column() #%>%
     # mutate(time = lubridate::as_datetime(time, tz="America/Vancouver")) ##put them in the same tz
 

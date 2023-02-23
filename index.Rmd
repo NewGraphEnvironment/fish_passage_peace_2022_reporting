@@ -9,7 +9,7 @@ author: |
  |
  |
  | Prepared by
- | Al Irvine, B.Sc., R.P.Bio.
+ | Al Irvine, B.Sc., R.P.Bio. and Mateo Winterscheidt, B.Sc.
  | New Graph Environment Ltd.
  | on behalf of 
  | Society for Ecosystem Restoration in Northern BC
@@ -63,7 +63,7 @@ font_set <- 9
 
 ```{r}
 source('scripts/packages.R')
-source('scripts/functions.R')
+source('scripts/tables.R')
 
 ```
 

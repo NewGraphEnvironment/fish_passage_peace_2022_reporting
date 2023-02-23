@@ -108,10 +108,10 @@ file.copy(from = stub_from, '/Projects/PSCIS/PSCIS_peace_2022_phase1/',
 
 
 # fill in soft url here
-# https://www.env.gov.bc.ca/perl/soft/dl.pl/20221213184447-07-gp-aac61809-81a7-4ba5-8adc-b836a110?simple=y
+# https://www.env.gov.bc.ca/perl/soft/dl.pl/20230215120443-07-gp-d9630f7e-353d-4f36-ada2-90e3c19e?simple=y
 
 
 ##fill in where to check on your submission here (copy and paste url once file uploads)
 # https://apps.nrs.gov.bc.ca/ext/esf/submissionSearch.do?action=clear
-# user reference: 059_cwf_bulkley_20221213
-# submission id: 2214091
+# user reference: 050_sern_parsnip_20230215
+# submission id: 2234661
