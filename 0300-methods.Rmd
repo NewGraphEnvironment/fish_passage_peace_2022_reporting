@@ -221,7 +221,7 @@ Base costs for installation of bridges on forest service roads and permit roads 
 
 `r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
 
-```{r tab-cost-mult, eval = F}
+```{r tab-cost-mult, eval = T}
 tab_cost_rd_mult_report %>%
   fpr::fpr_kable(caption_text = 'Cost multiplier table based on road class and surface type.', scroll = F)
 ```
