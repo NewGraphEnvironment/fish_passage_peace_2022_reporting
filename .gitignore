@@ -21,4 +21,4 @@ Peace2022.html
 *.kml
 data/photos/**/*.pdf
 !data/photos/admin/*
-
+data/inputs_extracted/*
