@@ -1,55 +1,70 @@
 ##here we need to pull all the metadata from all the marked photos so we can use it to have our photos show on the leaflet map
+## NOTE: this script needs to be re run if photos are deleted or new ones added
 # source('R/packages.R')
 
-
 # define your project repo name
-repo_name <- 'fish_passage_bulkley_2022_reporting'
+repo_name <- 'fish_passage_peace_2022_reporting'
 
 photo_metadata_prep <- exifr::read_exif('data/photos',recursive=T)  %>%
   janitor::clean_names() %>%
-  select(file_name, source_file, gps_latitude, gps_longitude) %>%
-  mutate(url  = paste0('https://github.com/NewGraphEnvironment/', repo_name, '/raw/master/',
+  select(file_name, source_file, create_date, gps_latitude, gps_longitude) %>%
+  mutate(url  = paste0('https://github.com/NewGraphEnvironment/', repo_name, '/raw/main/',
                        source_file)) %>%
-  # base = tools::file_path_sans_ext(filename)) %>%
   filter(
     file_name %like% '_k_'
-  )
+  ) %>%
+  mutate(create_date = lubridate::as_datetime(create_date, tz="America/Vancouver"))
+
+# MW photos aren't georeferenced so link them to tracks
+# read in tracks
+track_points_prep = read_sf('data/habitat_confirmation_tracks.gpx', layer = "track_points")
+
+track_points <- track_points_prep %>%
+  st_coordinates() %>%
+  as_tibble() %>%
+  setNames(c("gps_longitude","gps_latitude")) %>%
+  rowid_to_column()
 
 mw_photos <- photo_metadata_prep %>%
   filter(source_file %like% 'TimePhoto') %>%
-  mutate(gps_latitude = case_when(source_file %like% '114509_k_d1_' ~ '54.441709',
-                                  source_file %like% '123348_k_d2_' ~ '54.439974',
-                                  source_file %like% '111004_d1_k_' ~ '54.517951',
-                                  source_file %like% '112035_d2_k_' ~ '54.517691',
-                                  source_file %like% '130817_u1_k_' ~ '54.521282',
-                                  source_file %like% '135504_u2_k_' ~ '54.524203',
-                                  source_file %like% '160737_d1_k_' ~ '54.476037',
-                                  source_file %like% '164017_d2_k_' ~ '54.475146',
-                                  source_file %like% '105045_d1_k_' ~ '54.525418',
-                                  source_file %like% '110856_d2_k_' ~ '54.52543',
-                                  source_file %like% '111946_u1_k_' ~ '54.970603',
-                                  source_file %like% '112702_u2_k_' ~ '54.970282',
-                                  source_file %like% '114854_u3_k_' ~ '54.969563',
-                                  source_file %like% '123306_u4_k_' ~ '54.971944')) %>%
+  select(file_name, source_file, create_date) %>%
+  mutate(create_date = lubridate::as_datetime(create_date, tz="America/Vancouver"))
 
-  mutate(gps_longitude = case_when(source_file %like% '114509_k_d1_' ~ '-126.757459',
-                                   source_file %like% '123348_k_d2_' ~ '-126.759404',
-                                   source_file %like% '111004_d1_k_' ~ '-126.442873',
-                                   source_file %like% '112035_d2_k_' ~ '-126.442904',
-                                   source_file %like% '130817_u1_k_' ~ '-126.443963',
-                                   source_file %like% '135504_u2_k_' ~ '-126.446454',
-                                   source_file %like% '160737_d1_k_' ~ '-126.216286',
-                                   source_file %like% '164017_d2_k_' ~ '-126.216239',
-                                   source_file %like% '105045_d1_k_' ~ '-126.816823',
-                                   source_file %like% '110856_d2_k_' ~ '-126.818522',
-                                   source_file %like% '111946_u1_k_' ~ '-127.285463',
-                                   source_file %like% '112702_u2_k_' ~ '-127.284336',
-                                   source_file %like% '114854_u3_k_' ~ '-127.28243',
-                                   source_file %like% '123306_u4_k_' ~ '-127.276703'))
+#find the track point that is closest in time to the CreateDate stamp of the photo..
+#https://stackoverflow.com/questions/21607247/searching-for-nearest-date-in-data-frame
+get_closest_line_in_history <- function(x, history){
+  time_diffs <- difftime(x, history)
+  time_diffs[time_diffs<0] <- NA
 
-photo_metadata <- photo_metadata_prep %>%
-  filter(!source_file %like% 'TimePhoto') %>%
-  bind_rows(mw_photos)
+  res <- which.min(time_diffs)
+  if (length(res) != 1){
+    return(NA)  ##return a NA as in the post
+  }else{
+    return(res)
+  }
+}
+
+indx_closest_point <- sapply(mw_photos$create_date,
+                             get_closest_line_in_history,
+                             track_points_prep$time) %>%
+                             as_tibble()
+
+# closest point corresponds to row id in track points so join dataframes
+joined_tracks <- left_join(indx_closest_point, track_points, by = c('value' = 'rowid')) %>%
+  mutate(gps_latitude = as.character(gps_latitude)) %>%
+  mutate(gps_longitude = as.character(gps_longitude))
+
+# tracks are now matched up to photos indexes so bind columns and drop value column
+photo_metadata_processed <- bind_cols(mw_photos, joined_tracks) %>%
+  select(-value) %>%
+  mutate(url  = paste0('https://github.com/NewGraphEnvironment/', repo_name, '/raw/main/',
+                       source_file))
+
+photo_metadata <- filter(photo_metadata_prep, !source_file %like% 'TimePhoto') %>%
+  bind_rows(photo_metadata_processed) %>%
+  select(-create_date)
+
+
 
 
 conn <- rws_connect("data/bcfishpass.sqlite")
