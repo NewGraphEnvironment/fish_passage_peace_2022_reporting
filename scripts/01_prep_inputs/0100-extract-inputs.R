@@ -545,173 +545,48 @@ habitat_confirmations_priorities <- readr::read_csv(
 
 # extract rd cost multiplier ----------------------------------------------
 
-# pscis_rd is not a good way to do this because it keeps to much from the spreadsheet
-# plus it pulls from an old db. Need to ditch this method next time
+# rebuild using bcfishpass object from the tables.R script.
+# see older repos if we need to go back to a system that can run these before we have pscis IDs simplifying for now on
+rd_class_surface <- bcfishpass %>%
+  select(stream_crossing_id, transport_line_structured_name_1:dam_operating_status) %>%
+  filter(stream_crossing_id %in% (
+    pscis_all %>% pull(pscis_crossing_id))
+  ) %>%
+  dplyr::mutate(my_road_class = ften_file_type_description) %>%
+  dplyr::mutate(my_road_class = case_when(is.na(my_road_class) & !is.na(transport_line_type_description) ~
+                                            transport_line_type_description,
+                                          T ~ my_road_class)) %>%
 
-source('scripts/packages.R')
-source('scripts/private_info.R')
-
-pscis_all <- bind_rows(fpr_import_pscis_all())
-
-# n_distinct(pscis_all$aggregated_crossings_id)
-
-dat <- pscis_all %>%
-  sf::st_as_sf(coords = c("easting", "northing"),
-               crs = 26909, remove = F) %>% ##don't forget to put it in the right crs buds
-  sf::st_transform(crs = 3005) ##get the crs same as the layers we want to hit up
-
-
-##get the road info from the database
-# conn <- DBI::dbConnect(
-#   RPostgres::Postgres(),
-#   dbname = dbname,
-#   host = host,
-#   port = port,
-#   user = user,
-#   password = password
-# )
-#
-# ##listthe schemas in the database
-# dbGetQuery(conn,
-#            "SELECT schema_name
-#            FROM information_schema.schemata")
-
-##list tables in a schema
-# dbGetQuery(conn,
-#            "SELECT table_name
-#            FROM information_schema.tables
-#            WHERE table_schema='bcfishpass'")
-#
-# ##list column names in a table
-# dbGetQuery(conn,
-#            "SELECT column_name,data_type
-#            FROM information_schema.columns
-#            WHERE table_name='modelled_stream_crossings'") #modelled_stream_crossings #modelled_crossings_closed_bottom
-#
-#
-#
-# # add a unique id - we could just use the reference number
-# dat$misc_point_id <- seq.int(nrow(dat))
-#
-# # dbSendQuery(conn, paste0("CREATE SCHEMA IF NOT EXISTS ", "test_hack",";"))
-# # load to database
-# sf::st_write(obj = dat, dsn = conn, Id(schema= "ali", table = "misc"))
-#
-# # we are using fish_passage.modelled_crossings_closed_bottom but this table is deprecated. Should revise to pull from files raw but that's lots of work
-# # and this data should be fine so whatever
-# # sf doesn't automagically create a spatial index or a primary key
-# res <- dbSendQuery(conn, "CREATE INDEX ON ali.misc USING GIST (geometry)")
-# dbClearResult(res)
-# res <- dbSendQuery(conn, "ALTER TABLE ali.misc ADD PRIMARY KEY (misc_point_id)")
-# dbClearResult(res)
-# # swapped out fish_passage.modelled_crossings_closed_bottom
-# dat_info <- dbGetQuery(conn, "SELECT
-#   a.misc_point_id,
-#   b.*,
-#   ST_Distance(ST_Transform(a.geometry,3005), b.geom) AS distance
-# FROM
-#   ali.misc AS a
-# CROSS JOIN LATERAL
-#   (SELECT *
-#    FROM fish_passage.modelled_crossings_closed_bottom
-#    ORDER BY
-#      a.geometry <-> geom
-#    LIMIT 1) AS b")
-
-conn <- DBI::dbConnect(
-  RPostgres::Postgres(),
-  dbname = Sys.getenv('PG_DB_BCBARRIERS'),
-  host = Sys.getenv('PG_HOST_BCBARRIERS'),
-  port = 5432,
-  user = Sys.getenv('PG_USER_BCBARRIERS'),
-  password = Sys.getenv('PG_PASS_BCBARRIERS')
-)
-
-dbGetQuery(conn,
-           "select t.table_schema,
-           t.table_name
-           from information_schema.tables t
-           inner join information_schema.columns c on c.table_name = t.table_name
-           and c.table_schema = t.table_schema
-           where c.column_name = 'file_type_description'
-           and t.table_schema not in ('information_schema', 'pg_catalog')
-           and t.table_type = 'BASE TABLE'
-           order by t.table_schema;")
-
-dbGetQuery(conn,
-           "select t.table_schema,
-           t.table_name
-           from information_schema.tables t
-           inner join information_schema.columns c on c.table_name = t.table_name
-           and c.table_schema = t.table_schema
-           where c.column_name = 'road_class'
-           and t.table_schema not in ('information_schema', 'pg_catalog')
-           and t.table_type = 'BASE TABLE'
-           order by t.table_schema;")
-
-unique(bcfishpass$transport_line_type_description)
-
-select(transport_line_type_code, description)
-
-data1 <- pscis_phase2 %>%
-  select(pscis_crossing_id, road_name, road_tenure)
-
-data_joined <- left_join(
-  select(data1, pscis_crossing_id, road_name, road_tenure),
-  select(bcfishpass, modelled_crossing_id, transport_line_type_description), by = c('pscis_crossing_id' = 'modelled_crossing_id')
+  dplyr::mutate(my_road_class = case_when(is.na(my_road_class) & !is.na(rail_owner_name) ~
+                                            'rail',
+                                          T ~ my_road_class)) %>%
+  dplyr::mutate(my_road_surface = case_when(is.na(transport_line_surface_description) & !is.na(ften_file_type_description) ~
+                                              'loose',
+                                            T ~ transport_line_surface_description)) %>%
+  dplyr::mutate(my_road_surface = case_when(is.na(my_road_surface) & !is.na(rail_owner_name) ~
+                                              'rail',
+                                            T ~ my_road_surface)) %>%
+  mutate(my_road_class = stringr::str_replace_all(my_road_class, 'Forest Service Road', 'fsr'),
+         my_road_class = stringr::str_replace_all(my_road_class, 'Road ', ''),
+         my_road_class = stringr::str_replace_all(my_road_class, 'Special Use Permit, ', 'Permit-Special-'),
+         my_road_class = case_when(
+           stringr::str_detect(my_road_class, 'driveway') ~ 'driveway',
+           T ~ my_road_class),
+         my_road_class = stringr::word(my_road_class, 1),
+         my_road_class = stringr::str_to_lower(my_road_class)) %>%
+  filter(stream_crossing_id %in% (
+    pscis_all %>% pull(pscis_crossing_id))
   )
 
 
 
 
-
-readr::write_csv(file = paste0(getwd(), '/data/inputs_raw/tab_cost_rd_mult.csv'),
-                   na = '')
-##join the modelling data to our pscis submission info
-dat_joined <- left_join(
-  select(dat, misc_point_id,
-         pscis_crossing_id,
-         my_crossing_reference,
-         aggregated_crossings_id,
-         stream_name,
-         road_name,
-         downstream_channel_width_meters,
-         barrier_result,
-         fill_depth_meters,
-         crossing_fix,
-         habitat_value,
-         recommended_diameter_or_span_meters,
-         source), ##traded pscis_crossing_id for my_crossing_reference
-  select(dat_info,
-         misc_point_id:utm_northing,
-         distance, geom), ##keep only the road info and the distance to nearest point from here
-  by = "misc_point_id"
-)
-
-dbDisconnect(conn = conn)
-
-pscis_rd <- dat_joined %>%
-  sf::st_drop_geometry() %>%
-  dplyr::mutate(my_road_class = case_when(is.na(road_class) & !is.na(file_type_description) ~
-                                            file_type_description,
-                                          T ~ road_class)) %>%
-  dplyr::mutate(my_road_class = case_when(is.na(my_road_class) & !is.na(owner_name) ~
-                                            'rail',
-                                          T ~ my_road_class)) %>%
-  dplyr::mutate(my_road_surface = case_when(is.na(road_surface) & !is.na(file_type_description) ~
-                                              'loose',
-                                            T ~ road_surface)) %>%
-  dplyr::mutate(my_road_surface = case_when(is.na(my_road_surface) & !is.na(owner_name) ~
-                                              'rail',
-                                            T ~ my_road_surface)) %>%
-  select(-geom)
-
-
-
 conn <- rws_connect("data/bcfishpass.sqlite")
 rws_list_tables(conn)
-rws_write(pscis_rd, exists = F, delete = TRUE,
+rws_write(rd_class_surface, exists = F, delete = T,
           conn = conn, x_name = "rd_class_surface")
+rws_disconnect(conn)
+
 
 ####----tab cost multipliers for road surface-----
 rd_cost_mult <- pscis_rd %>%
@@ -885,9 +760,9 @@ hab_loc <- habitat_confirmations %>%
   mutate(survey_date = janitor::excel_numeric_to_date(as.numeric(survey_date)))
 
 ##add the species code
-hab_fish_codes <- habitat_confirmations %>%
-  purrr::pluck("species_by_common_name") %>% ##changed from species_by_group but BB burbot was wrong!!
-  select(-step)
+hab_fish_codes <- fishbc::freshwaterfish %>%
+  select(species_code = Code, common_name = CommonName) %>%
+  tibble::add_row(species_code = 'NFC', common_name = 'No Fish Caught')
 
 hab_fish_indiv_prep2 <- left_join(
   hab_fish_indiv_prep,
