@@ -1,0 +1,14 @@
+reference_number,alias_local_name,site,location,ef,species_codes,bt_rearing_km,upstream_habitat_length_m
+1,6745_ds,6745,ds,,,,
+2,6745_us,6745,us,,,1.23,1230
+3,125261_ds,125261,ds,,,,
+4,125261_us,125261,us,,"[""BB"",""C"",""CBC"",""DC"",""DV"",""LSU"",""RB"",""RSC"",""SU""]",14.39,14390
+5,125194_ds,125194,ds,,,,
+6,125194_us,125194,us,,,2,2000
+7,125000_us_ef1,125000,us,ef1,,,
+8,125000_us_ef2,125000,us,ef2,,,
+9,125000_us_ef3,125000,us,ef3,,,
+10,125000_ds_ef1,125000,ds,ef1,,,
+11,125000_ds_ef2,125000,ds,ef2,,,
+12,125000_ds_ef3,125000,ds,ef3,,,
+13,125180_us_ef1,125180,us,ef1,,,
