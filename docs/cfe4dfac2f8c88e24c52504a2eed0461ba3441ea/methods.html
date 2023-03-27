@@ -29,7 +29,7 @@
   
   
 <link rel="prev" href="background.html"/>
-<link rel="next" href="appendix---phase-1-fish-passage-assessment-data-and-photos.html"/>
+<link rel="next" href="results-and-discussion.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -52,6 +52,28 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.1.1/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.1.1/leaflet-providers-plugin.js"></script>
+<link href="libs/leaflet-awesomemarkers-2.0.3/leaflet.awesome-markers.css" rel="stylesheet" />
+<script src="libs/leaflet-awesomemarkers-2.0.3/leaflet.awesome-markers.min.js"></script>
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.freezable.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.layersupport.js"></script>
+<link href="libs/lfx-fullscreen-1.0.2/lfx-fullscreen-prod.css" rel="stylesheet" />
+<script src="libs/lfx-fullscreen-1.0.2/lfx-fullscreen-prod.js"></script>
+<link href="libs/leaflet-minimap-3.3.1/Control.MiniMap.min.css" rel="stylesheet" />
+<script src="libs/leaflet-minimap-3.3.1/Control.MiniMap.min.js"></script>
+<script src="libs/leaflet-minimap-3.3.1/Minimap-binding.js"></script>
 
 <script type="text/javascript">
 
@@ -186,14 +208,49 @@ div.csl-indent {
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Acknowledgement</a></li>
-<li class="chapter" data-level="1" data-path="background.html"><a href="background.html"><i class="fa fa-check"></i><b>1</b> Background</a></li>
-<li class="chapter" data-level="2" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>2</b> Methods</a></li>
+<li class="chapter" data-level="1" data-path="background.html"><a href="background.html"><i class="fa fa-check"></i><b>1</b> Background</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="background.html"><a href="background.html#tsekhene"><i class="fa fa-check"></i><b>1.1</b> Tse’khene</a></li>
+<li class="chapter" data-level="1.2" data-path="background.html"><a href="background.html#project-location"><i class="fa fa-check"></i><b>1.2</b> Project Location</a></li>
+<li class="chapter" data-level="" data-path="background.html"><a href="background.html#fisheries"><i class="fa fa-check"></i>Fisheries</a>
+<ul>
+<li class="chapter" data-level="" data-path="background.html"><a href="background.html#bull-trout---saba"><i class="fa fa-check"></i>Bull Trout - sa’ba</a></li>
+<li class="chapter" data-level="" data-path="background.html"><a href="background.html#arctic-grayling---duskihje"><i class="fa fa-check"></i>Arctic Grayling - dusk’ihje</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>2</b> Methods</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="methods.html"><a href="methods.html#planning"><i class="fa fa-check"></i><b>2.1</b> Planning</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="methods.html"><a href="methods.html#habitat-modelling"><i class="fa fa-check"></i><b>2.1.1</b> Habitat Modelling</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="methods.html"><a href="methods.html#fish-passage-assessments"><i class="fa fa-check"></i><b>2.2</b> Fish Passage Assessments</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="methods.html"><a href="methods.html#barrier-scoring"><i class="fa fa-check"></i><b>2.2.1</b> Barrier Scoring</a></li>
+<li class="chapter" data-level="2.2.2" data-path="methods.html"><a href="methods.html#cost-benefit-analysis"><i class="fa fa-check"></i><b>2.2.2</b> Cost Benefit Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="methods.html"><a href="methods.html#habitat-confirmation-assessments"><i class="fa fa-check"></i><b>2.3</b> Habitat Confirmation Assessments</a></li>
+<li class="chapter" data-level="2.4" data-path="methods.html"><a href="methods.html#reporting"><i class="fa fa-check"></i><b>2.4</b> Reporting</a></li>
+<li class="chapter" data-level="2.5" data-path="methods.html"><a href="methods.html#mapping"><i class="fa fa-check"></i><b>2.5</b> Mapping</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="results-and-discussion.html"><a href="results-and-discussion.html"><i class="fa fa-check"></i><b>3</b> Results and Discussion</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="results-and-discussion.html"><a href="results-and-discussion.html#potential-remediations"><i class="fa fa-check"></i><b>3.1</b> Potential Remediations</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="results-and-discussion.html"><a href="results-and-discussion.html#tributary-to-parsnip-river---pscis-crossing-6745"><i class="fa fa-check"></i><b>3.1.1</b> Tributary to Parsnip River - PSCIS crossing 6745</a></li>
+<li class="chapter" data-level="3.1.2" data-path="results-and-discussion.html"><a href="results-and-discussion.html#tributary-to-missinka-river---pscis-crossing-125194"><i class="fa fa-check"></i><b>3.1.2</b> Tributary to Missinka River - PSCIS crossing 125194</a></li>
+<li class="chapter" data-level="3.1.3" data-path="results-and-discussion.html"><a href="results-and-discussion.html#fern-creek---pscis-crossing-125261"><i class="fa fa-check"></i><b>3.1.3</b> Fern Creek - PSCIS crossing 125261</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="results-and-discussion.html"><a href="results-and-discussion.html#planned-remediations"><i class="fa fa-check"></i><b>3.2</b> Planned Remediations</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="results-and-discussion.html"><a href="results-and-discussion.html#tributary-to-parsnip-river---pscis-crossing-125000"><i class="fa fa-check"></i><b>3.2.1</b> Tributary to Parsnip River - PSCIS crossing 125000</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="results-and-discussion.html"><a href="results-and-discussion.html#completed-remediations"><i class="fa fa-check"></i><b>3.3</b> Completed Remediations</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="results-and-discussion.html"><a href="results-and-discussion.html#tributary-to-missinka-river---pscis-crossing-125179"><i class="fa fa-check"></i><b>3.3.1</b> Tributary to Missinka River - PSCIS crossing 125179</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="appendix---phase-1-fish-passage-assessment-data-and-photos.html"><a href="appendix---phase-1-fish-passage-assessment-data-and-photos.html"><i class="fa fa-check"></i>Appendix - Phase 1 Fish Passage Assessment Data and Photos</a></li>
-<li class="chapter" data-level="" data-path="tributary-to-parsnip-river---125000---appendix.html"><a href="tributary-to-parsnip-river---125000---appendix.html"><i class="fa fa-check"></i>Tributary to Parsnip River - 125000 - Appendix</a></li>
-<li class="chapter" data-level="" data-path="tributary-to-missinka-river---125179.html"><a href="tributary-to-missinka-river---125179.html"><i class="fa fa-check"></i>Tributary to Missinka River - 125179</a></li>
-<li class="chapter" data-level="" data-path="tributary-to-missinka-river---125194---appendix.html"><a href="tributary-to-missinka-river---125194---appendix.html"><i class="fa fa-check"></i>Tributary to Missinka River - 125194 - Appendix</a></li>
-<li class="chapter" data-level="" data-path="fern-creek---125261---appendix.html"><a href="fern-creek---125261---appendix.html"><i class="fa fa-check"></i>Fern Creek - 125261 - Appendix</a></li>
-<li class="chapter" data-level="" data-path="tributary-to-parsnip---6745---appendix.html"><a href="tributary-to-parsnip---6745---appendix.html"><i class="fa fa-check"></i>Tributary to Parsnip - 6745 - Appendix</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="chapter" data-level="" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i>Session Info</a></li>
 <li class="divider"></li>
@@ -231,7 +288,7 @@ div.csl-indent {
 <h3><span class="header-section-number">2.1.1</span> Habitat Modelling<a href="methods.html#habitat-modelling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>bcfishpass</code> calculates the average gradient of BC Freshwater Atlas stream network lines at minimum 100m long intervals starting from the downstream end of the streamline segment and working upstream. The network lines are broken into max gradient categories with new segments created if and when the average slope of the stream line segment exceeds user provided thresholds. For this project, the user provided gradient thresholds used to delineate “potentially accessible habitat” were based on estimated max gradients that salmon (15% - coho and chinook) and steelhead (20%) are likely to be capable of ascending.</p>
 <p><br></p>
-<p>Through this initiative and other SERN/New Graph led initiatives, the Provincial Fish Passage Remediation Program and connectivity restoration planning by the Canadian Wildlife Federation <span class="citation">(Mazany-Wright et al. 2021)</span>, <code>bcfishpass</code> has been designed to prioritize potential fish passage barriers for assessment or remediation. The software is under continual development and has been designed and constructed by <span class="citation">Norris ([2020] 2021)</span> using sql and python based shell script libraries to generate a simple model of aquatic habitat connectivity. The model identifies natural barriers (ex. steep gradients for extended distances) and hydroelectric dams to classifying the accessibility upstream by fish <span class="citation">(Norris [2020] 2021)</span>. On potentially accessible streams, scripts identify known barriers (ex. waterfalls &gt;5m high) and additional anthropogenic features which are primarily road/railway stream crossings (i.e. culverts) that are potentially barriers. To prioritize these features for assessment or remediation, scripts report on how much modelled potentially accessible aquatic habitat the barriers may obstruct. The model can be refined with known fish observations upstream of identified barriers and for each crossing location, the area of lake and wetland habitat upstream, species documented upstream/downstream, an estimate of watershed area (on 2nd order and higher streams), mean annual precipitation weighted to upstream watershed area and channel width can be collated using <code>bcfishpass</code>, <code>fwapg</code> and <code>bcfishobs</code>. This, information, can be used to provides an indication of the potential quantity and quality of habitat potentially gained should fish passage be restored by comparing to user defined thresholds for the aforementioned parameters. A discussion of the methodology to derive channel width is below.</p>
+<p>Through this initiative and other SERN/New Graph led initiatives, and other connectivity restoration planning by the Provincial Fish Passage Remediation Program, the Pacific Salmon Foundation and the Canadian Wildlife Federation, <code>bcfishpass</code> has been designed to prioritize potential fish passage barriers for assessment or remediation. The software is under continual development and has been designed and constructed by <span class="citation">Norris ([2020] 2021)</span> using sql and python based shell script libraries to generate a simple model of aquatic habitat connectivity. The model identifies natural barriers (ex. steep gradients for extended distances) and hydroelectric dams to classifying the accessibility upstream by fish <span class="citation">(Norris [2020] 2021)</span>. On potentially accessible streams, scripts identify known barriers (ex. waterfalls &gt;5m high) and additional anthropogenic features which are primarily road/railway stream crossings (i.e. culverts) that are potentially barriers. To prioritize these features for assessment or remediation, scripts report on how much modelled potentially accessible aquatic habitat the barriers may obstruct. The model can be refined with known fish observations upstream of identified barriers and for each crossing location, the area of lake and wetland habitat upstream, species documented upstream/downstream, an estimate of watershed area (on 2nd order and higher streams), mean annual precipitation weighted to upstream watershed area and channel width can be collated using <code>bcfishpass</code>, <code>fwapg</code> and <code>bcfishobs</code>. This, information, can be used to provides an indication of the potential quantity and quality of habitat potentially gained should fish passage be restored by comparing to user defined thresholds for the aforementioned parameters. A discussion of the methodology to derive channel width is below.</p>
 <p><br></p>
 <p>Gradient, channel size and stream discharge are key determinants of channel morphology and subsequently fish distribution. High value rearing, overwintering and spawning habitat preferred by numerous species/life stages of fish are often located within channel types that have relatively low gradients and large channel widths (also quantified by the amount of flow in the stream). Following delineation of “potentially accessible habitat”, the average gradient of each stream segment within habitat classified as below the 15% and 20% thresholds was calculated and summed within species and life stage specific gradient categories. Average gradient of stream line segments can be calculated from elevations contained in the provincial freshwater atlas streamline dataset. To obtain estimates of channel width upstream of crossing locations, Where available, <code>bcfishpass</code> was utilized to pull average channel gradients from Fisheries Information Summary System (FISS) site assessment data <span class="citation">(MoE 2019b)</span> or PSCIS assessment data <span class="citation">(MoE 2021)</span> and associate with stream segment lines. When both FISS and PSCIS values were associated with a particular stream segment, FISS channel width was used. When multiple FISS sites were associated with a particular stream segment a mean of the average channel widths was taken. To model channel width for 2nd order and above stream segments without associated FISS or PSCIS sites, first <code>fwapg</code> was used to estimate the drainage area upstream of the segment. Then, rasters from ClimateBC <span class="citation">(Wang et al. 2012)</span> were sampled for each stream segments and a mean annual precipitation weighted by upstream watershed area was calculated. Mean annual precipitation was then combined with the channel widths and BEC zone information (gathered through a spatial query tied to the bottom of the stream segment) into a dataset (n = 22990) for analysis fo the relationship between these variables. The details of this analysis and resulting formula used to estimate channel width on stream segments in the Parsnip Watershed is included as a technical appendix <a href="https://www.poissonconsulting.ca/f/859859031">here</a>.</p>
 <p><br></p>
@@ -480,90 +537,34 @@ Definition
 <tbody>
 <tr>
 <td style="text-align:left;">
-BT Network (km)
+BT Rearing Below Barriers (km)
 </td>
 <td style="text-align:left;">
-Bull Trout model, total length of stream network potentially accessible upstream of point
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-BT Stream (km)
-</td>
-<td style="text-align:left;">
-Bull Trout model, total length of streams and rivers potentially accessible upstream of point (does not include network connectors in lakes etc)
+Length of stream upstream of point and below any additional upstream barriers, modelled as potential Bull Trout rearing habitat
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-BT Lake Reservoir (ha)
+BT Rearing (km)
 </td>
 <td style="text-align:left;">
-Bull Trout model, total area lakes and reservoirs potentially accessible upstream of point
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-BT Wetland (ha)
-</td>
-<td style="text-align:left;">
-Bull Trout model, total area wetlands potentially accessible upstream of point
+Length of stream upstream of point modelled as potential Bull Trout rearing habitat
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-BT Slopeclass03 Waterbodies (km)
+BT Spawning Below Barriers (km)
 </td>
 <td style="text-align:left;">
-Bull Trout model, length of stream connectors (in waterbodies) potentially accessible upstream of point with slope 0-3%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-BT Slopeclass03 (km)
-</td>
-<td style="text-align:left;">
-Bull Trout model, length of stream potentially accessible upstream of point with slope 0-3%
+Length of stream upstream of point and below any additional upstream barriers, modelled as potential Bull Trout spawning habitat
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-BT Slopeclass05 (km)
+BT Spawning (km)
 </td>
 <td style="text-align:left;">
-Bull Trout model, length of stream potentially accessible upstream of point with slope 3-5%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-BT Slopeclass08 (km)
-</td>
-<td style="text-align:left;">
-Bull Trout model, length of stream potentially accessible upstream of point with slope 5-8%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-BT Slopeclass15 (km)
-</td>
-<td style="text-align:left;">
-Bull Trout model, length of stream potentially accessible upstream of point with slope 8-15%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-BT Slopeclass22 (km)
-</td>
-<td style="text-align:left;">
-Bull Trout model, length of stream potentially accessible upstream of point with slope 15-22%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-BT Slopeclass30 (km)
-</td>
-<td style="text-align:left;">
-Bull Trout model, length of stream potentially accessible upstream of point with slope 22-30%
+Length of stream upstream of point modelled as potential Bull Trout spawning habitat
 </td>
 </tr>
 <tr>
@@ -576,10 +577,26 @@ Bull Trout model, total length of stream network potentially accessible upstream
 </tr>
 <tr>
 <td style="text-align:left;">
+BT Network (km)
+</td>
+<td style="text-align:left;">
+Bull Trout model, total length of stream network potentially accessible upstream of point
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 BT Below Barriers Stream (km)
 </td>
 <td style="text-align:left;">
 Bull Trout model, total length of streams and rivers potentially accessible upstream of point and below any additional upstream barriers (does not include network connectors in lakes etc)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BT Stream (km)
+</td>
+<td style="text-align:left;">
+Bull Trout model, total length of streams and rivers potentially accessible upstream of point (does not include network connectors in lakes etc)
 </td>
 </tr>
 <tr>
@@ -592,6 +609,14 @@ Bull Trout model, total area lakes and reservoirs potentially accessible upstrea
 </tr>
 <tr>
 <td style="text-align:left;">
+BT Lake Reservoir (ha)
+</td>
+<td style="text-align:left;">
+Bull Trout model, total area lakes and reservoirs potentially accessible upstream of point
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 BT Below Barriers Wetland (ha)
 </td>
 <td style="text-align:left;">
@@ -600,10 +625,10 @@ Bull Trout model, total area wetlands potentially accessible upstream of point a
 </tr>
 <tr>
 <td style="text-align:left;">
-BT Below Barriers Slopeclass03 Waterbodies (km)
+BT Wetland (ha)
 </td>
 <td style="text-align:left;">
-Bull Trout model, length of stream connectors (in waterbodies) potentially accessible upstream of point and below any additional upstream barriers, with slope 0-3%
+Bull Trout model, total area wetlands potentially accessible upstream of point
 </td>
 </tr>
 <tr>
@@ -616,10 +641,26 @@ Bull Trout model, length of stream potentially accessible upstream of point and 
 </tr>
 <tr>
 <td style="text-align:left;">
+BT Slopeclass03 (km)
+</td>
+<td style="text-align:left;">
+Bull Trout model, length of stream potentially accessible upstream of point with slope 0-3%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 BT Below Barriers Slopeclass05 (km)
 </td>
 <td style="text-align:left;">
 Bull Trout model, length of stream potentially accessible upstream of point and below any additional upstream barriers, with slope 3-5%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BT Slopeclass05 (km)
+</td>
+<td style="text-align:left;">
+Bull Trout model, length of stream potentially accessible upstream of point with slope 3-5%
 </td>
 </tr>
 <tr>
@@ -632,10 +673,42 @@ Bull Trout model, length of stream potentially accessible upstream of point and 
 </tr>
 <tr>
 <td style="text-align:left;">
+BT Slopeclass08 (km)
+</td>
+<td style="text-align:left;">
+Bull Trout model, length of stream potentially accessible upstream of point with slope 5-8%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 BT Below Barriers Slopeclass15 (km)
 </td>
 <td style="text-align:left;">
 Bull Trout model, length of stream potentially accessible upstream of point and below any additional upstream barriers, with slope 8-15%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BT Slopeclass15 (km)
+</td>
+<td style="text-align:left;">
+Bull Trout model, length of stream potentially accessible upstream of point with slope 8-15%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Barriers BT Dnstr
+</td>
+<td style="text-align:left;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BT Below Barriers Slopeclass03 Waterbodies (km)
+</td>
+<td style="text-align:left;">
+Bull Trout model, length of stream connectors (in waterbodies) potentially accessible upstream of point and below any additional upstream barriers, with slope 0-3%
 </td>
 </tr>
 <tr>
@@ -652,6 +725,30 @@ BT Below Barriers Slopeclass30 (km)
 </td>
 <td style="text-align:left;">
 Bull Trout model, length of stream potentially accessible upstream of point and below any additional upstream barriers, with slope 22-30%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BT Slopeclass03 Waterbodies (km)
+</td>
+<td style="text-align:left;">
+Bull Trout model, length of stream connectors (in waterbodies) potentially accessible upstream of point with slope 0-3%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BT Slopeclass22 (km)
+</td>
+<td style="text-align:left;">
+Bull Trout model, length of stream potentially accessible upstream of point with slope 15-22%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BT Slopeclass30 (km)
+</td>
+<td style="text-align:left;">
+Bull Trout model, length of stream potentially accessible upstream of point with slope 22-30%
 </td>
 </tr>
 </tbody>
@@ -974,10 +1071,279 @@ barrier
 <p><br></p>
 <p>Cost estimates for structure replacement with bridges and embedded culverts were generated based on the channel width, slope of the culvert, depth of fill, road class and road surface type. Road details were sourced from <span class="citation">FLNRORD (2020b)</span> and <span class="citation">FLNRORD (2020a)</span> through <code>bcfishpass</code>. Interviews with Phil MacDonald, Engineering Specialist FLNR - Kootenay, Steve Page, Area Engineer - FLNR - Northern Engineering Group and Matt Hawkins - MoTi - Design Supervisor for Highway Design and Survey - Nelson were utilized to helped refine estimates.</p>
 <p><br></p>
-<p>Base costs for installation of bridges on forest service roads and permit roads with surfaces specified in provincial GIS road layers as rough and loose was estimated at $12500/linear m and assumed that the road could be closed during construction and a minimum bridge span of 10m. For streams with channel widths &lt;2m, embedded culverts were reported as an effective solution with total installation costs estimated at $25k/crossing (pers. comm. Phil MacDonald, Steve Page). For larger streams (&gt;6m), span width increased proportionally to the size of the stream (ex. for an 8m wide stream a 12m wide span was prescribed). For crossings with large amounts of fill (&gt;3m), the replacement bridge span was increased by an additional 3m for each 1m of fill &gt;3m to account for cutslopes to the stream at a 1.5:1 ratio. To account for road type, a multiplier table was also generated to estimate incremental cost increases with costs estimated for structure replacement on paved surfaces, railways and arterial/highways costing up to 20 times more than forest service roads due to expenses associate with design/engineering requirements, traffic control and paving. The cost multiplier table (Table <a href="#tab:tab-cost-mult"><strong>??</strong></a>) should be considered very approximate with refinement recommended for future projects.</p>
+<p>Base costs for installation of bridges on forest service roads and permit roads with surfaces specified in provincial GIS road layers as rough and loose was estimated at $12500/linear m and assumed that the road could be closed during construction and a minimum bridge span of 10m. For streams with channel widths &lt;2m, embedded culverts were reported as an effective solution with total installation costs estimated at $25k/crossing (pers. comm. Phil MacDonald, Steve Page). For larger streams (&gt;6m), span width increased proportionally to the size of the stream (ex. for an 8m wide stream a 12m wide span was prescribed). For crossings with large amounts of fill (&gt;3m), the replacement bridge span was increased by an additional 3m for each 1m of fill &gt;3m to account for cutslopes to the stream at a 1.5:1 ratio. To account for road type, a multiplier table was also generated to estimate incremental cost increases with costs estimated for structure replacement on paved surfaces, railways and arterial/highways costing up to 20 times more than forest service roads due to expenses associate with design/engineering requirements, traffic control and paving. The cost multiplier table (Table <a href="methods.html#tab:tab-cost-mult">2.7</a>) should be considered very approximate with refinement recommended for future projects.</p>
 <p><br></p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="methods.html#cb24-1" tabindex="-1"></a>tab_cost_rd_mult_report <span class="sc">%&gt;%</span></span>
 <span id="cb24-2"><a href="methods.html#cb24-2" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="st">&#39;Cost multiplier table based on road class and surface type.&#39;</span>, <span class="at">scroll =</span> F)</span></code></pre></div>
+<table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:tab-cost-mult">Table 2.7: </span>Cost multiplier table based on road class and surface type.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Class
+</th>
+<th style="text-align:left;">
+Surface
+</th>
+<th style="text-align:right;">
+Class Multiplier
+</th>
+<th style="text-align:right;">
+Surface Multiplier
+</th>
+<th style="text-align:right;">
+Bridge $K/10m
+</th>
+<th style="text-align:right;">
+Streambed Simulation $K
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+FSR
+</td>
+<td style="text-align:left;">
+Loose
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+250
+</td>
+<td style="text-align:right;">
+50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Resource
+</td>
+<td style="text-align:left;">
+Loose
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+250
+</td>
+<td style="text-align:right;">
+50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Permit
+</td>
+<td style="text-align:left;">
+Loose
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+250
+</td>
+<td style="text-align:right;">
+50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Unclassified
+</td>
+<td style="text-align:left;">
+Loose
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+250
+</td>
+<td style="text-align:right;">
+50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Unclassified
+</td>
+<td style="text-align:left;">
+Rough
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+250
+</td>
+<td style="text-align:right;">
+50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Unclassified
+</td>
+<td style="text-align:left;">
+Paved
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+500
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Unclassified
+</td>
+<td style="text-align:left;">
+Unknown
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+500
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Local
+</td>
+<td style="text-align:left;">
+Loose
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1000
+</td>
+<td style="text-align:right;">
+200
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Local
+</td>
+<td style="text-align:left;">
+Paved
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2000
+</td>
+<td style="text-align:right;">
+400
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Arterial
+</td>
+<td style="text-align:left;">
+Paved
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+7500
+</td>
+<td style="text-align:right;">
+1500
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Highway
+</td>
+<td style="text-align:left;">
+Paved
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+7500
+</td>
+<td style="text-align:right;">
+1500
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rail
+</td>
+<td style="text-align:left;">
+Rail
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+7500
+</td>
+<td style="text-align:right;">
+1500
+</td>
+</tr>
+</tbody>
+</table>
 <p><br></p>
 </div>
 </div>
@@ -994,7 +1360,7 @@ barrier
 </div>
 <div id="reporting" class="section level2 hasAnchor" number="2.4">
 <h2><span class="header-section-number">2.4</span> Reporting<a href="methods.html#reporting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Reporting was generated with <code>bookdown</code> <span class="citation">(Xie 2016)</span> from <code>Rmarkdown</code> <span class="citation">(Allaire et al. 2022)</span> with primarily <code>R</code> <span class="citation">(R Core Team 2022)</span> and <code>SQL</code> scripts. The <code>R</code> package <code>fpr</code> contains many specialized custom functions related to the work <span class="citation">(Irvine [2022] 2022)</span>. In addition to numerous spatial layers sourced through the BC Data Catalogue then stored and queried in a local <code>postgresql</code> and <code>sqlite</code> databases <a href="https://github.com/NewGraphEnvironment/fish_passage_peace_2022_reporting/tree/main/data">data inputs</a> for this project include:</p>
+<p>Reporting was generated with <code>bookdown</code> <span class="citation">(Xie 2016)</span> from <code>Rmarkdown</code> <span class="citation">(Allaire et al. 2022)</span> with primarily <code>R</code> <span class="citation">(R Core Team 2022)</span> and <code>SQL</code> scripts. The <code>R</code> package <code>fpr</code> contains many specialized custom functions related to the work <span class="citation">(Allan Irvine [2022] 2022)</span>. In addition to numerous spatial layers sourced through the BC Data Catalogue then stored and queried in a local <code>postgresql</code> and <code>sqlite</code> databases <a href="https://github.com/NewGraphEnvironment/fish_passage_peace_2022_reporting/tree/main/data">data inputs</a> for this project include:</p>
 <ul>
 <li><p>Populated <a href="https://www2.gov.bc.ca/gov/content/environment/plants-animals-ecosystems/fish/fish-and-fish-habitat-data-information/fish-data-submission/submit-fish-data#submitfish">Fish Data Submission Spreadsheet Template - V 2.0, January 20, 2020</a></p></li>
 <li><p>Populated <a href="https://www2.gov.bc.ca/gov/content/environment/plants-animals-ecosystems/fish/aquatic-habitat-management/fish-passage/fish-passage-technical/assessment-projects">pscis_assessment_template_v24.xls</a></p></li>
@@ -1024,7 +1390,7 @@ barrier
         </div>
       </div>
 <a href="background.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="appendix---phase-1-fish-passage-assessment-data-and-photos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="results-and-discussion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
