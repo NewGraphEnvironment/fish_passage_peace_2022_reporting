@@ -1,0 +1,6 @@
+rowid,aggregated_crossings_id,pscis_crossing_id,my_crossing_reference,source,barrier_result,downstream_channel_width_meters,fill_depth_meters,fill_dpth_over,crossing_fix,span_input
+5,6824,6824,,pscis_reassessments.xlsm,Barrier,3,1.2,-1.8,Replace with New Open Bottom Structure,10
+6,6731,6731,,pscis_reassessments.xlsm,Passable,,,,,
+7,125000,125000,,pscis_reassessments.xlsm,Barrier,4.52,2.5,-0.5,Replace with New Open Bottom Structure,10
+8,124963,124963,,pscis_reassessments.xlsm,Barrier,2.7,0.5,-2.5,Replace with New Open Bottom Structure,10
+9,125179,125179,,pscis_reassessments.xlsm,Passable,,,,,

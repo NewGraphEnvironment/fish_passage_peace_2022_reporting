@@ -1,0 +1,5 @@
+rowid,aggregated_crossings_id,pscis_crossing_id,my_crossing_reference,source,barrier_result,downstream_channel_width_meters,fill_depth_meters,fill_dpth_over,crossing_fix,span_input
+5,1016603769,,16603769,pscis_phase1.xlsm,Passable,,,,,
+6,1000372413,,372413,pscis_phase1.xlsm,Passable,,,,,
+7,1016601271,,16601271,pscis_phase1.xlsm,Unknown,,,,,
+8,2022081750,,2022081750,pscis_phase1.xlsm,Unknown,,,,,
