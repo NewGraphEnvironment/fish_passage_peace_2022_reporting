@@ -149,7 +149,7 @@ my_site <- 6745
 PSCIS crossing `r as.character(my_site)` is located on a
 `r fpr::fpr_my_pscis_info()`, on
 `r fpr_my_pscis_info(col_pull = road_name)`.
-This site is approximately
+This site is located approximately
 `r round(fpr::fpr_my_bcfishpass(col_pull = downstream_route_measure)*0.001, 1)`km
 upstream from the confluence with the Parsnip River. At crossing `r as.character(my_site)`, `r fpr::fpr_my_pscis_info()` is a
 `r fpr::fpr_my_bcfishpass() %>% english::ordinal()` order stream with a
@@ -215,14 +215,14 @@ fpr::fpr_my_priority_info()
 
 `r fpr_my_survey_dist(loc = 'ds')`
 `r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-6745-01) - \\@ref(fig:photo-6745-02)).")}else(knitr::asis_output("(Figure \\@ref(fig:photo-6745-d01))."))`
-`r fpr_my_habitat_paragraph(loc = 'ds')` The stream channel is smaller and narrower than upstream. Abundant undercut banks for juvenile rearing. There were small gravels suitable for smaller fish. The habitat
+`r fpr_my_habitat_paragraph(loc = 'ds')` There were abundant undercut banks suitable for juvenile rearing. The stream channel is smaller and narrower than upstream. There were small gravels suitable for smaller fish. The habitat
 was rated as `r fpr::fpr_my_priority_info(loc = 'ds')` value for
 salmonid rearing and spawning due to low flow volumes and a lack of deep pools.
 
 #### Stream Characteristics Upstream {-}  
 
 `r fpr_my_survey_dist(loc = 'us')` `r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-6745-03) - \\@ref(fig:photo-6745-06)).")}else(knitr::asis_output("(Figure \\@ref(fig:photo-6745-d02))."))`
-`r fpr_my_habitat_paragraph(loc = 'us')` This is a small, perennial stream. There were abundant gravels present, suitable for resident rainbow. Some deep pools up to 45cm in depth were present that are suitable for rearing. There was an abundance of undercut banks and larger gravels about 30 cm in size. Overall, the habitat surveyed upstream of the crossing was
+`r fpr_my_habitat_paragraph(loc = 'us')` This is a small, perennial stream. There were abundant gravels present, suitable for resident rainbow. Some deep pools up to 45cm in depth were present that would be suitable for rearing. There was an abundance of undercut banks and larger gravels about 30 cm in size. Overall, the habitat surveyed upstream of the crossing was
 rated as `r fpr::fpr_my_priority_info(loc = 'us')` value as an important
 migration corridor containing habitat suitable for spawning with moderate rearing potential.
 
@@ -364,24 +364,18 @@ my_site <- 125194
 
 ```
 
-PSCIS crossing `r as.character(my_site)` is located on
+PSCIS crossing `r as.character(my_site)` is located on a
 `r fpr::fpr_my_pscis_info()`, on
 `r fpr_my_pscis_info(col_pull = road_name)`.
-The site is approximately
+The site is located approximately
 `r round(fpr::fpr_my_bcfishpass(col_pull = downstream_route_measure)*0.001, 1)`km
-upstream from the confluence with the Missinka River.
-
-<br>
-
-At crossing `r as.character(my_site)`, `r fpr::fpr_my_pscis_info()` is a
+upstream from the confluence with the Missinka River. At crossing `r as.character(my_site)`, `r fpr::fpr_my_pscis_info()` is a
 `r fpr::fpr_my_bcfishpass() %>% english::ordinal()` order stream with a
 watershed area upstream of the crossing of approximately
 `r fpr::fpr_my_wshd()`km^2^. The elevation of the watershed ranges from
 a maximum of `r fpr::fpr_my_wshd(col = 'elev_max')`m to
 `r fpr::fpr_my_wshd(col = 'elev_min')`m near the crossing (Table
-\@ref(tab:tab-wshd-125194)). Upstream of crossing
-`r as.character(my_site)`, `r fpr::fpr_my_fish_sp()` have previously
-been recorded [@moe2020; @norris2022].
+\@ref(tab:tab-wshd-125194)). At the time of reporting, there was no fisheries information available for the area upstream of crossing `r as.character(my_site)`.
 
 <br>
 
@@ -410,7 +404,7 @@ fpr::fpr_table_bcfp(scroll = gitbook_on)
 
 #### Stream Characteristics at Crossing {-}  
 
-At the time of the survey, PSCIS crossing `r as.character(my_site)` was
+At the time of survey, PSCIS crossing `r as.character(my_site)` was
 un-embedded, non-backwatered and ranked as a
 `r fpr::fpr_my_pscis_info(col_pull = barrier_result) %>% stringr::str_to_lower()`
 to upstream fish passage according to the provincial protocol
@@ -439,14 +433,14 @@ hab_site %>% filter(site == my_site & location == 'us') %>% pull(comments)
 
 `r fpr_my_survey_dist(loc = 'ds')`
 `r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-125194-01) - \\@ref(fig:photo-125194-02)).")}else(knitr::asis_output("(Figure \\@ref(fig:photo-125194-d01))."))`
-`r fpr_my_habitat_paragraph(loc = 'ds')` There was abundant woody debris that added complexity to the stream habitat and provided cover for resident fish. There were trace undercut banks and pools that were suitable for rearing. Abundant gravels were present that would be suitable for spawning. The habitat
+`r fpr_my_habitat_paragraph(loc = 'ds')` There were trace amounts of undercut banks and pools that were suitable for rearing. Abundant gravels were present that would be suitable for resident rainbow spawning. There was abundant woody debris that added complexity to the stream habitat and provided cover for resident fish.  The habitat
 was rated as `r fpr::fpr_my_priority_info(loc = 'ds')` value for
 salmonid rearing and spawning.
 
 #### Stream Characteristics Upstream {-}  
 
 `r fpr_my_survey_dist(loc = 'us')` `r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-125194-03) - \\@ref(fig:photo-125194-06)).")}else(knitr::asis_output("(Figure \\@ref(fig:photo-125194-d02))."))`
-`r fpr_my_habitat_paragraph(loc = 'us')` The water was tinged brown at the time of survey; likely from beaver activity upstream. No gravels were present suitable for spawning and the substrate was composed primarily of angular rock. Several rock steps of 50-60cm high were present in first 300m of survey that would prevent upstream juvenile salmonid migration. There was a crossing modelled upstream (ID 16601526) that was accessed to check for a structure and assess habitat. There was a large beaver dam approximately 1.6m in height at this location at the time of survey. Overall, the habitat surveyed upstream of the crossing
+`r fpr_my_habitat_paragraph(loc = 'us')` The water was tinged brown at the time of survey; likely from beaver activity upstream. No gravels were present suitable for spawning and the substrate was composed primarily of angular rock. Several rock steps 50-60cm high were present in the first 300m of survey that would prevent upstream juvenile salmonid migration. There was a crossing modelled upstream (ID 16601526) that was accessed to check for a structure and assess habitat. There was a large beaver dam approximately 1.6m in height at this location at the time of survey. Overall, the habitat surveyed upstream of the crossing was
 rated as `r fpr::fpr_my_priority_info(loc = 'us')` value as an important
 migration corridor containing habitat suitable for spawning with moderate rearing potential.
 
@@ -454,15 +448,15 @@ migration corridor containing habitat suitable for spawning with moderate rearin
 
 #### Conclusion {-}  
 
-Modelling indicates 
+Crossing
+`r as.character(my_site)` was ranked as a
+`r fpr::fpr_my_priority_info(col_pull = priority)` priority for
+proceeding to design for replacement. Modelling indicates 
 `r round(fpr::fpr_my_priority_info(col_pull= upstream_habitat_length_m)/1000)`km of
 habitat upstream of crossing `r as.character(my_site)` suitable for bull trout rearing with
 areas surveyed rated as
 `r fpr::fpr_my_priority_info(sit = my_site, loc = 'us', col_pull = hab_value)`
-value for rearing and spawning. Crossing
-`r as.character(my_site)` was ranked as a
-`r fpr::fpr_my_priority_info(col_pull = priority)` priority for
-proceeding to design for replacement.  
+value for rearing and spawning. However, there is a beaver dam 1.6m in height located approximately 800m upstream of this crossing. This would likely block the upstream migration of all fish species and life stages. In order to open up habitat in this system, it is recommended that beaver management methods be pursued at this location.    
 
 `r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
 
@@ -496,7 +490,7 @@ grid::grid.raster(jpeg::readJPEG(my_photo1))
 ```{r photo-125194-02-prep}
 my_photo2 = fpr::fpr_photo_pull_by_str(str_to_pull = '_d2_')
 
-my_caption2 = paste0('Typical habitat downstream of PSCIS crossing ', my_site, '.')
+my_caption2 = paste0('Example of typical stream substrate downstream of PSCIS crossing ', my_site, '.')
 ```
 
 ```{r photo-125194-02, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
@@ -530,7 +524,7 @@ grid::grid.raster(jpeg::readJPEG(my_photo1))
 ```{r photo-125194-04-prep}
 my_photo2 = fpr::fpr_photo_pull_by_str(str_to_pull = '_u2_')
 
-my_caption2 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, '.')
+my_caption2 = paste0('Small rock step approximately 0.6m in height, upstream of PSCIS crossing ', my_site, '.')
 
 ```
 
@@ -562,7 +556,7 @@ grid::grid.raster(jpeg::readJPEG(my_photo1))
 ```{r photo-125194-06-prep}
 my_photo2 = fpr::fpr_photo_pull_by_str(str_to_pull = '_u4_')
 
-my_caption2 = paste0('Beaver dam at modelled crossing 16601526, upstream of PSCIS crossing ', my_site, '.')
+my_caption2 = paste0('Beaver dam 1.6m high at modelled crossing 16601526, upstream of PSCIS crossing ', my_site, '.')
 
 ```
 
@@ -592,13 +586,13 @@ PSCIS crossing `r as.character(my_site)` is located on
 `r fpr::fpr_my_pscis_info()`, approximately
 `r round(fpr::fpr_my_bcfishpass(col_pull = downstream_route_measure)*0.001, 1)`km
 upstream from the confluence with the Parsnip River, on the
-`r fpr_my_pscis_info(col_pull = road_name)`. At crossing `r as.character(my_site)`, `r fpr::fpr_my_pscis_info()` is a
+`r fpr_my_pscis_info(col_pull = road_name)`. Canfor Corporation are the road tenure holders at this site. At crossing `r as.character(my_site)`, `r fpr::fpr_my_pscis_info()` is a
 `r fpr::fpr_my_bcfishpass() %>% english::ordinal()` order stream with a
 watershed area upstream of the crossing of approximately
 `r fpr::fpr_my_wshd()`km^2^. The elevation of the watershed ranges from
 a maximum of `r fpr::fpr_my_wshd(col = 'elev_max')`m to
 `r fpr::fpr_my_wshd(col = 'elev_min')`m near the crossing (Table
-\@ref(tab:tab-wshd-125261)).  At the time of reporting, there was no fisheries information available within provincial databases for the area upstream of crossing `r as.character(my_site)`. A total of `r fpr::fpr_my_bcfishpass(col_pull = total_lakereservoir_ha)`ha of lake and `r fpr::fpr_my_bcfishpass(col_pull = total_wetland_ha)`ha of wetland are modelled upstream. This includes the Fern Lakes, a collection of three lakes that have a combined area of approximately 138ha. There is a modelled crossing located 700m upstream of crossing `r as.character(my_site)`. However, upon visiting this location, there was no ford or crossing found. This site appears to be the end of an ATV trail. Located a further 3.3km upstream of this site is the outlet of the first Fern lake. There is only one other crossing modelled before the lake (ID 16601842). No assessments have been done at this location, so the crossing type and barrier status are unknown at this time.  
+\@ref(tab:tab-wshd-125261)).  At the time of reporting, there was no fisheries information available within provincial databases for the area upstream of crossing `r as.character(my_site)`. A total of `r fpr::fpr_my_bcfishpass(col_pull = total_lakereservoir_ha)`ha of lake and `r fpr::fpr_my_bcfishpass(col_pull = total_wetland_ha)`ha of wetland are modelled upstream. This includes the Fern Lakes, a collection of three lakes that have a combined area of approximately 138ha. PSCIS crossing 198321 is located 700m upstream of crossing `r as.character(my_site)`. However, upon visiting this location, there was no ford or crossing found. This site appears to be the end of an ATV trail. Located a further 3.3km upstream of this site is the outlet of the first Fern lake. There is only one other crossing (ID 16601842) modelled before the lake on a ATV trail. No assessments have been done at this location, so the crossing type and barrier status are unknown at this time. However, it is unlikely that there is a crossing there due to the presence of deactivated crossings further downstream. Additionally, there is a modelled crossing located between the first and second lakes (ID 16600823), and one located between the second and third lakes (ID 16600822).   
 
 <br>
 
@@ -631,7 +625,7 @@ At the time of survey, PSCIS crossing `r as.character(my_site)` was
 un-embedded, non-backwatered and ranked as a
 `r fpr::fpr_my_pscis_info(col_pull = barrier_result) %>% stringr::str_to_lower()`
 to upstream fish passage according to the provincial protocol
-[@moe2011] (Table \@ref(tab:tab-culvert-125261)). The culvert has baffles in it to assist upstream fish passage. However, rip rap at the outlet is creating a cascade approximately 0.5m in height that could block the migration of younger resident fish, depending on flow velocities. Water
+[@moe2011] (Table \@ref(tab:tab-culvert-125261)). The culvert has baffles in it to assist upstream fish passage. However, at the time of survey, the baffles were not functioning properly as they were not effectively holding back substrate. Rip rap at the outlet was creating a cascade approximately 0.5m in height that could block the migration of younger resident fish, depending on flow velocities. Water
 temperature was
 `r fpr::fpr_my_habitat_info(col_pull = 'temperature_c')`$^\circ$C, pH
 was `r fpr::fpr_my_habitat_info(col_pull = 'p_h')` and conductivity was
@@ -656,14 +650,14 @@ hab_site %>% filter(site == my_site & location == 'us') %>% pull(comments)
 
 `r fpr_my_survey_dist(loc = 'ds')`
 `r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-125261-01) - \\@ref(fig:photo-125261-02)).")}else(knitr::asis_output("(Figure \\@ref(fig:photo-125261-d01))."))`
-`r fpr_my_habitat_paragraph(loc = 'ds')` Extensive gravels were found in the first 150 m surveyed downstream. The habitat then transitions to wetland type with depths of up to 1m on the floodplain. The habitat
+`r fpr_my_habitat_paragraph(loc = 'ds')` Extensive gravels were found in the first 150 m surveyed downstream. The habitat then transitions to a wetland type, with depths of up to 1m on the floodplain. The habitat
 was rated as `r fpr::fpr_my_priority_info(loc = 'ds')` value for
 salmonid rearing and spawning.
 
 #### Stream Characteristics Upstream {-}  
 
 `r fpr_my_survey_dist(loc = 'us')` `r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-125261-03) - \\@ref(fig:photo-125261-06)).")}else(knitr::asis_output("(Figure \\@ref(fig:photo-125261-d02))."))`
-`r fpr_my_habitat_paragraph(loc = 'us')` This is a large stream with abundant gravel suitable for spawning and deep pools for overwintering. Numerous fish were observed, the habitat was stable with large woody debris found throughout, and abundant undercut banks. At the end of the survey, a modelled crossing was listed in `bcfishpass` (ID 16601842). Upon investigation, it was concluded that there was no crossing present `r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-125261-07) - \\@ref(fig:photo-125261-08)).")}else(knitr::asis_output("(Figure \\@ref(fig:photo-125261-u03))."))` Overall, the habitat surveyed upstream of crossing `r as.character(my_site)` was 
+`r fpr_my_habitat_paragraph(loc = 'us')` This is a large stream with abundant gravel suitable for spawning and deep pools for overwintering. Numerous fish were observed, the habitat was stable with large woody debris found throughout, and there were abundant undercut banks. At the end of the survey, a stream crossing was listed in the PSCIS database (ID 198321). Upon investigation, it was concluded that this crossing was deavticated `r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-125261-07) - \\@ref(fig:photo-125261-08)).")}else(knitr::asis_output("(Figure \\@ref(fig:photo-125261-u03))."))` Overall, the habitat surveyed upstream of crossing `r as.character(my_site)` was 
 rated as `r fpr::fpr_my_priority_info(loc = 'us')` value as an important
 migration corridor containing habitat suitable for spawning with moderate rearing potential.
 
@@ -679,7 +673,7 @@ areas surveyed rated as
 value for rearing and spawning. Crossing
 `r as.character(my_site)` was ranked as a
 `r fpr::fpr_my_priority_info(col_pull = priority)` priority for
-proceeding to design for replacement. Due to the lack of historic fisheries information upstream of the crossing, it is recommended that electrofishing be conducted in this area. Fish were spotted on the habitat survey upstream. Fish sampling would help confirm migration patterns of resident populations. Additionally, it is recommended that Fern Creek be surveyed further upstream to confirm the presence (or absence) of barriers between crossing `r as.character(my_site)` and Fern Lakes.     
+proceeding to design for replacement. Due to the lack of historic fisheries information upstream of the crossing, it is recommended that electrofishing be conducted in this area. Fish were spotted on the habitat survey upstream in 2022. Future fish sampling would help confirm migration patterns of resident populations. Additionally, it is recommended that Fern Creek be surveyed further upstream to confirm the presence (or absence) of barriers between crossing `r as.character(my_site)` and Fern Lakes.     
 
 `r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
 
@@ -799,7 +793,7 @@ knitr::include_graphics(my_photo2)
 ```{r photo-125261-07-prep}
 my_photo1 = fpr::fpr_photo_pull_by_str(site = my_site2, str_to_pull = '_downstream')
 
-my_caption1 = paste0('Downstream view at end of survey, at location of modelled crossing ', my_site2, '.')
+my_caption1 = paste0('Downstream view at end of survey, at location of PSCIC crossing 198321.')
 ```
 
 ```{r photo-125261-07, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
@@ -809,7 +803,7 @@ grid::grid.raster(jpeg::readJPEG(my_photo1))
 ```{r photo-125261-08-prep}
 my_photo2 = fpr::fpr_photo_pull_by_str(site = my_site2, str_to_pull = '_upstream')
 
-my_caption2 = paste0('Upstream view at end of survey, at location of modelled crossing ', my_site2, '.')
+my_caption2 = paste0('Upstream view at end of survey, at location of PSCIS crossing 198321.')
 
 ```
 
@@ -837,7 +831,7 @@ my_site <- 125000
 
 ```
 
-PSCIS crossing `r as.character(my_site)` is located on a tributary to Parsnip River, approximately 2km upstream of the confluence with the Parsnip River, on the Chuchinka-Arctic FSR. This site is situated approximately 9km north-west of the outlet of Arctic Lake. Arctic Lake is located within Arctic Pacific Lakes Provincial Park and has an area of 112ha. The park has significant historical and recreational values and is located on Mcleod Lake indian band reservation lands. The lake supports a diverse population of fish, including lake trout, bull trout, rainbow trout, kokanee, dolly varden, mountain whitefish, redside shiner, lake char, and chinook salmon, and arctic grayling [@ArcticPacificLakesPark2020]. At crossing `r as.character(my_site)`, this tributary to Parsnip River is a
+PSCIS crossing `r as.character(my_site)` is located on a tributary to Parsnip River, approximately 2km upstream of the confluence with the Parsnip River, on the Chuchinka-Arctic FSR. This site is situated approximately 9km north-west of the outlet of Arctic Lake. Arctic Lake is located within Arctic Pacific Lakes Provincial Park and has an area of 112ha. The park has significant historical and recreational values and is located on Mcleod Lake indian band reservation lands. The lake supports a diverse population of fish, including lake trout, bull trout, rainbow trout, kokanee, dolly varden, mountain whitefish, redside shiner, lake char, and chinook salmon, and arctic grayling [@bcparks2020ArcticPacific]. At crossing `r as.character(my_site)`, this tributary to Parsnip River is a
 `r fpr::fpr_my_bcfishpass() %>% english::ordinal()` order stream with a
 watershed area upstream of the crossing of approximately
 `r fpr::fpr_my_wshd()`km^2^. The elevation of the watershed ranges from
@@ -954,11 +948,51 @@ fpr_plot_fish_box()
 ```{r  load-data-125179}
 my_site <- 125179
 ```
-
-A map of the watershed is provided in map attachment [93I.117](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/FishPassage_093I.116.pdf).
+PSCIS crossing `r as.character(my_site)` is located on a tributary to Missinka River, 1km upstream of the confluence, on the Chuchinka-Missinka FSR. The road tenure holder is the Ministry of Forests. This crossing is located approximately 660m east of PSCIS crossing 125180 and joins this adjacent stream just before emptying into the Missinka River. A map of the watershed is provided in map attachment [93I.117](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/FishPassage_093I.116.pdf). This crossing has been remediated, with a bridge installed in the summer of 2022. 
 
 <br>
 
+This site was first assessed by @irvine2020ParsnipRiver in 2019. At that time, there were two culverts side by side. The crossing was ranked as a high priority for follow up due to the 2km of suitable upstream high value habitat, where the presence of bull trout and rainbow trout had been previously confirmed. This watershed was classified as fisheries sensitive under the Forest Practices and Range Act (FRPA) regulations due to downstream bull trout and arctic grayling. As stated in @irvine2022PEAF22F3577DCARestoring, further reasons for restoration at this site include the fact that "the Missinka River watershed is utilized by a possibly genetically distinct, self-sustaining dusk’ihje (Arctic grayling) population with the mainstem of the river providing critical habitat for fry and adult fish." Additionally, regions accessed by the Chuchinka-Missinka FSR provided major harvesting and silviculture obligations. Site plan designs were developed thanks to the ongoing communication and collaboration between SERNBC, Mcleod Lake Indian Band, Sinclair Group, and FLNR.   Photos showing a comparison of the culvert assessment conducted in 2019 versus the completed bridge construction in 2022 are presented in `r if(gitbook_on){knitr::asis_output("Figures \\@ref(fig:photo-125179-01) - \\@ref(fig:photo-125179-02).")}else(knitr::asis_output("Figure \\@ref(fig:photo-125261-d02)."))` 
+
+<br>
+
+```{r photo-125179-01-prep, eval=T}
+my_photo1 = fpr::fpr_photo_pull_by_str(site = 1251792019, str_to_pull = 'crossing_all')
+
+my_caption1 = paste0('Photos of crossing ', my_site, ' in 2019.')
+
+
+```
+
+```{r photo-125179-01, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo1))
+```
+
+<br>
+
+```{r photo-125179-02-prep}
+my_photo2 = fpr::fpr_photo_pull_by_str(str_to_pull = 'crossing_all', site = 125179)
+
+my_caption2 = paste0('Photos of crossing ', my_site, ' in 2022.')
+```
+
+```{r photo-125179-02, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo2))
+
+```
+
+```{r photo-125179-d02, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
+
+my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
+
+knitr::include_graphics(my_photo1)
+knitr::include_graphics("fig/pixel.png")
+knitr::include_graphics(my_photo2)
+```
+
+<br>
+
+In the summer of 2022, a monitoring survey was conducted with a remotely piloted aircraft at crossing `r as.character(my_site)`, with resulting images stitched into an orthomosaic and 3-dimensional model
 `r if(gitbook_on){knitr::asis_output(" presented in Figures \\@ref(fig:ortho-caption-missinka) - \\@ref(fig:model-caption-missinka).")} else knitr::asis_output("presented [here](https://www.mapsmadeeasy.com/maps/public/8e3a0c68656c4480a66e067a6e14c0d3) and [here](https://www.mapsmadeeasy.com/maps/public_3D/8e3a0c68656c4480a66e067a6e14c0d3/).")`
 
 ```{r ortho-missinka, eval = identical(gitbook_on, TRUE)}
@@ -995,43 +1029,6 @@ knitr::include_graphics(my_photo, dpi = NA)
 
 ```
 
-<br>
+#### Recommendations {-}
 
-
-
-```{r photo-125197-01-prep, eval=T}
-my_photo1 = fpr::fpr_photo_pull_by_str(site = 1251792019, str_to_pull = 'crossing_all')
-
-my_caption1 = paste0('Photos of crossing ', my_site, ' in 2019.')
-
-
-```
-
-```{r photo-125197-01, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
-grid::grid.raster(jpeg::readJPEG(my_photo1))
-```
-
-<br>
-
-```{r photo-125197-02-prep}
-my_photo2 = fpr::fpr_photo_pull_by_str(str_to_pull = 'crossing_all', site = 125179)
-
-my_caption2 = paste0('Photos of crossing ', my_site, ' in 2022.')
-```
-
-```{r photo-125197-02, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
-grid::grid.raster(jpeg::readJPEG(my_photo2))
-
-```
-
-<br>
-
-```{r photo-125197-d01, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
-
-my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
-
-knitr::include_graphics(my_photo1)
-knitr::include_graphics("fig/pixel.png")
-knitr::include_graphics(my_photo2)
-```
-
+Following the remediation of crossing `r as.character(my_site)`, it is recommended that future monitoring be conducted at this location. This would help track the stream's morphological changes over time, as well as provide insight into the fish migration patterns in this system. Electrofishing and tagging target species in this stream would aid in gaining a higher understanding into fish movements. Additionally, fishing and monitoring in the adjacent stream (at PSCIS crossing 125180) would also be key in providing a reference site.    
