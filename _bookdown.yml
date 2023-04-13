@@ -3,5 +3,5 @@ language:
   ui:
     chapter_name: ""
 delete_merged_file: true
-output_dir: "docs/cfe4dfac2f8c88e24c52504a2eed0461ba3441ea"
+output_dir: "docs"
 
