@@ -174,7 +174,7 @@ fpr::fpr_table_wshd_sum(site_id = my_site) %>%
 A summary of habitat modelling outputs is presented in Table
 \@ref(tab:tab-culvert-bcfp-6745) and a map of the watershed is
 provided in map attachment
-[`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](fpr::fpr_my_mapsheet()).
+[`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](fpr::fpr_my_mapsheet(wshd = "parsnip", archive_date = "2022-05-27")).
 
 <br>
 
@@ -392,7 +392,7 @@ fpr::fpr_table_wshd_sum(site_id = my_site) %>%
 A summary of habitat modelling outputs is presented in Table
 \@ref(tab:tab-culvert-bcfp-125194) and a map of the watershed is
 provided in map attachment
-[`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](fpr::fpr_my_mapsheet()).
+[`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](fpr::fpr_my_mapsheet(wshd = "parsnip", archive_date = "2022-05-27")).
 
 <br>
 
@@ -585,16 +585,22 @@ my_site2 <- 16601271
 PSCIS crossing `r as.character(my_site)` is located on
 `r fpr::fpr_my_pscis_info()`, approximately
 `r round(fpr::fpr_my_bcfishpass(col_pull = downstream_route_measure)*0.001, 1)`km
-upstream from the confluence with the Parsnip River, on the
-`r fpr_my_pscis_info(col_pull = road_name)`. Canfor Corporation are the road tenure holders at this site. At crossing `r as.character(my_site)`, `r fpr::fpr_my_pscis_info()` is a
+upstream from the confluence with the Parsnip River, at km 2.1 on the
+`r fpr_my_pscis_info(col_pull = road_name)`. Canfor Corporation are the road tenure holders at this site. 
+
+<br>
+
+At crossing `r as.character(my_site)`, `r fpr::fpr_my_pscis_info()` is a
 `r fpr::fpr_my_bcfishpass() %>% english::ordinal()` order stream with a
 watershed area upstream of the crossing of approximately
 `r fpr::fpr_my_wshd()`km^2^. The elevation of the watershed ranges from
 a maximum of `r fpr::fpr_my_wshd(col = 'elev_max')`m to
-`r fpr::fpr_my_wshd(col = 'elev_min')`m near the crossing (Table
+`r fpr::fpr_my_wshd(col = 'elev_site')`m near the crossing (Table
 \@ref(tab:tab-wshd-125261)).  At the time of reporting, there was no fisheries information available within provincial databases for the area upstream of crossing `r as.character(my_site)`. A total of `r fpr::fpr_my_bcfishpass(col_pull = total_lakereservoir_ha)`ha of lake and `r fpr::fpr_my_bcfishpass(col_pull = total_wetland_ha)`ha of wetland are modelled upstream. This includes the Fern Lakes, a collection of three lakes that have a combined area of approximately 138ha. PSCIS crossing 198321 is located 700m upstream of crossing `r as.character(my_site)`. However, upon visiting this location, there was no ford or crossing found. This site appears to be the end of an ATV trail. Located a further 3.3km upstream of this site is the outlet of the first Fern lake. There is only one other crossing (ID 16601842) modelled before the lake on a ATV trail. No assessments have been done at this location, so the crossing type and barrier status are unknown at this time. However, it is unlikely that there is a crossing there due to the presence of deactivated crossings further downstream. Additionally, there is a modelled crossing located between the first and second lakes (ID 16600823), and one located between the second and third lakes (ID 16600822).   
 
 <br>
+
+A summary of habitat modelling outputs is presented in Table \@ref(tab:tab-culvert-bcfp-125261) and a map of the watershed is provided in map attachment [`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](fpr::fpr_my_mapsheet(wshd = "parsnip", archive_date = "2022-05-27")).
 
 ```{r tab-wshd-125261, eval = T}
 fpr::fpr_table_wshd_sum(site_id = my_site) %>% 
@@ -606,12 +612,7 @@ fpr::fpr_table_wshd_sum(site_id = my_site) %>%
 
 <br>
 
-A summary of habitat modelling outputs is presented in Table
-\@ref(tab:tab-culvert-bcfp-125261) and a map of the watershed is
-provided in map attachment
-[`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](fpr::fpr_my_mapsheet()).
 
-<br>
 
 ```{r tab-culvert-bcfp-125261, eval = T}
 fpr::fpr_table_bcfp(scroll = gitbook_on) 
