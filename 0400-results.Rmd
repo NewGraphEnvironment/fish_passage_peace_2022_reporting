@@ -174,7 +174,7 @@ fpr::fpr_table_wshd_sum(site_id = my_site) %>%
 A summary of habitat modelling outputs is presented in Table
 \@ref(tab:tab-culvert-bcfp-6745) and a map of the watershed is
 provided in map attachment
-[`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](fpr::fpr_my_mapsheet(wshd = "parsnip", archive_date = "2022-05-27")).
+[`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](`fpr::fpr_my_mapsheet(wshd = "parsnip", archive_date = "2022-05-27")`).
 
 <br>
 
@@ -392,7 +392,7 @@ fpr::fpr_table_wshd_sum(site_id = my_site) %>%
 A summary of habitat modelling outputs is presented in Table
 \@ref(tab:tab-culvert-bcfp-125194) and a map of the watershed is
 provided in map attachment
-[`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](fpr::fpr_my_mapsheet(wshd = "parsnip", archive_date = "2022-05-27")).
+[`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](`fpr::fpr_my_mapsheet(wshd = "parsnip", archive_date = "2022-05-27")`).
 
 <br>
 
@@ -600,7 +600,7 @@ a maximum of `r fpr::fpr_my_wshd(col = 'elev_max')`m to
 
 <br>
 
-A summary of habitat modelling outputs is presented in Table \@ref(tab:tab-culvert-bcfp-125261) and a map of the watershed is provided in map attachment [`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](fpr::fpr_my_mapsheet(wshd = "parsnip", archive_date = "2022-05-27")).
+A summary of habitat modelling outputs is presented in Table \@ref(tab:tab-culvert-bcfp-125261) and a map of the watershed is provided in map attachment [`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](`fpr::fpr_my_mapsheet(wshd = "parsnip", archive_date = "2022-05-27")`).
 
 ```{r tab-wshd-125261, eval = T}
 fpr::fpr_table_wshd_sum(site_id = my_site) %>% 
