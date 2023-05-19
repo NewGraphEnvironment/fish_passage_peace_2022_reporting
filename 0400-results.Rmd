@@ -92,31 +92,31 @@ addAwesomeMarkers(
     clusterOptions = markerClusterOptions(),
     group = "Phase 2") %>%
 
-  # addCircleMarkers(
-  #   data=tab_hab_map,
-  #   label = tab_hab_map$pscis_crossing_id,
-  #   labelOptions = labelOptions(noHide = T, textOnly = TRUE),
-  #   popup = leafpop::popupTable(x = select((tab_hab_map %>% st_drop_geometry()),
-  #                                          Site = pscis_crossing_id,
-  #                                          Priority = priority,
-  #                                          Stream = stream_name,
-  #                                          Road = road_name,
-  #                                          `Habitat (m)`= upstream_habitat_length_m,
-  #                                          Comments = comments,
-  #                                          `Culvert data` = data_link,
-  #                                          `Culvert photos` = photo_link,
-  #                                          `Model data` = model_link),
-  #                               feature.id = F,
-  #                               row.numbers = F),
-  #   radius = 9,
-  #   fillColor = ~pal(priority),
-  #   color= "#ffffff",
-  #   stroke = TRUE,
-  #   fillOpacity = 1.0,
-  #   weight = 2,
-  #   opacity = 1.0,
-  #   group = "Phase 2"
-  #   ) %>%
+  addCircleMarkers(
+    data=tab_hab_map,
+    label = tab_hab_map$pscis_crossing_id,
+    labelOptions = labelOptions(noHide = T, textOnly = TRUE),
+    popup = leafpop::popupTable(x = select((tab_hab_map %>% st_drop_geometry()),
+                                           Site = pscis_crossing_id,
+                                           Priority = priority,
+                                           Stream = stream_name,
+                                           Road = road_name,
+                                           `Habitat (m)`= upstream_habitat_length_m,
+                                           Comments = comments,
+                                           `Culvert data` = data_link,
+                                           `Culvert photos` = photo_link,
+                                           `Model data` = model_link),
+                                feature.id = F,
+                                row.numbers = F),
+    radius = 9,
+    fillColor = ~pal(priority),
+    color= "#ffffff",
+    stroke = TRUE,
+    fillOpacity = 1.0,
+    weight = 2,
+    opacity = 1.0,
+    group = "Phase 2"
+    ) %>%
 
   addLayersControl(
     baseGroups = c(
@@ -591,7 +591,7 @@ At crossing `r as.character(my_site)`, `r fpr::fpr_my_pscis_info()` is a `r fpr:
 
 <br>
 
-PSCIS crossing 198321 was modelled as located on Fern Creek approximately 700m upstream of crossing `r as.character(my_site)`. However, upon visiting this location, this site was located at the end of an ATV trail and there was no structure or ford location.  Additionally, the ATV trail did not continue beyond this point as the historic road was completely overgrown. There area a number of crossings modelled on the mainstem of Fern Creek upstream of the FSR however review of aerial imagery and deactivation of the road closer to that FSR provide significant weight of evidence that noe are likely to exist. 
+PSCIS crossing 198321 was modelled as located on Fern Creek approximately 700m upstream of crossing `r as.character(my_site)`. However, upon visiting this location, this site was located at the end of an ATV trail and there was no structure or ford location.  Additionally, the ATV trail did not continue beyond this point as the historic road was completely overgrown. There are a number of crossings modelled on the mainstem of Fern Creek upstream of the FSR, however review of aerial imagery and deactivation of the road closer to that FSR provide significant weight of evidence that none are likely to exist. 
 
 <br>
 
