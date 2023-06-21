@@ -1169,7 +1169,7 @@ tab_cost_est_prep5 <- left_join(
 ##add the priority info
 tab_cost_est_phase2 <- tab_cost_est_prep5 %>%
   filter(source %like% 'phase2') %>%
-  filter(barrier_result != 'Unknown') %>%
+  filter(barrier_result != 'Unknown' & barrier_result != 'Passable') %>%
   select(pscis_crossing_id,
          stream_name,
          road_name,
