@@ -179,7 +179,7 @@ provided in map attachment
 <br>
 
 ```{r tab-culvert-bcfp-6745, eval = T}
-fpr::fpr_table_bcfp(scroll = gitbook_on) 
+fpr::fpr_table_bcfp(scroll = F) 
 ```
 
 <br>
@@ -397,7 +397,7 @@ provided in map attachment
 <br>
 
 ```{r tab-culvert-bcfp-125194, eval = T}
-fpr::fpr_table_bcfp(scroll = gitbook_on) 
+fpr::fpr_table_bcfp(scroll = F) 
 ```
 
 <br>
@@ -616,7 +616,7 @@ fpr::fpr_table_wshd_sum(site_id = my_site) %>%
 
 
 ```{r tab-culvert-bcfp-125261, eval = T}
-fpr::fpr_table_bcfp(scroll = gitbook_on) 
+fpr::fpr_table_bcfp(scroll = F) 
 ```
 
 <br>
@@ -865,7 +865,7 @@ fpr::fpr_table_wshd_sum(site_id = my_site) %>%
 <br>
  
 ```{r tab-culvert-bcfp-125000, eval = T}
-fpr::fpr_table_bcfp(scroll = gitbook_on) 
+fpr::fpr_table_bcfp(scroll = F) 
 ```
 
 `r if(identical(gitbook_on, FALSE)){knitr::asis_output("\\pagebreak")}`
