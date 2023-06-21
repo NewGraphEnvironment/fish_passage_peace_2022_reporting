@@ -180,14 +180,8 @@ pscis_split <- pscis_phase1_for_tables  %>% #pscis_phase1_reassessments
   # sf::st_drop_geometry() %>%
   # mutate_if(is.numeric, as.character) %>% ##added this to try to get the outlet drop to not disapear
   # tibble::rownames_to_column() %>%
-  # HACK
-  dplyr::group_split(site_id) %>%
-  #UNHACK below
-  # dplyr::group_split(pscis_crossing_id) %>%
-  # HACK
-  purrr::set_names(pscis_phase1_for_tables$site_id)
-# UNHACK below
-# purrr::set_names(pscis_phase1_for_tables$pscis_crossing_id)
+  dplyr::group_split(pscis_crossing_id) %>%
+  purrr::set_names(pscis_phase1_for_tables$pscis_crossing_id)
 
 ##make result summary tables for each of the crossings
 tab_summary <- pscis_split %>%
@@ -1207,41 +1201,41 @@ rm(tab_cost_est_prep, tab_cost_est_prep2,
 
 
 # map tables --------------------------------------------------------------
-# hab_loc_prep <- left_join(
-#   hab_loc %>%
-#     tidyr::separate(alias_local_name, into = c('site', 'location', 'ef'), remove = F) %>%
-#     filter(!alias_local_name %ilike% 'ef' &
-#              location == 'us') %>%
-#     mutate(site = as.integer(site)),
-#   select(filter(habitat_confirmations_priorities, location == 'us'),
-#          site, priority, comments),
-#   by = 'site'
-# )
+hab_loc_prep <- left_join(
+  hab_loc %>%
+    tidyr::separate(alias_local_name, into = c('site', 'location', 'ef'), remove = F) %>%
+    filter(!alias_local_name %ilike% 'ef' &
+             location == 'us') %>%
+    mutate(site = as.integer(site)),
+  select(filter(habitat_confirmations_priorities, location == 'us'),
+         site, priority, comments),
+  by = 'site'
+)
 #
 # #need to populate the coordinates before this will work
 # ###please note that the photos are only in those files because they are referenced in other parts
 # #of the document
-# tab_hab_map <- left_join(
-#   tab_cost_est_phase2 %>% filter(source %like% 'phase2'),
-#   hab_loc_prep %>% select(site, priority, utm_easting, utm_northing, comments),
-#   by = c('pscis_crossing_id' = 'site')
-# )  %>%
-#   sf::st_as_sf(coords = c("utm_easting", "utm_northing"),
-#                crs = 26910, remove = F) %>%
-#   sf::st_transform(crs = 4326) %>%
-#   ##changed this to docs .html from fig .png
-#   # mutate(data_link = paste0('<a href =',
-#   #                           'https://github.com/NewGraphEnvironment/fish_passage_bulkley_2020_reporting/tree/master/docs/sum/', pscis_crossing_id,
-#   #                           '.html', '>', 'data link', '</a>')) %>%
-#   mutate(data_link = paste0('<a href =', 'sum/cv/', pscis_crossing_id, '.html ', 'target="_blank">Culvert Data</a>')) %>%
-#   # mutate(photo_link = paste0('<a href =', 'data/photos/', pscis_crossing_id, '/crossing_all.JPG ',
-#   #                            'target="_blank">Culvert Photos</a>')) %>%
-#   mutate(model_link = paste0('<a href =', 'sum/bcfp/', pscis_crossing_id, '.html ', 'target="_blank">Model Data</a>')) %>%
-#   # mutate(photo_link = paste0('<a href =',
-#   #                            'https://github.com/NewGraphEnvironment/fish_passage_skeena_2021_reporting/tree/master/data/photos/', pscis_crossing_id,
-#   #                            '/crossing_all.JPG', '>', 'photo link', '</a>')) %>%
-#   mutate(photo_link = paste0('<a href =', 'https://raw.githubusercontent.com/NewGraphEnvironment/fish_passage_peace_2022_reporting/master/data/photos/', pscis_crossing_id, '/crossing_all.JPG ',
-#                              'target="_blank">Culvert Photos</a>'))
+tab_hab_map <- left_join(
+  tab_cost_est_phase2 %>% filter(source %like% 'phase2'),
+  hab_loc_prep %>% select(site, priority, utm_easting, utm_northing, comments),
+  by = c('pscis_crossing_id' = 'site')
+)  %>%
+  sf::st_as_sf(coords = c("utm_easting", "utm_northing"),
+               crs = 26910, remove = F) %>%
+  sf::st_transform(crs = 4326) %>%
+  ##changed this to docs .html from fig .png
+  # mutate(data_link = paste0('<a href =',
+  #                           'https://github.com/NewGraphEnvironment/fish_passage_bulkley_2020_reporting/tree/master/docs/sum/', pscis_crossing_id,
+  #                           '.html', '>', 'data link', '</a>')) %>%
+  mutate(data_link = paste0('<a href =', 'sum/cv/', pscis_crossing_id, '.html ', 'target="_blank">Culvert Data</a>')) %>%
+  # mutate(photo_link = paste0('<a href =', 'data/photos/', pscis_crossing_id, '/crossing_all.JPG ',
+  #                            'target="_blank">Culvert Photos</a>')) %>%
+  mutate(model_link = paste0('<a href =', 'sum/bcfp/', pscis_crossing_id, '.html ', 'target="_blank">Model Data</a>')) %>%
+  # mutate(photo_link = paste0('<a href =',
+  #                            'https://github.com/NewGraphEnvironment/fish_passage_skeena_2021_reporting/tree/master/data/photos/', pscis_crossing_id,
+  #                            '/crossing_all.JPG', '>', 'photo link', '</a>')) %>%
+  mutate(photo_link = paste0('<a href =', 'https://raw.githubusercontent.com/NewGraphEnvironment/fish_passage_peace_2022_reporting/master/data/photos/', pscis_crossing_id, '/crossing_all.JPG ',
+                             'target="_blank">Culvert Photos</a>'))
 
 
 #--------------need to review if this is necessary
