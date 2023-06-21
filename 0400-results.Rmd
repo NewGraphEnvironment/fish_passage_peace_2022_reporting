@@ -92,31 +92,31 @@ addAwesomeMarkers(
     clusterOptions = markerClusterOptions(),
     group = "Phase 2") %>%
 
-  # addCircleMarkers(
-  #   data=tab_hab_map,
-  #   label = tab_hab_map$pscis_crossing_id,
-  #   labelOptions = labelOptions(noHide = T, textOnly = TRUE),
-  #   popup = leafpop::popupTable(x = select((tab_hab_map %>% st_drop_geometry()),
-  #                                          Site = pscis_crossing_id,
-  #                                          Priority = priority,
-  #                                          Stream = stream_name,
-  #                                          Road = road_name,
-  #                                          `Habitat (m)`= upstream_habitat_length_m,
-  #                                          Comments = comments,
-  #                                          `Culvert data` = data_link,
-  #                                          `Culvert photos` = photo_link,
-  #                                          `Model data` = model_link),
-  #                               feature.id = F,
-  #                               row.numbers = F),
-  #   radius = 9,
-  #   fillColor = ~pal(priority),
-  #   color= "#ffffff",
-  #   stroke = TRUE,
-  #   fillOpacity = 1.0,
-  #   weight = 2,
-  #   opacity = 1.0,
-  #   group = "Phase 2"
-  #   ) %>%
+  addCircleMarkers(
+    data=tab_hab_map,
+    label = tab_hab_map$pscis_crossing_id,
+    labelOptions = labelOptions(noHide = T, textOnly = TRUE),
+    popup = leafpop::popupTable(x = select((tab_hab_map %>% st_drop_geometry()),
+                                           Site = pscis_crossing_id,
+                                           Priority = priority,
+                                           Stream = stream_name,
+                                           Road = road_name,
+                                           `Habitat (m)`= upstream_habitat_length_m,
+                                           Comments = comments,
+                                           `Culvert data` = data_link,
+                                           `Culvert photos` = photo_link,
+                                           `Model data` = model_link),
+                                feature.id = F,
+                                row.numbers = F),
+    radius = 9,
+    fillColor = ~pal(priority),
+    color= "#ffffff",
+    stroke = TRUE,
+    fillOpacity = 1.0,
+    weight = 2,
+    opacity = 1.0,
+    group = "Phase 2"
+    ) %>%
 
   addLayersControl(
     baseGroups = c(
@@ -139,7 +139,7 @@ map %>%
 
 ## Potential Remediations 
 
-### Tributary to Parsnip River - PSCIS crossing 6745
+### Tributary to Anzac River - PSCIS crossing 6745
 
 ```{r  load-data-6745}
 my_site <- 6745
@@ -151,7 +151,7 @@ PSCIS crossing `r as.character(my_site)` is located on a
 `r fpr_my_pscis_info(col_pull = road_name)`.
 This site is located approximately
 `r round(fpr::fpr_my_bcfishpass(col_pull = downstream_route_measure)*0.001, 1)`km
-upstream from the confluence with the Parsnip River. At crossing `r as.character(my_site)`, `r fpr::fpr_my_pscis_info()` is a
+upstream from the confluence with the Anzac River. At crossing `r as.character(my_site)`, `r fpr::fpr_my_pscis_info()` is a
 `r fpr::fpr_my_bcfishpass() %>% english::ordinal()` order stream with a
 watershed area upstream of the crossing of approximately
 `r fpr::fpr_my_wshd()`km^2^. The elevation of the watershed ranges from
@@ -179,7 +179,7 @@ provided in map attachment
 <br>
 
 ```{r tab-culvert-bcfp-6745, eval = T}
-fpr::fpr_table_bcfp(scroll = gitbook_on) 
+fpr::fpr_table_bcfp(scroll = F) 
 ```
 
 <br>
@@ -397,7 +397,7 @@ provided in map attachment
 <br>
 
 ```{r tab-culvert-bcfp-125194, eval = T}
-fpr::fpr_table_bcfp(scroll = gitbook_on) 
+fpr::fpr_table_bcfp(scroll = F) 
 ```
 
 <br>
@@ -587,7 +587,7 @@ PSCIS crossing `r as.character(my_site)` is located on `r fpr::fpr_my_pscis_info
 
 <br>
 
-At crossing `r as.character(my_site)`, `r fpr::fpr_my_pscis_info()` is a `r fpr::fpr_my_bcfishpass() %>% english::ordinal()` order stream with a watershed area upstream of the crossing of approximately `r fpr::fpr_my_wshd()`km^2^. The elevation of the watershed ranges from a maximum of `r fpr::fpr_my_wshd(col = 'elev_max')`m to `r fpr::fpr_my_wshd(col = 'elev_site')`m near the crossing (Table \@ref(tab:tab-wshd-125261)).  Fish species confirmed upstream of the FSR include burbot, rainbow trout, bull trout, sucker, reside shiner and chub . A total of `r fpr::fpr_my_bcfishpass(col_pull = total_lakereservoir_ha)`ha of lake and `r fpr::fpr_my_bcfishpass(col_pull = total_wetland_ha)`ha of wetland are modelled upstream. This includes Fern Lakes, a collection of three lakes that have a combined area of approximately 138ha. The outlet of the first lake in the chain is 3.3km upstream of the FSR.
+At crossing `r as.character(my_site)`, `r fpr::fpr_my_pscis_info()` is a `r fpr::fpr_my_bcfishpass() %>% english::ordinal()` order stream with a watershed area upstream of the crossing of approximately `r fpr::fpr_my_wshd()`km^2^. The elevation of the watershed ranges from a maximum of `r fpr::fpr_my_wshd(col = 'elev_max')`m to `r fpr::fpr_my_wshd(col = 'elev_site')`m near the crossing (Table \@ref(tab:tab-wshd-125261)).  Fish species confirmed upstream of the FSR include burbot, rainbow trout, bull trout, sucker, reside shiner, dace and chub. A total of `r fpr::fpr_my_bcfishpass(col_pull = total_lakereservoir_ha)`ha of lake and `r fpr::fpr_my_bcfishpass(col_pull = total_wetland_ha)`ha of wetland are modelled upstream. This includes Fern Lakes, a collection of three lakes that have a combined area of approximately 138ha. The outlet of the first lake in the chain is 3.3km upstream of the FSR.
 
 <br>
 
@@ -616,7 +616,7 @@ fpr::fpr_table_wshd_sum(site_id = my_site) %>%
 
 
 ```{r tab-culvert-bcfp-125261, eval = T}
-fpr::fpr_table_bcfp(scroll = gitbook_on) 
+fpr::fpr_table_bcfp(scroll = F) 
 ```
 
 <br>
