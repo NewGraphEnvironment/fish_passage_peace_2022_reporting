@@ -155,7 +155,7 @@ xref_pscis_my_crossing_modelled <- dat %>%
 
 ##this is how we update our local db.
 ##my time format format(Sys.time(), "%Y%m%d-%H%M%S")
-mydb <- DBI::dbConnect(RSQLite::SQLite(), "data/bcfishpass.sqlite")
+# mydb <- DBI::dbConnect(RSQLite::SQLite(), "data/bcfishpass.sqlite")
 conn <- rws_connect("data/bcfishpass.sqlite")
 rws_list_tables(conn)
 ##archive the last version for now
