@@ -12,7 +12,7 @@ bookdown::gitbook:
       theme: night
       family: sans
 pagedown::html_paged:
-  front_cover: "fig/new graph text only.png"
+  front_cover: "fig/logo_newgraph/BLACK/PNG/nge-full_black.png"
   css: ["style-pagedown.css", "default-page-custom.css", "default"] #
   toc: true
   toc_depth: 3
