@@ -39,14 +39,14 @@ filename_html <- 'Peace2022'
 
 {
 
-  file.rename('0600-appendix.Rmd', 'hold/0600-appendix.Rmd')
+  # file.rename('0600-appendix.Rmd', 'hold/0600-appendix.Rmd')
 
   ##   then make our printable pdf
   rmarkdown::render_site(output_format = 'pagedown::html_paged',
                          encoding = 'UTF-8')
 
   #move the phase 1 appendix back to main directory
-  file.rename('hold/0600-appendix.Rmd', '0600-appendix.Rmd')
+  # file.rename('hold/0600-appendix.Rmd', '0600-appendix.Rmd')
 
   # print to pdf
   pagedown::chrome_print(
