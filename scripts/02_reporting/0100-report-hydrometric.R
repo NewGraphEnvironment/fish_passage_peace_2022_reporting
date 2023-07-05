@@ -177,13 +177,13 @@ flow <- flow_raw %>%
 plot <- ggplot()+
   geom_ribbon(data = flow, aes(x = Date, ymax = max,
                                ymin = min),
-              alpha = 0.3, linetype = 1)+
+              alpha = 1, linetype = 1)+
 
   scale_x_date(date_labels = "%b", date_breaks = "2 month") +
   labs(x = NULL, y = expression(paste("Mean Daily Discharge (", m^3, "/s)", sep="")))+
-  ggdark::dark_theme_bw() +
+  theme_bw() +
   geom_line(data = flow, aes(x = Date, y = daily_ave),
-            linetype = 1, size = 0.7) +
+            linetype = 1, size = 0.7, color = "black") +
   scale_colour_manual(values = c("grey10", "red"))
 plot
 
@@ -204,7 +204,10 @@ hydrograph4_stats_caption <- caption_info$title_stats
 
 
 ##fasstr::plot_data_screening2 is a custom version of plot_data_screening
-hydrograph_stats_print <- fasstr::plot_data_screening(station_number = station, start_year = start_year)[["Data_Screening"]] + ggdark::dark_theme_bw() ##first version is not dark
+hydrograph_stats_print <- fasstr::plot_data_screening(station_number = station,
+                                                      start_year = start_year,
+                                                      plot_availability = F,
+                                                      include_stats = c("Mean", "Standard Deviation", "Minimum", "Maximum"))[["Data_Screening"]] + theme_bw()
 hydrograph_stats_print
 
 ggsave(plot = hydrograph_stats_print, file=paste0("fig/hydrology_stats_", station, ".png"),

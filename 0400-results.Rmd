@@ -161,6 +161,12 @@ a maximum of `r fpr::fpr_my_wshd(col = 'elev_max')`m to
 
 <br>
 
+The Anzac River is one of the main tributaries to the Parsnip River. It is a 78km long tributary and drains a 939km^2^ watershed. The average gradient ranges from 1-2% in the upper reaches to a gradient less than 0.5% in the unconfined areas in the valley flats. The Anzac River provides critical spawning and rearing habitat for arctic grayling fish. These fish were categorised as "red listed" by the British Columbia Conservation Data Centre since the mid 1990s, but where revised in 2011 to be "yellow listed" [@cowie_blackman2012OverviewSummary].       
+
+The lower reaches of the Anzac River provide very limited overwintering habitat for juvenile and adult grayling. A significant amount of studies on arctic grayling have been carried out on the Table and Anzac River sub-basin, along with areas of the Parsnip close to these tributaries. Study methods used include radio telemetry, fish habitat assessments, electrofishing surveys, snorkeling surveys, and visual observations. There are important factors that limit grayling production among watersheds, although these factors have not yet been identified with certainty in the scientific literature [@stamford_etal2017FWCPArctic]. 
+
+<br>
+
 ```{r tab-wshd-6745, eval = T}
 fpr::fpr_table_wshd_sum(site_id = my_site) %>% 
   fpr::fpr_kable(caption_text = paste0('Summary of derived upstream watershed statistics for PSCIS crossing ', my_site, '.'),
@@ -187,9 +193,8 @@ fpr::fpr_table_bcfp(scroll = F)
 #### Stream Characteristics at Crossing {-}  
 
 At the time of the survey, PSCIS crossing `r as.character(my_site)` was
-un-embedded, non-backwatered and ranked as
-`r fpr::fpr_my_pscis_info(col_pull = barrier_result) %>% stringr::str_to_lower()`
-to upstream fish passage according to the provincial protocol
+un-embedded, non-backwatered and ranked as a
+`r fpr::fpr_my_pscis_info(col_pull = barrier_result) %>% stringr::str_to_lower()` barrier to upstream fish passage according to the provincial protocol
 [@moe2011] (Table \@ref(tab:tab-culvert-6745)). Water
 temperature was
 `r fpr::fpr_my_habitat_info(col_pull = 'temperature_c')`$^\circ$C, pH
@@ -238,7 +243,7 @@ areas surveyed rated as
 value for rearing and spawning. Crossing
 `r as.character(my_site)` was ranked as a
 `r fpr::fpr_my_priority_info(col_pull = priority)` priority for
-proceeding to design for replacement. The culvert is considered passable and not a fish passage issue at this time. There were abundant gravels present upstream of the crossing, but no fish were spotted. Due to the lack of historic fisheries information upstream, fish sampling is recommended to determine if fish are utilising this tributary as a spawning and rearing location. 
+proceeding to design for replacement. The culvert is considered a potential barrier and could be considered a fish passage issue. Further information is required to make an informed decision. There were abundant gravels present upstream of the crossing, but no fish were spotted. Due to the lack of historic fisheries information upstream, fish sampling is recommended to determine if fish are utilising this tributary as a spawning and rearing location.  
 
 `r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
 
@@ -447,6 +452,8 @@ migration corridor containing habitat suitable for spawning with moderate rearin
 <br>
 
 #### Conclusion {-}  
+
+Replacement of PSCIS crossing `r as.character(my_site)` with a bridge (`r fpr::fpr_my_pscis_info(col_pull = recommended_diameter_or_span_meters)`m span) is recommended. The cost of the work was estimated at \$`r format(fpr::fpr_my_cost_estimate(), big.mark = ',')` for a cost benefit of `r fpr::fpr_my_cost_estimate(col_pull = cost_net)` linear m/\$1000 and `r fpr::fpr_my_cost_estimate(col_pull = cost_area_net)` m^2^/\$1000.
 
 Crossing
 `r as.character(my_site)` was ranked as a
@@ -667,6 +674,8 @@ migration corridor containing habitat suitable for spawning with moderate rearin
 
 #### Conclusion {-}  
 
+Replacement of PSCIS crossing `r as.character(my_site)` with a bridge (`r fpr::fpr_my_pscis_info(col_pull = recommended_diameter_or_span_meters)`m span) is recommended. The cost of the work was estimated at \$`r format(fpr::fpr_my_cost_estimate(), big.mark = ',')` for a cost benefit of `r fpr::fpr_my_cost_estimate(col_pull = cost_net)` linear m/\$1000 and `r fpr::fpr_my_cost_estimate(col_pull = cost_area_net)` m^2^/\$1000.
+
 Modelling indicates that there is 
 `r round(fpr::fpr_my_priority_info(col_pull= upstream_habitat_length_m)/1000, 1)`km of
 habitat upstream of crossing `r as.character(my_site)` suitable for bull trout rearing with
@@ -847,7 +856,7 @@ PSCIS crossing `r as.character(my_site)` was ranked as a high priority for remed
 
 <br>
 
-This site was reassessed in 2021, with drone survey and fish sampling conducted. At the time of survey in 2021, PSCIS crossing `r as.character(my_site)` was
+This site was reassessed in 2022, with drone survey and fish sampling conducted. At the time of survey in 2022, PSCIS crossing `r as.character(my_site)` was
 un-embedded, non-backwatered and ranked as a
 `r fpr::fpr_my_pscis_info(dat = pscis_reassessments, col_pull = barrier_result) %>% stringr::str_to_lower()`
 to upstream fish passage. This culvert is very undersized which is evidenced by the large outlet drop of 0.6m and outlet pool depth of 2m.
@@ -865,7 +874,7 @@ fpr::fpr_table_wshd_sum(site_id = my_site) %>%
 <br>
  
 ```{r tab-culvert-bcfp-125000, eval = T}
-fpr::fpr_table_bcfp(scroll = gitbook_on) 
+fpr::fpr_table_bcfp(scroll = F) 
 ```
 
 `r if(identical(gitbook_on, FALSE)){knitr::asis_output("\\pagebreak")}`
