@@ -1238,7 +1238,7 @@ RB
 <span id="cb11-4"><a href="background.html#cb11-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Gradient, <span class="at">y =</span> Percent)) <span class="sc">+</span></span>
 <span id="cb11-5"><a href="background.html#cb11-5" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)<span class="sc">+</span></span>
 <span id="cb11-6"><a href="background.html#cb11-6" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>species_code, <span class="at">ncol =</span> <span class="dv">2</span>)<span class="sc">+</span></span>
-<span id="cb11-7"><a href="background.html#cb11-7" tabindex="-1"></a>  ggdark<span class="sc">::</span><span class="fu">dark_theme_bw</span>(<span class="at">base_size =</span> <span class="dv">11</span>)<span class="sc">+</span></span>
+<span id="cb11-7"><a href="background.html#cb11-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">11</span>)<span class="sc">+</span></span>
 <span id="cb11-8"><a href="background.html#cb11-8" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Average Stream Gradient&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Occurrences (%)&quot;</span>)</span>
 <span id="cb11-9"><a href="background.html#cb11-9" tabindex="-1"></a>plot_grad</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:fish-plot-grad"></span>
@@ -1679,7 +1679,7 @@ RB
 <span id="cb13-4"><a href="background.html#cb13-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Width, <span class="at">y =</span> Percent)) <span class="sc">+</span></span>
 <span id="cb13-5"><a href="background.html#cb13-5" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)<span class="sc">+</span></span>
 <span id="cb13-6"><a href="background.html#cb13-6" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>species_code, <span class="at">ncol =</span> <span class="dv">2</span>)<span class="sc">+</span></span>
-<span id="cb13-7"><a href="background.html#cb13-7" tabindex="-1"></a>  ggdark<span class="sc">::</span><span class="fu">dark_theme_bw</span>(<span class="at">base_size =</span> <span class="dv">11</span>)<span class="sc">+</span></span>
+<span id="cb13-7"><a href="background.html#cb13-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">11</span>)<span class="sc">+</span></span>
 <span id="cb13-8"><a href="background.html#cb13-8" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Channel Width&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Occurrences (%)&quot;</span>)</span>
 <span id="cb13-9"><a href="background.html#cb13-9" tabindex="-1"></a>plot_width</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:fish-plot-width"></span>
@@ -2067,7 +2067,7 @@ RB
 <span id="cb15-3"><a href="background.html#cb15-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Watershed, <span class="at">y =</span> Percent)) <span class="sc">+</span></span>
 <span id="cb15-4"><a href="background.html#cb15-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)<span class="sc">+</span></span>
 <span id="cb15-5"><a href="background.html#cb15-5" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>species_code, <span class="at">ncol =</span> <span class="dv">2</span>)<span class="sc">+</span></span>
-<span id="cb15-6"><a href="background.html#cb15-6" tabindex="-1"></a>  ggdark<span class="sc">::</span><span class="fu">dark_theme_bw</span>(<span class="at">base_size =</span> <span class="dv">11</span>)<span class="sc">+</span></span>
+<span id="cb15-6"><a href="background.html#cb15-6" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">11</span>)<span class="sc">+</span></span>
 <span id="cb15-7"><a href="background.html#cb15-7" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Watershed Area&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Occurrences (%)&quot;</span>)<span class="sc">+</span></span>
 <span id="cb15-8"><a href="background.html#cb15-8" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x=</span><span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
 <span id="cb15-9"><a href="background.html#cb15-9" tabindex="-1"></a>plot_wshed</span></code></pre></div>
