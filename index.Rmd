@@ -68,6 +68,13 @@ source('scripts/tables.R')
 ```
 
 
+```{css, eval= identical(gitbook_on, FALSE), echo=FALSE}
+code {
+  font-style: italic;
+  font-family: Helvetica;
+}
+```
+
 ```{r include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
