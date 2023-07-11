@@ -29,15 +29,24 @@ sf::read_sf("./data/habitat_confirmation_tracks.gpx", layer = "tracks") %>%
   sf::st_write(paste0("./data/fishpass_mapping/", 'fishpass_mapping', ".gpkg"), 'hab_tracks', append = TRUE)
 
 ##study area watersheds
+# conn <- DBI::dbConnect(
+#   RPostgres::Postgres(),
+#   dbname = Sys.getenv('PG_DB_DO'),
+#   host = Sys.getenv('PG_HOST_DO'),
+#   port = Sys.getenv('PG_PORT'),
+#   user = Sys.getenv('PG_USER_DO'),
+#   password = Sys.getenv('PG_PASS_DO')
+# )
+
+# use remote because up to date
 conn <- DBI::dbConnect(
   RPostgres::Postgres(),
-  dbname = Sys.getenv('PG_DB_DO'),
-  host = Sys.getenv('PG_HOST_DO'),
-  port = Sys.getenv('PG_PORT'),
-  user = Sys.getenv('PG_USER_DO'),
-  password = Sys.getenv('PG_PASS_DO')
+  dbname = Sys.getenv('PG_DB_BCBARRIERS'),
+  host = Sys.getenv('PG_HOST_BCBARRIERS'),
+  port = Sys.getenv('PG_PORT_DEV'),
+  user = Sys.getenv('PG_USER_BCBARRIERS'),
+  password = Sys.getenv('PG_PASS_BCBARRIERS')
 )
-
 # dbGetQuery(conn,
 #            "SELECT column_name,data_type
 #            FROM information_schema.columns
@@ -59,26 +68,14 @@ dbDisconnect(conn = conn)
 
 ####------------add the watersheds-------------------------
 
-##having the watersheds derived is nice so lets try
-##make a function to retrieve the watershed info
-get_watershed <- function(dat){
-  mapply(fwapgr::fwa_watershed_at_measure,
-         blue_line_key = dat$blue_line_key,
-         downstream_route_measure = dat$downstream_route_measure,
-         SIMPLIFY = F) %>%
-    purrr::set_names(nm = dat$stream_crossing_id) %>%
-    discard(function(x) nrow(x) == 0) %>% ##remove zero row tibbles with https://stackoverflow.com/questions/49696392/remove-list-elements-that-are-zero-row-tibbles
-    data.table::rbindlist(idcol="stream_crossing_id") %>%
-    distinct(stream_crossing_id, .keep_all = T) %>% ##in case there are duplicates we should get rid of
-    st_as_sf()
-}
+
 
 ##we needed to remove crossings that are first order - this used to run but doesn't want to anymore
 ##i wonder if it is because the 1st order watershed is the first one on the list so the api kicks us off...
 bcfishpass_phase2_clean <- bcfishpass_phase2 %>%
   filter(stream_order != 1)
 
-wshds <- get_watershed(bcfishpass_phase2_clean)
+wshds <- fpr_sp_watershed(bcfishpass_phase2_clean)
 
 # ##add to the geopackage
 wshds %>%
