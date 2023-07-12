@@ -188,7 +188,216 @@ map %>%
 
 ```
 
+## Identify and Communicate Connectivity Issues {-}
+
+
+### Habitat Modelling {-}
+
 <br>
+
+### Field Planning  {-}
+ Planning for potential 2022 field survey sites is presented `r if(gitbook_on){knitr::asis_output("interactively in Figure \\@ref(fig:widget-planning-caption).")}else knitr::asis_output("in Table \\@ref(tab:tab-planning-pdf). Please not that an interactive fieldwork planning widget prototype has been developed for the project and is located within the online interactive version of the report located [here](https://newgraphenvironment.github.io/fish_passage_parsnip_2021_reporting/).")`  Georeferenced field maps containing updated modelling outputs are presented in `r if(gitbook_on){knitr::asis_output("[here](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/) and available for bulk download as [Attachment 1](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/parsnip_2022-05-27.zip).")} else knitr::asis_output("[Attachment 1](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/parsnip_2022-05-27.zip).")`
+
+```{r field-planning-prep}
+# join bcfishpass to some pscis columns for the screening table
+# get our dataframe to link to a map
+# xings filtered by >1km of potential rearing habitat
+xf <- left_join(
+  bcfishpass %>% 
+    st_as_sf(coords = c('utm_easting', 'utm_northing'), crs = 26910, remove = F) %>% 
+    filter(pscis_status != 'HABITAT CONFIRMATION' &
+             barrier_status != 'PASSABLE' &
+             barrier_status != 'UNKNOWN') %>% 
+    # is.na(pscis_status)) %>% 
+    filter(bt_rearing_km > 1 &
+             crossing_subtype_code != 'BRIDGE') %>%
+    rename(bt_rearing_km_raw = bt_rearing_km) %>% 
+    mutate(bt_rearing_km = case_when(
+      bt_rearing_km_raw >= 1 & bt_rearing_km_raw < 2 ~ '1-2km',
+      bt_rearing_km_raw >= 2 & bt_rearing_km_raw <= 5 ~ '2-5km',
+      bt_rearing_km_raw >= 5 & bt_rearing_km_raw <= 10 ~ '5-10km',
+      T ~ '>10km') 
+    ) %>% 
+    mutate(bt_rearing_km = factor(bt_rearing_km, levels = c('1-2km', '2-5km', '5-10km', '>10km'))) %>% 
+    select(id = aggregated_crossings_id, 
+           pscis_status, 
+           barrier_status, 
+           contains('bt_'), 
+           utm_easting,
+           utm_northing,
+           gradient_gis = gradient,
+           mapsheet = dbm_mof_50k_grid) %>% 
+    # need to run rowise for our fpr function to hit each row
+    rowwise() %>%
+    mutate(map_link = fpr::fpr_my_mapsheet(wshd = 'parsnip', archive_date = '2022-05-27', site = id),
+           map_link = paste0("<a href ='", map_link,"'target='_blank'>Field Map","</a>")) %>%
+    arrange(id) %>% 
+    st_transform(crs = 4326),
+  
+  pscis %>% 
+    mutate(stream_crossing_id = as.character(stream_crossing_id)) %>% 
+    select(
+      stream_crossing_id, 
+      stream_name, 
+      road_name, 
+      outlet_drop,
+      channel_width = downstream_channel_width,
+      habitat_value_code,
+      image_view_url,
+      assessment_comment) %>% 
+    mutate(image_view_url = paste0("<a href ='", image_view_url,"'target='_blank'>Culvert Photos","</a>")) %>% 
+    st_drop_geometry(),
+    
+  by = c('id' = 'stream_crossing_id')) %>% 
+  select(id,
+         stream_name,
+         habitat_value = habitat_value_code,
+         mapsheet,
+         map_link,
+         image_view_url,
+         pscis_status:bt_slopeclass15_km, 
+         bt_spawning_km,
+         bt_rearing_km_raw:gradient_gis,
+         road_name:assessment_comment)
+  # dplyr::relocate(assessment_comment, .after = last_col())
+  
+  
+  
+
+# xf %>%
+#   filter(!is.na(pscis_status))
+# 
+# t <- xf %>%
+#   group_by(bt_rearing_km) %>%
+#   summarise(n = n())
+
+```
+
+
+```{r widget-planning, eval = gitbook_on}
+# Wrap data frame in SharedData
+sd <- SharedData$new(xf %>% select(-mapsheet))
+
+
+# Use SharedData like a dataframe with Crosstalk-enabled widgets
+map <- sd %>% 
+  
+  leaflet(height=500) %>% #height=500, width=780
+  # addTiles() %>% 
+  addProviderTiles("Esri.WorldTopoMap", group = "Topo") %>%
+  
+  addProviderTiles("Esri.WorldImagery", group = "ESRI Aerial") %>% 
+  
+  addCircleMarkers(
+    label = xf$id,
+    labelOptions = labelOptions(noHide = T, textOnly = TRUE),
+    popup = leafpop::popupTable(xf %>% 
+                                  st_drop_geometry() %>% 
+                                  select(id, 
+                                         stream_name,
+                                         bt_rearing_km = bt_rearing_km_raw,
+                                         bt_spawning_km,
+                                         mapsheet,
+                                         image_view_url, 
+                                         assessment_comment),
+                                feature.id = F,
+                                row.numbers = F),
+    radius = 9,
+    fillColor = "red",
+    color= "#ffffff",
+    stroke = TRUE,
+    fillOpacity = 1.0,
+    weight = 2,
+    opacity = 1.0
+  ) %>% 
+  addLayersControl(
+    baseGroups = c(
+      "Esri.DeLorme",
+      "ESRI Aerial"),
+    options = layersControlOptions(collapsed = F)) %>% 
+  leaflet.extras::addFullscreenControl(position = "bottomright")
+
+# tbl <- reactable::reactable(
+#   sd,
+#   selection = "multiple",
+#   onClick = "select",
+#   rowStyle = list(cursor = "pointer"),
+#   defaultPageSize = 5
+#   # minRows = 10
+# )
+
+# htmltools::browsable(
+#   htmltools::tagList(map, tbl)
+# )
+
+
+
+checkbox_map <- bscols(
+  widths = c(2, 10),
+  filter_checkbox("label", "bt_rearing_km", sd, ~bt_rearing_km),
+  map
+)
+
+htmltools::browsable(
+  htmltools::tagList(checkbox_map,
+                     datatable(sd, 
+                               class = 'cell-border stripe',
+                               extensions=c("Scroller","Buttons","FixedColumns"), 
+                               style="bootstrap",
+                               # class="compact",
+                               width="100%",
+                               rownames = F,
+                               options=list(
+                                 deferRender=TRUE, 
+                                 scrollY=300, 
+                                 scrollX = T,
+                                 scroller=TRUE,
+                                 dom = 'Bfrtip',
+                                 buttons = list(
+                                   'copy',
+                                   list(
+                                     extend = 'collection',
+                                     buttons = c('csv'),
+                                     text = 'Download csv')),
+                               fixedColumns = list(leftColumns = 2),
+                               initComplete = JS("function(settings, json) {","$(this.api().table().container()).css({'font-size': '11px'});","}")),
+                               escape = F)
+  ))
+
+```
+
+```{r widget-planning-caption, fig.cap= my_caption, out.width = "0.01%",  eval = gitbook_on}
+my_photo = 'fig/pixel.png'
+my_caption= 'Field planning widget to facilitate planning for 2022 field surveys.'
+knitr::include_graphics(my_photo, dpi = NA)
+```
+
+
+```{r tab-planning-pdf, eval= identical(gitbook_on, FALSE)}
+
+# identical(gitbook_on, FALSE)
+my_caption = 'Field planning results to facilitate selection of restoration opportunities for 2022 field surveys.'
+
+xf %>% 
+  sf::st_drop_geometry() %>% 
+  select(id:habitat_value,
+         outlet_drop,
+         bt_spawning_km, 
+         bt_rearing_km = bt_rearing_km_raw,
+         mapsheet,
+         utm_easting,
+         utm_northing,
+         assessment_comment) %>% 
+  
+  # test by removing the html
+  select(-mapsheet) %>% 
+  fpr::fpr_kable(caption_text = my_caption,
+                 scroll = gitbook_on)
+  # fpr_kable(caption_text = caption_text,
+  #           scroll = gitbook_on)
+
+```
+
 
 ## Potential Remediations 
 

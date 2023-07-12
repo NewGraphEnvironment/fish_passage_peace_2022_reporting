@@ -7,13 +7,22 @@ source('scripts/packages.R')
 
 # thinking we better use the remote database since my local version is outdated and not willing to risk a week of time to rebuild (might be fine in a day but never really know till we climb in)
 
+# conn <- DBI::dbConnect(
+#   RPostgres::Postgres(),
+#   dbname = Sys.getenv('PG_DB_BCBARRIERS'),
+#   host = Sys.getenv('PG_HOST_BCBARRIERS'),
+#   port = Sys.getenv('PG_PORT_BCBARRIERS'),
+#   user = Sys.getenv('PG_USER_BCBARRIERS'),
+#   password = Sys.getenv('PG_PASS_BCBARRIERS')
+# )
+
 conn <- DBI::dbConnect(
   RPostgres::Postgres(),
-  dbname = Sys.getenv('PG_DB_BCBARRIERS'),
-  host = Sys.getenv('PG_HOST_BCBARRIERS'),
-  port = Sys.getenv('PG_PORT_BCBARRIERS'),
-  user = Sys.getenv('PG_USER_BCBARRIERS'),
-  password = Sys.getenv('PG_PASS_BCBARRIERS')
+  dbname = Sys.getenv('PG_DB_DEV'),
+  host = Sys.getenv('PG_HOST_DEV'),
+  port = Sys.getenv('PG_PORT_DEV'),
+  user = Sys.getenv('PG_USER_DEV'),
+  password = Sys.getenv('PG_PASS_DEV')
 )
 
 #
