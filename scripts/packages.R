@@ -35,7 +35,9 @@ package_list <- c(
   'geojsonio',
   'pdftools',
   'xlsx',
-  'pagedown'
+  'pagedown',
+  'crosstalk',
+  'DT'
   # 'analogsea',
   # 'here'
   # rgl,
