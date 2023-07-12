@@ -24,6 +24,16 @@ tracks <- sf::read_sf("./data/habitat_confirmation_tracks.gpx", layer = "tracks"
 wshd_study_areas <- sf::read_sf('data/fishpass_mapping/wshd_study_areas.geojson')
   # st_transform(crs = 4326)
 
+map_phase3 <- bcfishpass %>% 
+  filter(aggregated_crossings_id %in% c(125179, 125000, 125261, 125231, 1016602819)) %>% 
+  mutate(stream_crossing_id = case_when(aggregated_crossings_id == 1016602819 ~ 125345,
+                                        T ~ stream_crossing_id)) %>% 
+    sf::st_as_sf(coords = c("utm_easting", "utm_northing"),
+               crs = 26910, remove = F) %>% ##don't forget to put it in the right crs buds
+  sf::st_transform(crs = 4326)
+
+map_phase4 <- map_phase3 %>% 
+  filter(stream_crossing_id == 125179)
   
 map <- leaflet(height=500, width=780) %>%
   addTiles()  %>% 
@@ -34,6 +44,7 @@ map <- leaflet(height=500, width=780) %>%
   addPolygons(data = wshd_study_areas, color = "#F29A6E", weight = 1, smoothFactor = 0.5,
               opacity = 1.0, fillOpacity = 0,
               fillColor = "#F29A6E", label = 'Parsnip River') %>%
+  
   addPolygons(data = wshds, color = "#0859C6", weight = 1, smoothFactor = 0.5,
               opacity = 1.0, fillOpacity = 0.25,
               fillColor = "#00DBFF",
@@ -43,7 +54,7 @@ map <- leaflet(height=500, width=780) %>%
                                                      elev_min:area_km),
                                           feature.id = F,
                                           row.numbers = F),
-              group = "Phase 2") %>% 
+              group = "Phase 2 - Confirmation") %>% 
   addLegend(
     position = "topright",
     colors = c("red", "yellow", "grey", "black"),
@@ -80,17 +91,17 @@ addCircleMarkers(data=tab_map %>%
                  fillOpacity = 1.0,
                  weight = 2,
                  opacity = 1.0,
-                 group = "Phase 1") %>% 
+                 group = "Phase 1 - Assessment") %>% 
   addPolylines(data=tracks,
                opacity=0.75, color = '#e216c4',
-               fillOpacity = 0.75, weight=5, group = "Phase 2") %>%
+               fillOpacity = 0.75, weight=5, group = "Phase 2 - Confirmation") %>%
 
 addAwesomeMarkers(
     lng = as.numeric(photo_metadata$gps_longitude),
     lat = as.numeric(photo_metadata$gps_latitude),
     popup = leafpop::popupImage(photo_metadata$url, src = "remote"),
     clusterOptions = markerClusterOptions(),
-    group = "Phase 2") %>%
+    group = "Phase 2 - Confirmation") %>%
 
   addCircleMarkers(
     data=tab_hab_map,
@@ -115,21 +126,63 @@ addAwesomeMarkers(
     fillOpacity = 1.0,
     weight = 2,
     opacity = 1.0,
-    group = "Phase 2"
+    group = "Phase 2 - Confirmation"
     ) %>%
-
+  
+    addCircleMarkers(
+    data=map_phase3,
+    label = map_phase3$stream_crossing_id,
+    labelOptions = labelOptions(noHide = T, textOnly = TRUE),
+    popup = leafpop::popupTable(x = select((map_phase3 %>% st_drop_geometry()),
+                                           Site = stream_crossing_id,
+                                           Stream = pscis_stream_name,
+                                           Road = pscis_road_name,
+                                           Comments = pscis_assessment_comment),
+                                feature.id = F,
+                                row.numbers = F),
+    radius = 9,
+    fillColor = "red",
+    color= "#ffffff",
+    stroke = TRUE,
+    fillOpacity = 1.0,
+    weight = 2,
+    opacity = 1.0,
+    group = "Phase 3 - Design"
+    ) %>% 
+  
+      addCircleMarkers(
+    data=map_phase4,
+    label = map_phase4$stream_crossing_id,
+    labelOptions = labelOptions(noHide = T, textOnly = TRUE),
+    popup = leafpop::popupTable(x = select((map_phase3 %>% st_drop_geometry()),
+                                           Site = stream_crossing_id,
+                                           Stream = pscis_stream_name,
+                                           Road = pscis_road_name,
+                                           Comments = pscis_assessment_comment),
+                                feature.id = F,
+                                row.numbers = F),
+    radius = 9,
+    fillColor = "red",
+    color= "#ffffff",
+    stroke = TRUE,
+    fillOpacity = 1.0,
+    weight = 2,
+    opacity = 1.0,
+    group = "Phase 4 - Remediation"
+    ) %>%
+  
   addLayersControl(
     baseGroups = c(
       "Esri.DeLorme",
       "ESRI Aerial"),
-    overlayGroups = c("Phase 1", "Phase 2"),
+    overlayGroups = c("Phase 1 - Assessment", "Phase 2 - Confirmation", "Phase 3 - Design", "Phase 4 - Remediation"),
     options = layersControlOptions(collapsed = F)) %>%
   leaflet.extras::addFullscreenControl() %>%
   addMiniMap(tiles = providers$"Esri.NatGeoWorldMap",
              zoomLevelOffset = -6, width = 100, height = 100)
 
 map %>% 
-  hideGroup(c("Phase 1"))
+  hideGroup(c("Phase 1 - Assessment", "Phase 2 - Confirmation"))
 
 
 
