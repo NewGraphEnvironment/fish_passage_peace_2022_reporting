@@ -37,15 +37,15 @@ pscis_all_prep <- pscis_list %>%
 
 
 ##this is our new db made from 0282-extract-bcfishpass2-crossing-corrections.R and 0290
-conn <- rws_connect("data/bcfishpass.sqlite")
-rws_list_tables(conn)
+conn <- readwritesqlite::rws_connect("data/bcfishpass.sqlite")
+readwritesqlite::rws_list_tables(conn)
 bcfishpass_phase2 <- readwritesqlite::rws_read_table("bcfishpass", conn = conn) %>%
   filter(stream_crossing_id %in%
            (pscis_phase2 %>%
               pull(pscis_crossing_id))) %>%
   # HHHHHHHHHAAAAAAAAAAACCCCCCCCCCCCCCCCCCCKKKKKKKKKKKKKKK for now we will get rid of NAs
   filter(!is.na(stream_crossing_id))
-bcfishpass <- readwritesqlite::rws_read_table("bcfishpass", conn = conn)
+  bcfishpass <- readwritesqlite::rws_read_table("bcfishpass", conn = conn)
 # bcfishpass_archive <- readwritesqlite::rws_read_table("bcfishpass_archive_2022-03-02-1403", conn = conn)
 bcfishpass_column_comments <- readwritesqlite::rws_read_table("bcfishpass_column_comments", conn = conn)
 
@@ -60,8 +60,12 @@ xref_pscis_my_crossing_modelled <- readwritesqlite::rws_read_table("xref_pscis_m
 wshds <- readwritesqlite::rws_read_table("wshds", conn = conn) %>%
   mutate(aspect = as.character(aspect))
 
+pscis <- readwritesqlite::rws_read_table("pscis", conn = conn)
+
 photo_metadata <- readwritesqlite::rws_read_table("photo_metadata", conn = conn)
 # fiss_sum <- readwritesqlite::rws_read_table("fiss_sum", conn = conn)
+
+
 rws_disconnect(conn)
 
 # this doesn't work till our data loads to pscis

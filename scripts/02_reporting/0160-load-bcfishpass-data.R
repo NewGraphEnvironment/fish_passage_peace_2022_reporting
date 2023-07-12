@@ -94,11 +94,11 @@ CROSS JOIN LATERAL
 ##get all the data and save it as an sqlite database as a snapshot of what is happening.  we can always hopefully update it
 query <- "SELECT *
    FROM bcfishpass.crossings
-   WHERE watershed_group_code IN ('PARS')"
+   WHERE watershed_group_code IN ('PARS', 'CRKD', 'CARP')"
 
 
 ##import and grab the coordinates - this is already done
-bcfishpass<- st_read(conn, query =  query) %>%
+bcfishpass<- sf::st_read(conn, query =  query) %>%
   # st_transform(crs = 26911) %>%  #before the coordinates were switched but now they look fine...
   # mutate(
   #        easting = sf::st_coordinates(.)[,1],
@@ -120,6 +120,15 @@ bcfishpass_column_comments <- st_read(conn, query =  query) %>%
 # porphyryr <- st_read(conn, query =
 # "SELECT * FROM bcfishpass.crossings
 #    WHERE stream_crossing_id = '124487'")
+
+# get the pscis data
+query <- "SELECT p.*, wsg.watershed_group_code
+   FROM whse_fish.pscis_assessment_svw p
+   INNER JOIN whse_basemapping.fwa_watershed_groups_poly wsg
+ON ST_Intersects(wsg.geom,p.geom)
+WHERE wsg.watershed_group_code IN ('PARS', 'CARP', 'CRKD');"
+
+pscis <- st_read(conn, query =  query)
 
 dbDisconnect(conn = conn)
 
@@ -153,6 +162,10 @@ xref_pscis_my_crossing_modelled <- dat %>%
   sf::st_drop_geometry()
 
 
+
+
+
+
 ##this is how we update our local db.
 ##my time format format(Sys.time(), "%Y%m%d-%H%M%S")
 # mydb <- DBI::dbConnect(RSQLite::SQLite(), "data/bcfishpass.sqlite")
@@ -170,6 +183,8 @@ rws_write(bcfishpass, exists = F, delete = TRUE,
 rws_drop_table("xref_pscis_my_crossing_modelled", conn = conn) ##now drop the table so you can replace it
 rws_write(xref_pscis_my_crossing_modelled, exists = F, delete = TRUE,
           conn = conn, x_name = "xref_pscis_my_crossing_modelled")
+rws_write(pscis, exists = F, delete = TRUE,
+          conn = conn, x_name = "pscis")
 # add the comments
 # bcfishpass_column_comments_archive <- readwritesqlite::rws_read_table("bcfishpass_column_comments", conn = conn)
 # rws_write(bcfishpass_column_comments_archive, exists = F, delete = TRUE,
