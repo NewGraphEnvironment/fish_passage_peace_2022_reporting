@@ -20,7 +20,7 @@ knitr::include_graphics("fig/overview.jpg")
 
 <br>
 
-## Tse'khene
+## Tse'khene {-}
 
 The Parsnip River watershed is located within the south-eastern portion of the 108,000 km^2^ traditional territory of the Tse'khene from the [McLeod Lake Indian Band](https://www.mlib.ca/about/History). The Tse'khene *"People of the Rocks"* are a south westerly extension of the Athabascan speaking people of northern Canada.  They were nomadic hunters whose language belongs to the Beaver-Sarcee-Tse'khene branch of Athapaskan [@HistoryWhoWeAre2023].  Extensive work is underway to preserve the language with resources such as First Voices available [online](https://www.firstvoices.com/explore/FV/sections/Data/Athabascan/Tse'Khene%20(McLeod%20Lake)/Tse'Khene%20(McLeod%20Lake)/learn) and in [app form](https://apps.apple.com/us/app/tsekhene-mcleod-lake/id1503929250) for iphone and ipad devices.
 
