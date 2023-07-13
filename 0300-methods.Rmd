@@ -9,10 +9,11 @@ From May 2021 to the time of reporting SERNbc and McLeod Lake staff have been ac
   * CN Rail
   * Canadian Forest Products (Canfor)
   * Sinclar Forest Projects Ltd. (Sinclar)
-  * Northern Engineering - Forests, Lands, Natural Resource Operations and Rural Development (FLNR)
+  * Northern Engineering - Ministry of Forests
   * BC Ministry of Transportation and Infrastructure
   * Fish Passage Technical Working Group
   * Coastal Gasliink
+  * British Columbia Wildlife Federation
   * Planning foresters and biologists Ministry of Forests, Lands, Natural Resource Operations and Rural Development (restructured into Ministry of Forests and Ministry of Land, Water and Resource Stewardship)
   *  Fisheries experts
    
@@ -24,7 +25,7 @@ Working together with McLeod Lake Indian Band we are leveraging RSEA initiatives
 
 <br>
 
-Workflows for the project have been classified into planning, fish passage assessments, habitat confirmation assessments, reporting and mapping. All components leveraged `R`, `SQL` or `Python` programming languages to facilitate workflow tracking, collaboration, transparency and continually improving research. Project workflows utilized local and remote `postgreSQL` databases as well as a "snapshot" of select datasets contained within a local `sqlite` database. A data and script repository to facilitate this reporting is located on [Github](https://github.com/NewGraphEnvironment/fish_passage_peace_2022_reporting).  
+Workflows for the project leveraged `R`, `SQL` or `Python` programming languages to facilitate workflow tracking, collaboration, transparency and continually improving research. A data and script repository to facilitate this reporting is located on [Github](https://github.com/NewGraphEnvironment/fish_passage_peace_2022_reporting).  
 
 ## Identify and Communicate Connectivity Issues {-}
 
@@ -46,11 +47,7 @@ Gradient, channel size and stream discharge are key determinants of channel morp
 
 <br>
 
-In April of 2021, Bayesian statistical methods were used to model channel width in all provincial freshwater atlas stream segments where width measurements had not previously been taken, based on the relationship between watershed area and mean annual precipitation weighted by upstream watershed area [@thorley_irvine2021ChannelWidth]. Details of this analysis and subsequent outputs can be reviewed [here](https://www.poissonconsulting.ca/f/1792764180).
-
-<br>
-
-In December of 2021, Bayesian statistical methods were used to update results from @thorley_irvine2021ChannelWidth using on a power model derived by @finnegan_etal2005Controlschannel which relates stream discharge to watershed area and mean annual precipitation. Data (n = 24849) on watershed size, mean annual precipitation and measured channel width was extracted from the provincial freshwater atlas [@flnrord2021FreshwaterAtlasb;  @geobc2022FreshwaterAtlas], the BC Data Catalouge fisheries datasets [@moe2020StreamInventory; @moe2021PSCISAssessments] and @wang_etal2012ClimateWNAHighResolution utilizing `bcfishpass` [@norris2021smnorrisbcfishpass] and `fwapg` [@norris2021smnorrisfwapg].  Using Bayesian statistical methods, the relationship between the input variables was analyzed to update a predictive model of channel width.
+In April of 2021, Bayesian statistical methods were used to model channel width in all provincial freshwater atlas stream segments where width measurements had not previously been taken, based on the relationship between watershed area and mean annual precipitation weighted by upstream watershed area [@thorley_irvine2021ChannelWidth].  In December of 2021, Bayesian statistical methods were used to update results from @thorley_irvine2021ChannelWidth using on a power model derived by @finnegan_etal2005Controlschannel which relates stream discharge to watershed area and mean annual precipitation. Data (n = 24849) on watershed size, mean annual precipitation and measured channel width was extracted from the provincial freshwater atlas [@flnrord2021FreshwaterAtlasb;  @geobc2022FreshwaterAtlas], the BC Data Catalouge fisheries datasets [@moe2020StreamInventory; @moe2021PSCISAssessments] and @wang_etal2012ClimateWNAHighResolution utilizing `bcfishpass` [@norris2021smnorrisbcfishpass] and `fwapg` [@norris2021smnorrisfwapg].  Using Bayesian statistical methods, the relationship between the input variables was analyzed to update a predictive model of channel width. Details of this analysis and subsequent outputs can be reviewed [here](https://www.poissonconsulting.ca/f/859859031) [@thorley_etal2021ChannelWidth].
 
 <br>
 
@@ -136,7 +133,7 @@ Structure replacement was conducted by contractors hired by forest licensees wit
  
 <br>
 
-## Engineering Designs {-}
+## Designs {-}
 Engineering designs were conducted by consultants hired by forest licensees with tenure over the roads and/or timber harvest planned on the roads where work was conducted.  Completed designs have been loaded to the PSCIS data portal for upload to the province.
 
 <br>
