@@ -131,6 +131,29 @@ xref_bcfishpass_names %>%
                  scroll = gitbook_on)
 ```
 
+## Remediations  {-}
+Structure replacement was conducted by contractors hired by forest licensees with tenure over the roads and/or timber harvest planned on the roads where work was conducted.  As built drawings will be loaded to the PSCIS data portal for upload to the province.
+ 
+<br>
+
+## Engineering Designs {-}
+Engineering designs were conducted by consultants hired by forest licensees with tenure over the roads and/or timber harvest planned on the roads where work was conducted.  Completed designs have been loaded to the PSCIS data portal for upload to the province.
+
+<br>
+
+## Habitat Confirmation Assessments {-}
+
+Following fish passage assessments, habitat confirmations were completed in accordance with procedures outlined in the document “A Checklist for Fish Habitat Confirmation Prior to the Rehabilitation of a Stream Crossing” [@confirmation_checklist_2011]. The main objective of the field surveys was to document upstream habitat quantity and quality and to determine if any other obstructions exist above or below the crossing.  Habitat value was assessed based on channel morphology, flow characteristics (perennial, intermittent, ephemeral), the presence/absence of deep  pools, un-embedded  boulders, substrate, woody debris, undercut banks, aquatic vegetation and overhanging riparian vegetation. Criteria used to rank habitat value was based on guidelines in @confirmation_checklist_2011 (Table \@ref(tab:tab-hab-value)). 
+
+<br>
+
+During habitat confirmations, to standardize data collected and facilitate submission of the data to provincial databases, information was collected on ["Site Cards"](https://www2.gov.bc.ca/gov/content/environment/natural-resource-stewardship/laws-policies-standards-guidance/inventory-standards/aquatic-ecosystems). Habitat characteristics recorded included channel widths, wetted widths, residual pool depths, gradients, bankfull depths, stage, temperature, conductivity, pH, cover by type, substrate and channel morphology (among others). When possible, the crew surveyed downstream of the crossing to the point where fish presence had been previously confirmed and upstream to a minimum distance of 600m. Any  potential  obstacles  to  fish  passage  were  inventoried  with  photos, physical  descriptions  and  locations  recorded on site cards.  Surveyed routes were recorded with time-signatures on handheld GPS units.   
+
+<br>
+
+Fish sampling was conducted on a subset of sites when biological data was considered to add significant value to the physical habitat assessment information. When possible, electrofishing was utilized within discrete site units both upstream and downstream of the subject crossing with electrofisher settings, water quality parameters (i.e. conductivity, temperature and ph), start location, length of site and wetted widths (average of a minimum of three) recorded.  For each fish captured, fork length and species was recorded, with results included within the fish data submission spreadsheet.  Fish information and habitat data have been submitted to the province under scientific fish collection permit PG22-749559.
+
+
 
 ## Fish Passage Assessments {-}
 
@@ -222,26 +245,7 @@ tab_cost_rd_mult_report %>%
   fpr::fpr_kable(caption_text = 'Cost multiplier table based on road class and surface type.', scroll = F)
 ```
 
-<br>
 
-## Habitat Confirmation Assessments {-}
-
-Following fish passage assessments, habitat confirmations were completed in accordance with procedures outlined in the document “A Checklist for Fish Habitat Confirmation Prior to the Rehabilitation of a Stream Crossing” [@confirmation_checklist_2011]. The main objective of the field surveys was to document upstream habitat quantity and quality and to determine if any other obstructions exist above or below the crossing.  Habitat value was assessed based on channel morphology, flow characteristics (perennial, intermittent, ephemeral), the presence/absence of deep  pools, un-embedded  boulders, substrate, woody debris, undercut banks, aquatic vegetation and overhanging riparian vegetation. Criteria used to rank habitat value was based on guidelines in @confirmation_checklist_2011 (Table \@ref(tab:tab-hab-value)). 
-
-<br>
-
-During habitat confirmations, to standardize data collected and facilitate submission of the data to provincial databases, information was collected on ["Site Cards"](https://www2.gov.bc.ca/gov/content/environment/natural-resource-stewardship/laws-policies-standards-guidance/inventory-standards/aquatic-ecosystems). Habitat characteristics recorded included channel widths, wetted widths, residual pool depths, gradients, bankfull depths, stage, temperature, conductivity, pH, cover by type, substrate and channel morphology (among others). When possible, the crew surveyed downstream of the crossing to the point where fish presence had been previously confirmed and upstream to a minimum distance of 600m. Any  potential  obstacles  to  fish  passage  were  inventoried  with  photos, physical  descriptions  and  locations  recorded on site cards.  Surveyed routes were recorded with time-signatures on handheld GPS units.   
-
-<br>
-
-Fish sampling was conducted on a subset of sites when biological data was considered to add significant value to the physical habitat assessment information. When possible, electrofishing was utilized within discrete site units both upstream and downstream of the subject crossing with electrofisher settings, water quality parameters (i.e. conductivity, temperature and ph), start location, length of site and wetted widths (average of a minimum of three) recorded.  For each fish captured, fork length and species was recorded, with results included within the fish data submission spreadsheet.  Fish information and habitat data have been submitted to the province under scientific fish collection permit PG22-749559.
-
-## Engineering Designs {-}
-Engineering designs were conducted by consultants hired by forest licensees with tenure over the roads and/or timber harvest planned on the roads where work was conducted.  Completed designs will be loaded to the PSCIS data portal for upload to the province.
-
-## Remediations  {-}
-Structure replacements were conducted by contractors hired by forest licensees with tenure over the roads and/or timber harvest planned on the roads where work was conducted.  As built drawings will be loaded to the PSCIS data portal for upload to the province.
- 
 
  
 

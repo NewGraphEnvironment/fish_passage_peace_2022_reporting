@@ -191,10 +191,6 @@ map %>%
 ## Identify and Communicate Connectivity Issues {-}
 
 
-### Habitat Modelling {-}
-
-<br>
-
 ### Field Planning  {-}
  Planning for potential 2022 field survey sites is presented `r if(gitbook_on){knitr::asis_output("interactively in Figure \\@ref(fig:widget-planning-caption).")}else knitr::asis_output("in Table \\@ref(tab:tab-planning-pdf). Please not that an interactive fieldwork planning widget prototype has been developed for the project and is located within the online interactive version of the report located [here](https://newgraphenvironment.github.io/fish_passage_parsnip_2021_reporting/).")`  Georeferenced field maps containing updated modelling outputs are presented in `r if(gitbook_on){knitr::asis_output("[here](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/) and available for bulk download as [Attachment 1](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/parsnip_2022-05-27.zip).")} else knitr::asis_output("[Attachment 1](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/parsnip_2022-05-27.zip).")`
 
@@ -398,12 +394,100 @@ xf %>%
 
 ```
 
+## Remediations  
 
-## Fish Passage Assessments
+### Tributary to Missinka River - PSCIS crossing 125179  
 
-Fish passage assessments were conducted at 12 sites between `r format(min(pscis_phase1$date), format="%B %d %Y")` and August 18, 2022 by Allan Irvine, R.P.Bio., Mateo Winterscheidt, B.Sc., Nathan Prince, Traditional Land Use Coordinator - McLeod Lake and Eran Spence, Forestry Referrals Officer - McLeod Lake. Assessments were conducted at four previously unassessed sites, three assessments took place as part of habitat confirmation assessments and five sites were reassessed as they had either been replaced since the data in PSCIS was last updated or because they were being scoped for habitat values while serving as training case studies for collaborating technicians. All previously assessed crossings were either fords or bridges so presented no concerns for fish passage. Detailed data with photos are presented in `r if(gitbook_on){knitr::asis_output("[Appendix - Phase 1 Fish Passage Assessment Data and Photos]")} else knitr::asis_output("[Attachment 2](https://www.newgraphenvironment.com/fish_passage_peace_2022_reporting/appendix---phase-1-fish-passage-assessment-data-and-photos.html")`. 
+```{r  load-data-125179}
+my_site <- 125179
+```
+PSCIS crossing `r as.character(my_site)` is located on a tributary to Missinka River, 1km upstream of the confluence, on the Chuchinka-Missinka FSR. This crossing is located approximately 660m east of PSCIS crossing 125180 and joins this adjacent stream just before emptying into the Missinka River. A map of the watershed is provided in map attachment [93I.117](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/FishPassage_093I.116.pdf). The crossing has been remediated, with a bridge installed in the summer of 2022. 
 
-## Habitat Confirmation Assessments
+<br>
+
+This site was first assessed by @irvine2020ParsnipRiver in 2019 with reporting available [here](https://www.newgraphenvironment.com/Parsnip_Fish_Passage/03_Parsnip_report_125179.html). At that time, there were two 1.2m diameter culverts side by side. The crossing was ranked as a high priority for follow up due to the 2km of suitable upstream high value habitat, where the presence of bull trout and rainbow trout had been previously confirmed. This watershed was classified as fisheries sensitive under the _Forest Practices and Range Act_ due to due to significant downstream fisheries values and watershed sensitivity. As stated in @irvine2022PEAF22F3577DCARestoring, further reasons for restoration at this site include the fact that "the Missinka River watershed is utilized by a possibly genetically distinct, self-sustaining dusk’ihje (Arctic grayling) population with the mainstem of the river providing critical habitat for fry and adult fish." Additionally, regions accessed by the Chuchinka-Missinka FSR provided major harvesting and silviculture obligations. Site plan designs were developed thanks to the ongoing communication and collaboration between SERNBC, Mcleod Lake Indian Band, Sinclair Group, and FLNR.   Photos showing a comparison of the culvert assessment conducted in 2019 versus the completed bridge construction in 2022 are presented in `r if(gitbook_on){knitr::asis_output("Figures \\@ref(fig:photo-125179-01) - \\@ref(fig:photo-125179-02).")}else(knitr::asis_output("Figure \\@ref(fig:photo-125261-d02)."))` 
+
+<br>
+
+```{r photo-125179-01-prep, eval=T}
+my_photo1 = fpr::fpr_photo_pull_by_str(site = 1251792019, str_to_pull = 'crossing_all')
+
+my_caption1 = paste0('Photos of crossing ', my_site, ' in 2019.')
+
+
+```
+
+```{r photo-125179-01, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo1))
+```
+
+<br>
+
+```{r photo-125179-02-prep}
+my_photo2 = fpr::fpr_photo_pull_by_str(str_to_pull = 'crossing_all', site = 125179)
+
+my_caption2 = paste0('Photos of crossing ', my_site, ' in 2022.')
+```
+
+```{r photo-125179-02, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo2))
+
+```
+
+```{r photo-125179-d02, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
+
+my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
+
+knitr::include_graphics(my_photo1)
+knitr::include_graphics("fig/pixel.png")
+knitr::include_graphics(my_photo2)
+```
+
+<br>
+
+In the summer of 2022, a monitoring survey was conducted with a remotely piloted aircraft at crossing `r as.character(my_site)`, with resulting images stitched into an orthomosaic and 3-dimensional model
+`r if(gitbook_on){knitr::asis_output(" presented in Figures \\@ref(fig:ortho-caption-missinka) - \\@ref(fig:model-caption-missinka).")} else knitr::asis_output("presented [here](https://www.mapsmadeeasy.com/maps/public/8e3a0c68656c4480a66e067a6e14c0d3) and [here](https://www.mapsmadeeasy.com/maps/public_3D/8e3a0c68656c4480a66e067a6e14c0d3/).")`
+
+```{r ortho-missinka, eval = identical(gitbook_on, TRUE)}
+model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public/8e3a0c68656c4480a66e067a6e14c0d3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'
+
+knitr::asis_output(model_url)
+```
+
+
+```{r ortho-caption-missinka, fig.cap= my_caption, out.width = "0.01%", eval = identical(gitbook_on, TRUE)}
+my_photo = 'fig/pixel.png'
+
+my_caption = paste0('Orthomosaic of bridge on Tributary to Missinka River. To zoom press "shift" and scroll.')
+
+knitr::include_graphics(my_photo, dpi = NA)
+
+```
+
+<br>
+
+```{r model-missinka, eval = identical(gitbook_on, TRUE)}
+model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public_3D/8e3a0c68656c4480a66e067a6e14c0d3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'
+
+knitr::asis_output(model_url)
+```
+
+
+```{r model-caption-missinka, fig.cap= my_caption, out.width = "0.01%", eval = identical(gitbook_on, TRUE)}
+my_photo = 'fig/pixel.png'
+
+my_caption = paste0('3D model of newly installed bridge on a tributary to Missinka Creek. To zoom press "shift" and scroll.')
+
+knitr::include_graphics(my_photo, dpi = NA)
+
+```
+
+#### Recommendations {-}
+
+Following the remediation of crossing `r as.character(my_site)`, it is recommended that future monitoring be conducted at this location. This would help track the stream's morphological changes over time, as well as provide insight into the fish migration patterns in this system. Electrofishing and tagging target species in this stream would aid in gaining a higher understanding into fish movements. Additionally, fishing and monitoring in the adjacent stream (at PSCIS crossing 125180) would also be key in providing a reference site.    
+
+
+## Habitat Confirmation
 
 ### Tributary to Anzac River - PSCIS crossing 6745
 
@@ -412,21 +496,24 @@ my_site <- 6745
 
 ```
 
-PSCIS crossing `r as.character(my_site)` is located on a`r fpr::fpr_my_pscis_info()`, on
-`r fpr_my_pscis_info(col_pull = road_name)`.This site is located approximately
+PSCIS crossing `r as.character(my_site)` is located on a
+`r fpr::fpr_my_pscis_info()`, on
+`r fpr_my_pscis_info(col_pull = road_name)`.
+This site is located approximately
 `r round(fpr::fpr_my_bcfishpass(col_pull = downstream_route_measure)*0.001, 1)`km
-upstream from the confluence with the Anzac River. There is one crossing modelled as present (`modelled_crossing_id` 16603919) approximately 600m upstream of the FSR however aerial imagery also indicated that there was no crossing structure at this location and the road was not present in the field.  
+upstream from the confluence with the Anzac River. At crossing `r as.character(my_site)`, `r fpr::fpr_my_pscis_info()` is a
+`r fpr::fpr_my_bcfishpass() %>% english::ordinal()` order stream with a
+watershed area upstream of the crossing of approximately
+`r fpr::fpr_my_wshd()`km^2^. The elevation of the watershed ranges from
+a maximum of `r fpr::fpr_my_wshd(col = 'elev_max')`m to
+`r fpr::fpr_my_wshd(col = 'elev_min')`m near the crossing (Table
+\@ref(tab:tab-wshd-6745)). At the time of reporting, there was no fisheries information available within provincial databases for the area upstream of crossing `r as.character(my_site)`.
 
 <br>
 
-The Anzac River is 78km long and drains a 939km^2^ watershed. The average gradient ranges from 1-2% in the upper reaches to a gradient less than 0.5% in the unconfined areas in the valley flats. The Anzac River provides critical spawning and rearing habitat for Arctic grayling.  In 2018, the Anzac River watershed was designated as a fisheries sensitive watershed under the authority of the *Forest and Range Practices Act* due to significant downstream fisheries values and watershed sensitivity [@beaudry2013Assessmentassignmenta]. Special management is required in the crossing's watershed to protect habitat for Bull Trout and Arctic Grayling and includes measures (among others) to limit equivalent clearcut area, reduce impacts to natural stream channel morphology, retain old growth attributes and maintain fish habitat/movement [@fsw_order].      
+The Anzac River is one of the main tributaries to the Parsnip River. It is a 78km long tributary and drains a 939km^2^ watershed. The average gradient ranges from 1-2% in the upper reaches to a gradient less than 0.5% in the unconfined areas in the valley flats. The Anzac River provides critical spawning and rearing habitat for arctic grayling fish. These fish were categorised as "red listed" by the British Columbia Conservation Data Centre since the mid 1990s, but where revised in 2011 to be "yellow listed" [@cowie_blackman2012OverviewSummary].       
 
-<br>
-
-At crossing `r as.character(my_site)`, `r fpr::fpr_my_pscis_info()` is a
-`r fpr::fpr_my_bcfishpass() %>% english::ordinal()` order stream with awatershed area upstream of the crossing of approximately
-`r fpr::fpr_my_wshd()`km^2^. The elevation of the watershed ranges froma maximum of `r fpr::fpr_my_wshd(col = 'elev_max')`m to
-`r fpr::fpr_my_wshd(col = 'elev_min')`m near the crossing (Table\@ref(tab:tab-wshd-6745)). At the time of reporting, there was no fisheries information available within provincial databases for the area upstream of crossing `r as.character(my_site)`.
+The lower reaches of the Anzac River provide very limited overwintering habitat for juvenile and adult grayling. A significant amount of studies on arctic grayling have been carried out on the Table and Anzac River sub-basin, along with areas of the Parsnip close to these tributaries. Study methods used include radio telemetry, fish habitat assessments, electrofishing surveys, snorkeling surveys, and visual observations. There are important factors that limit grayling production among watersheds, although these factors have not yet been identified with certainty in the scientific literature [@stamford_etal2017FWCPArctic]. 
 
 <br>
 
@@ -440,8 +527,10 @@ fpr::fpr_table_wshd_sum(site_id = my_site) %>%
 
 <br>
 
-A summary of habitat modelling outputs is presented in Table \@ref(tab:tab-culvert-bcfp-6745) and a map of the watershed is
-provided in map attachment [`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](`r fpr::fpr_my_mapsheet(wshd = "parsnip", archive_date = "2022-05-27")`).
+A summary of habitat modelling outputs is presented in Table
+\@ref(tab:tab-culvert-bcfp-6745) and a map of the watershed is
+provided in map attachment
+[`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](`r fpr::fpr_my_mapsheet(wshd = "parsnip", archive_date = "2022-05-27")`).
 
 <br>
 
@@ -481,24 +570,30 @@ fpr::fpr_my_priority_info()
 
 `r fpr_my_survey_dist(loc = 'ds')`
 `r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-6745-01) - \\@ref(fig:photo-6745-02)).")}else(knitr::asis_output("(Figure \\@ref(fig:photo-6745-d01))."))`
-`r fpr_my_habitat_paragraph(loc = 'ds')` Some pockets of gravels were present suitable for resident fish spawning. The habitat
-was rated as `r fpr::fpr_my_priority_info(loc = 'ds')` value for salmonid rearing and spawning with relatively low flow volumes and a lack of deep pools.
+`r fpr_my_habitat_paragraph(loc = 'ds')` There were abundant undercut banks suitable for juvenile rearing. The stream channel is smaller and narrower than upstream. There were small gravels suitable for smaller fish. The habitat
+was rated as `r fpr::fpr_my_priority_info(loc = 'ds')` value for
+salmonid rearing and spawning due to low flow volumes and a lack of deep pools.
 
 #### Stream Characteristics Upstream {-}  
 
 `r fpr_my_survey_dist(loc = 'us')` `r if(gitbook_on){knitr::asis_output("(Figures \\@ref(fig:photo-6745-03) - \\@ref(fig:photo-6745-06)).")}else(knitr::asis_output("(Figure \\@ref(fig:photo-6745-d02))."))`
-`r fpr_my_habitat_paragraph(loc = 'us')` There were abundant gravels present suitable for resident rainbow spawning. Some deep pools up to 45cm in depth were present. Overall, habitat surveyed upstream of the crossing was
-rated as `r fpr::fpr_my_priority_info(loc = 'us')` value habitat present suitable for small resident salmonid rearing and spawning.
+`r fpr_my_habitat_paragraph(loc = 'us')` This is a small, perennial stream. There were abundant gravels present, suitable for resident rainbow. Some deep pools up to 45cm in depth were present that would be suitable for rearing. There was an abundance of undercut banks and larger gravels about 30 cm in size. Overall, the habitat surveyed upstream of the crossing was
+rated as `r fpr::fpr_my_priority_info(loc = 'us')` value as an important
+migration corridor containing habitat suitable for spawning with moderate rearing potential.
 
 <br>
 
 #### Conclusion {-}  
 
-Modelling indicates there is `r round(fpr::fpr_my_priority_info(col_pull= upstream_habitat_length_m)/1000, 1)`km of
-habitat upstream of crossing `r as.character(my_site)` suitable for bull trout rearing withareas surveyed rated as
-`r fpr::fpr_my_priority_info(sit = my_site, loc = 'us', col_pull = hab_value)`value for rearing and spawning. Crossing
-`r as.character(my_site)` was ranked as a `r fpr::fpr_my_priority_info(col_pull = priority)` priority for
-proceeding to design for replacement as  a potential barrier and could be considered a fish passage issue. Further information is required to make an informed decision. There were abundant gravels present upstream of the crossing, but no fish were spotted. Due to the lack of historic fisheries information upstream, fish sampling is recommended to determine if fish are utilising this tributary as a spawning and rearing location.  
+Modelling indicates there is 
+`r round(fpr::fpr_my_priority_info(col_pull= upstream_habitat_length_m)/1000, 1)`km of
+habitat upstream of crossing `r as.character(my_site)` suitable for bull trout rearing with
+areas surveyed rated as
+`r fpr::fpr_my_priority_info(sit = my_site, loc = 'us', col_pull = hab_value)`
+value for rearing and spawning. Crossing
+`r as.character(my_site)` was ranked as a
+`r fpr::fpr_my_priority_info(col_pull = priority)` priority for
+proceeding to design for replacement. The culvert is considered a potential barrier and could be considered a fish passage issue. Further information is required to make an informed decision. There were abundant gravels present upstream of the crossing, but no fish were spotted. Due to the lack of historic fisheries information upstream, fish sampling is recommended to determine if fish are utilising this tributary as a spawning and rearing location.  
 
 `r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
 
@@ -613,6 +708,123 @@ my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
 knitr::include_graphics(my_photo1)
 knitr::include_graphics("fig/pixel.png")
 knitr::include_graphics(my_photo2)
+```
+
+<br>
+
+### Tributary to Parsnip River - PSCIS crossing 125000  
+
+```{r  load-data-125000}
+my_site <- 125000
+
+```
+
+PSCIS crossing `r as.character(my_site)` is located on a tributary to Parsnip River, approximately 2km upstream of the confluence with the Parsnip River, on the Chuchinka-Arctic FSR approximately 9km north-west of the outlet of Arctic Lake. Arctic Lake is located within Arctic Pacific Lakes Provincial Park and has an area of 112ha. The park has significant historical and recreational values and contains Mcleod Lake Indian Band reservation lands (Arctic Lake 10). The lake supports a diverse population of fish, including lake trout, bull trout, rainbow trout, kokanee, dolly varden, mountain whitefish, redside shiner, lake char, and chinook salmon, and arctic grayling [@bcparks2020ArcticPacific].  There are no other stream crossings on the mainstem of this stream that block fish passage. Rainbow trout and sculpin have been captured in the past both upstream and downstream of the crossing. A map of the watershed is provided in map attachment [93I.111](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/FishPassage_093I.111.pdf).
+
+<br>
+
+PSCIS crossing `r as.character(my_site)` was ranked as a high priority for remediation following habitat confirmations done by @irvine2020ParsnipRiver in 2019. At that time, it was estimated that there was 3.5km of habitat with a gradient less than 5% available upstream of the crossing. Habitat was rated as high value for salmonid rearing and spawning. Fish sampling (minnowtrapping) in 2019 confirmed that rainbow trout and sculpin were present downstream of the crossing however no fish captured upstream. At the time of survey in 2019, the culvert was a complete barrier to upstream fish passage, having an outlet drop of 0.4m and a outlet pool depth of 1.5m. A detailed overview of stream characteristics and habitat details can be found in the [2019 report](https://www.newgraphenvironment.com/Parsnip_Fish_Passage/03_Parsnip_report_125000.html). 
+
+<br>
+
+#### Stream Characteristics at  Crossing
+This site was reassessed in 2022, with drone survey and fish sampling conducted. At the time of survey in 2022, PSCIS crossing `r as.character(my_site)` was un-embedded, non-backwatered and ranked as a `r fpr::fpr_my_pscis_info(dat = pscis_reassessments, col_pull = barrier_result) %>% stringr::str_to_lower()` to upstream fish passage. The culvert was undersized - evidenced by the large outlet drop of 0.6m and outlet pool depth of 2m [@moe2011] (Table \@ref(tab:tab-culvert-125000)). 
+
+<br>
+
+```{r tab-culvert-125000, eval = T}
+fpr::fpr_table_cv_summary_memo(dat = pscis_reassessments)
+
+```
+
+
+```{r tab-wshd-125000, eval = F}
+# this data is not correct so turned chunk off
+# At crossing `r as.character(my_site)`, this tributary to Parsnip River is a `r fpr::fpr_my_bcfishpass() %>% english::ordinal()` order stream with a watershed area upstream of the crossing of approximately `r fpr::fpr_my_wshd()`km^2^. The elevation of the watershed ranges from a maximum of `r fpr::fpr_my_wshd(col = 'elev_max')`m to `r fpr::fpr_my_wshd(col = 'elev_min')`m near the crossing (Table
+\@ref(tab:tab-wshd-125000)).
+fpr::fpr_table_wshd_sum(site_id = my_site) %>% 
+  fpr::fpr_kable(caption_text = paste0('Summary of derived upstream watershed statistics for PSCIS crossing ', my_site, '.'),
+           footnote_text = 'Elev P60 = Elevation at which 60% of the watershed area is above',
+           scroll = F)
+
+```
+
+<br>
+ 
+```{r tab-culvert-bcfp-125000, eval = F}
+# this data is incorrect becasue needed to go to old db so turned off
+fpr::fpr_table_bcfp(scroll = F) 
+```
+
+`r if(identical(gitbook_on, FALSE)){knitr::asis_output("\\pagebreak")}`
+
+<br>
+
+#### Aerial Imagery {-}  
+
+In 2019 a video survey was conducted by drone and can be viewed [here](https://www.youtube.com/watch?v=-foWvX1MSkg). In the summer of 2022, additional surveys were conducted with a remotely piloted aircraft at the crossing with resulting images stitched into an orthomosaic and 3-dimensional model `r if(gitbook_on){knitr::asis_output(" presented in Figures \\@ref(fig:ortho-caption-arctic) - \\@ref(fig:model-caption-arctic).")} else knitr::asis_output("presented [here](https://www.mapsmadeeasy.com/maps/public/0b96f06f52be467db7250b3caeeecee3) and [here](https://www.mapsmadeeasy.com/maps/public_3D/0b96f06f52be467db7250b3caeeecee3/).")`
+
+```{r ortho-arctic, eval = identical(gitbook_on, TRUE)}
+model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public/0b96f06f52be467db7250b3caeeecee3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'
+
+knitr::asis_output(model_url)
+```
+
+
+```{r ortho-caption-arctic, fig.cap= my_caption, out.width = "0.01%", eval = identical(gitbook_on, TRUE)}
+my_photo = 'fig/pixel.png'
+
+my_caption = paste0('Orthomosaic of site of planned bridge on tributary to Parsnip River. To zoom press "shift" and scroll.')
+
+knitr::include_graphics(my_photo, dpi = NA)
+
+```
+
+<br>
+
+```{r model-arctic, eval = identical(gitbook_on, TRUE)}
+model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public_3D/0b96f06f52be467db7250b3caeeecee3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'
+
+knitr::asis_output(model_url)
+```
+
+
+```{r model-caption-arctic, fig.cap= my_caption, out.width = "0.01%", eval = identical(gitbook_on, TRUE)}
+my_photo = 'fig/pixel.png'
+
+my_caption = paste0('3D model of crossing 125000 where newly installed bridge is planned on a tributary to Parsnip River. To zoom press "shift" and scroll.')
+
+knitr::include_graphics(my_photo, dpi = NA)
+
+```
+
+#### Fish Sampling {-}  
+
+Electrofishing was conducted with results summarised in Tables \@ref(tab:tab-fish-site-125000) - \@ref(tab:tab-fish-dens-125000) and Figure \@ref(fig:plot-fish-box-125000). Rainbow trout and sculpin were captured both upstream and downstream of the crossing. There was only one adult fish caught (rainbow), with the rest of the fish captured being parr, fry or juveniles. The majority of fish caught were tagged using Passive Integrated Transponders (PIT), with the exception of smaller fish for risk of causing harm. 
+
+`r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
+
+<br>
+
+```{r tab-fish-site-125000, eval=T}
+fpr_table_fish_site()
+
+```
+
+<br>
+
+```{r tab-fish-dens-125000, eval=T}
+fpr_table_fish_density()
+
+```
+
+`r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
+
+```{r plot-fish-box-125000, fig.cap= my_caption, eval=T}
+my_caption <- paste0('Densites of fish (fish/100m2) captured upstream of PSCIS crossing ', my_site, '.')
+
+fpr_plot_fish_box() 
+
 ```
 
 <br>
@@ -931,11 +1143,15 @@ migration corridor containing habitat suitable for spawning with moderate rearin
 
 Replacement of PSCIS crossing `r as.character(my_site)` with a bridge (`r fpr::fpr_my_pscis_info(col_pull = recommended_diameter_or_span_meters)`m span) is recommended. The cost of the work was estimated at \$`r format(fpr::fpr_my_cost_estimate(), big.mark = ',')` for a cost benefit of `r fpr::fpr_my_cost_estimate(col_pull = cost_net)` linear m/\$1000 and `r fpr::fpr_my_cost_estimate(col_pull = cost_area_net)` m^2^/\$1000.
 
-Modelling indicates that there is `r round(fpr::fpr_my_priority_info(col_pull= upstream_habitat_length_m)/1000, 1)`km of
-habitat upstream of crossing `r as.character(my_site)` suitable for bull trout rearing with areas surveyed rated as
-`r fpr::fpr_my_priority_info(sit = my_site, loc = 'us', col_pull = hab_value)` value for rearing and spawning. Crossing
-`r as.character(my_site)` was ranked as a`r fpr::fpr_my_priority_info(col_pull = priority)` priority for
-proceeding to design for replacement. Due to the lack of historic fisheries information upstream of the crossing, it is recommended that electrofishing be conducted in this area. Fish were spotted on the habitat survey upstream in 2022. Future fish sampling would help confirm migration patterns of resident populations. Additionally, it is recommended that Fern Creek be surveyed further upstream to confirm the absence of barriers between crossing `r as.character(my_site)` and Fern Lakes.     
+Modelling indicates that there is 
+`r round(fpr::fpr_my_priority_info(col_pull= upstream_habitat_length_m)/1000, 1)`km of
+habitat upstream of crossing `r as.character(my_site)` suitable for bull trout rearing with
+areas surveyed rated as
+`r fpr::fpr_my_priority_info(sit = my_site, loc = 'us', col_pull = hab_value)`
+value for rearing and spawning. Crossing
+`r as.character(my_site)` was ranked as a
+`r fpr::fpr_my_priority_info(col_pull = priority)` priority for
+proceeding to design for replacement. Due to the lack of historic fisheries information upstream of the crossing, it is recommended that electrofishing be conducted in this area. Fish were spotted on the habitat survey upstream in 2022. Future fish sampling would help confirm migration patterns of resident populations. Additionally, it is recommended that Fern Creek be surveyed further upstream to confirm the presence (or absence) of barriers between crossing `r as.character(my_site)` and Fern Lakes.     
 
 `r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
 
@@ -1084,213 +1300,12 @@ knitr::include_graphics(my_photo2)
 
 <br>
 
-## Planned Remediations 
 
-### Tributary to Parsnip River - PSCIS crossing 125000  
 
-```{r  load-data-125000}
-my_site <- 125000
 
-```
 
-PSCIS crossing `r as.character(my_site)` is located on a tributary to Parsnip River, approximately 2km upstream of the confluence with the Parsnip River, on the Chuchinka-Arctic FSR. This site is situated approximately 9km north-west of the outlet of Arctic Lake. Arctic Lake is located within Arctic Pacific Lakes Provincial Park and has an area of 112ha. The park has significant historical and recreational values and is located on Mcleod Lake indian band reservation lands. The lake supports a diverse population of fish, including lake trout, bull trout, rainbow trout, kokanee, dolly varden, mountain whitefish, redside shiner, lake char, and chinook salmon, and arctic grayling [@bcparks2020ArcticPacific]. At crossing `r as.character(my_site)`, this tributary to Parsnip River is a
-`r fpr::fpr_my_bcfishpass() %>% english::ordinal()` order stream with a
-watershed area upstream of the crossing of approximately
-`r fpr::fpr_my_wshd()`km^2^. The elevation of the watershed ranges from
-a maximum of `r fpr::fpr_my_wshd(col = 'elev_max')`m to
-`r fpr::fpr_my_wshd(col = 'elev_min')`m near the crossing (Table
-\@ref(tab:tab-wshd-125000)). There are no other stream crossings on the mainstem of this stream that block fish passage. Rainbow trout and sculpin have been captured in the past both upstream and downstream of the crossing. A map of the watershed is provided in map attachment [93I.111](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/FishPassage_093I.111.pdf).
 
-<br>
 
-PSCIS crossing `r as.character(my_site)` was ranked as a high priority for remediation following habitat confirmations done by @irvine2020ParsnipRiver in 2019. At that time, there was an estimated 3.5km of habitat with a gradient less than 5% available upstream of the crossing. Habitat was rated as high value for salmonid rearing and spawning. Fish sampling done in 2019 confirmed that rainbow trout and sculpin were found downstream of the crossing. There were no fish captured upstream of the crossing. At the time of survey in 2019, the culvert was a complete barrier to upstream fish passage, having an outlet drop of 0.4m and a outlet pool depth of 1.5m. A detailed overview of stream characteristics and habitat details can be found in the [2019 report](https://www.newgraphenvironment.com/Parsnip_Fish_Passage/03_Parsnip_report_125000.html). 
+## Fish Passage Assessments
 
-<br>
-
-This site was reassessed in 2022, with drone survey and fish sampling conducted. At the time of survey in 2022, PSCIS crossing `r as.character(my_site)` was
-un-embedded, non-backwatered and ranked as a
-`r fpr::fpr_my_pscis_info(dat = pscis_reassessments, col_pull = barrier_result) %>% stringr::str_to_lower()`
-to upstream fish passage. This culvert is very undersized which is evidenced by the large outlet drop of 0.6m and outlet pool depth of 2m.
-
-<br>
-
-```{r tab-wshd-125000, eval = T}
-fpr::fpr_table_wshd_sum(site_id = my_site) %>% 
-  fpr::fpr_kable(caption_text = paste0('Summary of derived upstream watershed statistics for PSCIS crossing ', my_site, '.'),
-           footnote_text = 'Elev P60 = Elevation at which 60% of the watershed area is above',
-           scroll = F)
-
-```
-
-<br>
- 
-```{r tab-culvert-bcfp-125000, eval = T}
-fpr::fpr_table_bcfp(scroll = F) 
-```
-
-`r if(identical(gitbook_on, FALSE)){knitr::asis_output("\\pagebreak")}`
-
-<br>
-
-#### Aerial Imagery {-}  
-
-In 2019 a video survey was conducted by drone and can be viewed [here](https://www.youtube.com/watch?v=-foWvX1MSkg). In the summer of 2022, additional surveys were conducted with a remotely piloted aircraft at the crossing with resulting images stitched into an orthomosaic and 3-dimensional model `r if(gitbook_on){knitr::asis_output(" presented in Figures \\@ref(fig:ortho-caption-arctic) - \\@ref(fig:model-caption-arctic).")} else knitr::asis_output("presented [here](https://www.mapsmadeeasy.com/maps/public/0b96f06f52be467db7250b3caeeecee3) and [here](https://www.mapsmadeeasy.com/maps/public_3D/0b96f06f52be467db7250b3caeeecee3/).")`
-
-```{r ortho-arctic, eval = identical(gitbook_on, TRUE)}
-model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public/0b96f06f52be467db7250b3caeeecee3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'
-
-knitr::asis_output(model_url)
-```
-
-
-```{r ortho-caption-arctic, fig.cap= my_caption, out.width = "0.01%", eval = identical(gitbook_on, TRUE)}
-my_photo = 'fig/pixel.png'
-
-my_caption = paste0('Orthomosaic of site of planned bridge on tributary to Parsnip River. To zoom press "shift" and scroll.')
-
-knitr::include_graphics(my_photo, dpi = NA)
-
-```
-
-<br>
-
-```{r model-arctic, eval = identical(gitbook_on, TRUE)}
-model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public_3D/0b96f06f52be467db7250b3caeeecee3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'
-
-knitr::asis_output(model_url)
-```
-
-
-```{r model-caption-arctic, fig.cap= my_caption, out.width = "0.01%", eval = identical(gitbook_on, TRUE)}
-my_photo = 'fig/pixel.png'
-
-my_caption = paste0('3D model of crossing 125000 where newly installed bridge is planned on a tributary to Parsnip River. To zoom press "shift" and scroll.')
-
-knitr::include_graphics(my_photo, dpi = NA)
-
-```
-
-#### Fish Sampling {-}  
-
-Electrofishing was conducted with results summarised in Tables
-\@ref(tab:tab-fish-site-125000) - \@ref(tab:tab-fish-dens-125000) and
-Figure \@ref(fig:plot-fish-box-125000). Rainbow trout and sculpin were captured both upstream and downstream of the crossing. There was only one adult fish caught (rainbow), with the rest of the fish captured being parr, fry or juveniles. The majority of fish caught were tagged using Passive Integrated Transponders (PIT), with the exception of smaller fish for risk of causing harm. 
-
-`r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
-
-<br>
-
-```{r tab-fish-site-125000, eval=T}
-fpr_table_fish_site()
-
-```
-
-<br>
-
-```{r tab-fish-dens-125000, eval=T}
-fpr_table_fish_density()
-
-```
-
-`r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
-
-```{r plot-fish-box-125000, fig.cap= my_caption, eval=T}
-my_caption <- paste0('Densites of fish (fish/100m2) captured upstream of PSCIS crossing ', my_site, '.')
-
-fpr_plot_fish_box() 
-
-```
-
-<br>
-
-## Completed Remediations  
-
-### Tributary to Missinka River - PSCIS crossing 125179  
-
-```{r  load-data-125179}
-my_site <- 125179
-```
-PSCIS crossing `r as.character(my_site)` is located on a tributary to Missinka River, 1km upstream of the confluence, on the Chuchinka-Missinka FSR. The road tenure holder is the Ministry of Forests. This crossing is located approximately 660m east of PSCIS crossing 125180 and joins this adjacent stream just before emptying into the Missinka River. A map of the watershed is provided in map attachment [93I.117](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/FishPassage_093I.116.pdf). This crossing has been remediated, with a bridge installed in the summer of 2022. 
-
-<br>
-
-This site was first assessed by @irvine2020ParsnipRiver in 2019. At that time, there were two culverts side by side. The crossing was ranked as a high priority for follow up due to the 2km of suitable upstream high value habitat, where the presence of bull trout and rainbow trout had been previously confirmed. This watershed was classified as fisheries sensitive under the Forest Practices and Range Act (FRPA) regulations due to downstream bull trout and arctic grayling. As stated in @irvine2022PEAF22F3577DCARestoring, further reasons for restoration at this site include the fact that "the Missinka River watershed is utilized by a possibly genetically distinct, self-sustaining dusk’ihje (Arctic grayling) population with the mainstem of the river providing critical habitat for fry and adult fish." Additionally, regions accessed by the Chuchinka-Missinka FSR provided major harvesting and silviculture obligations. Site plan designs were developed thanks to the ongoing communication and collaboration between SERNBC, Mcleod Lake Indian Band, Sinclair Group, and FLNR.   Photos showing a comparison of the culvert assessment conducted in 2019 versus the completed bridge construction in 2022 are presented in `r if(gitbook_on){knitr::asis_output("Figures \\@ref(fig:photo-125179-01) - \\@ref(fig:photo-125179-02).")}else(knitr::asis_output("Figure \\@ref(fig:photo-125261-d02)."))` 
-
-<br>
-
-```{r photo-125179-01-prep, eval=T}
-my_photo1 = fpr::fpr_photo_pull_by_str(site = 1251792019, str_to_pull = 'crossing_all')
-
-my_caption1 = paste0('Photos of crossing ', my_site, ' in 2019.')
-
-
-```
-
-```{r photo-125179-01, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
-grid::grid.raster(jpeg::readJPEG(my_photo1))
-```
-
-<br>
-
-```{r photo-125179-02-prep}
-my_photo2 = fpr::fpr_photo_pull_by_str(str_to_pull = 'crossing_all', site = 125179)
-
-my_caption2 = paste0('Photos of crossing ', my_site, ' in 2022.')
-```
-
-```{r photo-125179-02, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
-grid::grid.raster(jpeg::readJPEG(my_photo2))
-
-```
-
-```{r photo-125179-d02, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
-
-my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
-
-knitr::include_graphics(my_photo1)
-knitr::include_graphics("fig/pixel.png")
-knitr::include_graphics(my_photo2)
-```
-
-<br>
-
-In the summer of 2022, a monitoring survey was conducted with a remotely piloted aircraft at crossing `r as.character(my_site)`, with resulting images stitched into an orthomosaic and 3-dimensional model
-`r if(gitbook_on){knitr::asis_output(" presented in Figures \\@ref(fig:ortho-caption-missinka) - \\@ref(fig:model-caption-missinka).")} else knitr::asis_output("presented [here](https://www.mapsmadeeasy.com/maps/public/8e3a0c68656c4480a66e067a6e14c0d3) and [here](https://www.mapsmadeeasy.com/maps/public_3D/8e3a0c68656c4480a66e067a6e14c0d3/).")`
-
-```{r ortho-missinka, eval = identical(gitbook_on, TRUE)}
-model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public/8e3a0c68656c4480a66e067a6e14c0d3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'
-
-knitr::asis_output(model_url)
-```
-
-
-```{r ortho-caption-missinka, fig.cap= my_caption, out.width = "0.01%", eval = identical(gitbook_on, TRUE)}
-my_photo = 'fig/pixel.png'
-
-my_caption = paste0('Orthomosaic of bridge on Tributary to Missinka River. To zoom press "shift" and scroll.')
-
-knitr::include_graphics(my_photo, dpi = NA)
-
-```
-
-<br>
-
-```{r model-missinka, eval = identical(gitbook_on, TRUE)}
-model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public_3D/8e3a0c68656c4480a66e067a6e14c0d3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'
-
-knitr::asis_output(model_url)
-```
-
-
-```{r model-caption-missinka, fig.cap= my_caption, out.width = "0.01%", eval = identical(gitbook_on, TRUE)}
-my_photo = 'fig/pixel.png'
-
-my_caption = paste0('3D model of newly installed bridge on a tributary to Missinka Creek. To zoom press "shift" and scroll.')
-
-knitr::include_graphics(my_photo, dpi = NA)
-
-```
-
-#### Recommendations {-}
-
-Following the remediation of crossing `r as.character(my_site)`, it is recommended that future monitoring be conducted at this location. This would help track the stream's morphological changes over time, as well as provide insight into the fish migration patterns in this system. Electrofishing and tagging target species in this stream would aid in gaining a higher understanding into fish movements. Additionally, fishing and monitoring in the adjacent stream (at PSCIS crossing 125180) would also be key in providing a reference site.    
+Fish passage assessments were conducted at 12 sites between `r format(min(pscis_phase1$date), format="%B %d %Y")` and August 18, 2022 by Allan Irvine, R.P.Bio., Mateo Winterscheidt, B.Sc., Nathan Prince, Traditional Land Use Coordinator - McLeod Lake and Eran Spence, Forestry Referrals Officer - McLeod Lake. Assessments were conducted at four previously unassessed sites, three assessments took place as part of habitat confirmation assessments and five sites were reassessed as they had either been replaced since the data in PSCIS was last updated or because they were being scoped for habitat values while serving as training case studies for collaborating technicians. All previously assessed crossings were either fords or bridges so presented no concerns for fish passage. Detailed data with photos are presented in `r if(gitbook_on){knitr::asis_output("[Appendix - Phase 1 Fish Passage Assessment Data and Photos]")} else knitr::asis_output("[Attachment 2](https://www.newgraphenvironment.com/fish_passage_peace_2022_reporting/appendix---phase-1-fish-passage-assessment-data-and-photos.html")`.
