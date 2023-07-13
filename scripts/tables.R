@@ -210,8 +210,8 @@ tab_photo_url <- list.files(path = paste0(getwd(), '/data/photos/'), full.names 
   mutate(stream_crossing_id = case_when(is.na(stream_crossing_id) ~ value, T ~ stream_crossing_id)) %>%
   arrange(stream_crossing_id) %>%
   dplyr::group_split(stream_crossing_id)
-#
-#
+
+
 #   # purrr::set_names(nm = . %>% bind_rows() %>% arrange(value) %>% pull(stream_crossing_id)) %>%
 #   # bind_rows()
 #   # arrange(stream_crossing_id) %>%
