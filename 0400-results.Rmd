@@ -487,7 +487,7 @@ knitr::include_graphics(my_photo, dpi = NA)
 It is recommended that future monitoring be conducted at this location to track the stream morphological changes and provide insight into fish migration within the system. Electrofishing with tagging of target species is recommended along with photo documentation of stream morphology near the bridge. Fish sampling in the adjacent simiiar sized stream [(PSCIS crossing 125180)](https://www.newgraphenvironment.com/Parsnip_Fish_Passage/03_Parsnip_report_125180.html) containing culverts ranked as barriers would provide reference site data for comparison.    
 
 ## Designs {-}
-Three engineering designs for structure replacements with bridges were commissioned in 2022/23.  Additionally, British Columbia Timber Sales is planning to deactivate the Chuchinka-Colbourne FSR between the location of [125345 (Tributary to Parsnip River)](https://www.newgraphenvironment.com/Parsnip_Fish_Passage/03_Parsnip_report_125345.html) and the Chuckhinka-Anzac FSR (pers comm. Stephanie Sundquist, BCTS Planning Forester). The work was scheduled for July and August of 2022 but was delayed until this year. BCTS was able to obtain funding for the work through the Forest Carbon Initiative and the work will include a full road rehabilitation as well as decompaction and replanting.   
+Three engineering designs for structure replacements with bridges were commissioned in 2022/23.  Additionally, British Columbia Timber Sales is planning to deactivate the Chuchinka-Colbourne FSR between the location of [125345 (Tributary to Parsnip River)](https://www.newgraphenvironment.com/Parsnip_Fish_Passage/03_Parsnip_report_125345.html) and the Chuckhinka-Anzac FSR (pers comm. Stephanie Sundquist, BCTS Planning Forester). The work was scheduled for July and August of 2022 but was delayed until this year due to a road washout in 2022. BCTS was able to obtain funding for the work through the Forest Carbon Initiative and the work will include a full road rehabilitation as well as decompaction and replanting.   
 
 <br>
 
@@ -500,7 +500,7 @@ Canfor Forest Products Ltd. (Canfor) has commissioned designs for two sites on t
 
 ## Habitat Confirmation Assessments {-}
 
-### Tributary to Anzac River - PSCIS crossing 6745
+### Tributary to Anzac River - PSCIS crossing 6745 {-}
 
 ```{r  load-data-6745}
 my_site <- 6745
@@ -723,7 +723,7 @@ knitr::include_graphics(my_photo2)
 
 <br>
 
-### Tributary to Parsnip River - PSCIS crossing 125000  
+### Tributary to Parsnip River - PSCIS crossing 125000{-}
 
 ```{r  load-data-125000}
 my_site <- 125000
@@ -742,7 +742,7 @@ Plans were in place for remediation of the site in 2023/24 with funding support 
 
 <br>
 
-```{r fig-og, fig.cap='Map showing old growth management areas (green hashed lines) beyond crossing 125000 accessed by the Chuckinka-Arctic FSR'}
+```{r fig-og, fig.cap='Map showing old growth management areas (green hashed polygons) beyond crossing 125000 accessed by the Chuckinka-Arctic FSR'}
 
 knitr::include_graphics('fig/125000_old_growth.png')
 
@@ -822,7 +822,7 @@ knitr::include_graphics(my_photo, dpi = NA)
 
 #### Fish Sampling {-}  
 
-Electrofishing was conducted with results summarised in Tables \@ref(tab:tab-fish-site-125000) - \@ref(tab:tab-fish-dens-125000) and Figure \@ref(fig:plot-fish-box-125000). Rainbow trout and sculpin were captured both upstream and downstream of the crossing. Rainbow trout over 60mm in length were tagged using Passive Integrated Transponders (PIT) so there health and movement can be tracked over time.
+Electrofishing was conducted with results summarised in Tables \@ref(tab:tab-fish-site-125000) - \@ref(tab:tab-fish-dens-125000) and Figure \@ref(fig:plot-fish-box-125000). Rainbow trout and sculpin were captured both upstream and downstream of the crossing. Rainbow trout over 60mm in length were tagged using Passive Integrated Transponders (PIT) so there health and movement can be tracked over time. Fish sampling data and tag information can be referenced [here](https://github.com/NewGraphEnvironment/fish_passage_peace_2022_reporting/raw/master/data/habitat_confirmations.xls).
 
 `r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
 
@@ -855,7 +855,7 @@ fpr_plot_fish_box()
 
 Although - at the time of reporting - plans for replacement of this site have been delayed, removal of the crossing or replacement is still recommended for the future.  Additionally, re-assessment of the site in the 2023 and/or 2024 could provide valuable information regarding fish health and migration at the site. 
  
-### Tributary to Missinka River - PSCIS crossing 125194
+### Tributary to Missinka River - PSCIS crossing 125194 {-}
 
 ```{r  load-data-125194}
 my_site <- 125194
@@ -948,14 +948,11 @@ migration corridor containing habitat suitable for spawning with moderate rearin
 
 Replacement of PSCIS crossing `r as.character(my_site)` with a bridge (`r fpr::fpr_my_pscis_info(col_pull = recommended_diameter_or_span_meters)`m span) is recommended. The cost of the work was estimated at \$`r format(fpr::fpr_my_cost_estimate(), big.mark = ',')` for a cost benefit of `r fpr::fpr_my_cost_estimate(col_pull = cost_net)` linear m/\$1000 and `r fpr::fpr_my_cost_estimate(col_pull = cost_area_net)` m^2^/\$1000.
 
+<br>
+
 Crossing
-`r as.character(my_site)` was ranked as a
-`r fpr::fpr_my_priority_info(col_pull = priority)` priority for
-proceeding to design for replacement. Modelling indicates 
-`r round(fpr::fpr_my_priority_info(col_pull= upstream_habitat_length_m)/1000)`km of
-habitat upstream of crossing `r as.character(my_site)` suitable for bull trout rearing with
-areas surveyed rated as
-`r fpr::fpr_my_priority_info(sit = my_site, loc = 'us', col_pull = hab_value)`
+`r as.character(my_site)` was ranked as a `r fpr::fpr_my_priority_info(col_pull = priority)` priority for
+proceeding to design for replacement. Modelling indicates  `r round(fpr::fpr_my_priority_info(col_pull= upstream_habitat_length_m)/1000)`km of habitat upstream of crossing `r as.character(my_site)` suitable for bull trout rearing with areas surveyed rated as `r fpr::fpr_my_priority_info(sit = my_site, loc = 'us', col_pull = hab_value)`
 value for rearing and spawning. However, there is a beaver dam 1.6m in height located approximately 800m upstream of this crossing. This would likely block the upstream migration of all fish species and life stages. In order to open up habitat in this system, it is recommended that beaver management methods be pursued at this location.    
 
 `r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
@@ -1075,7 +1072,7 @@ knitr::include_graphics(my_photo2)
 
 <br>
 
-### Fern Creek - PSCIS crossing 125261
+### Fern Creek - PSCIS crossing 125261 {-}
 
 ```{r  load-data-125261}
 my_site <- 125261

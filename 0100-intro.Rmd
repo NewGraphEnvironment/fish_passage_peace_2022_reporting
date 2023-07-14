@@ -14,7 +14,7 @@ This project builds on Society for Ecosystem Restoration Northern BC (SERNbc) wo
 
 <br>
 
-Through the ongoing development of open source analysis and data presentation tools (including pdf and web-hosted mapping tools) we are identifying new restoration opportunities, clarifying restoration benefits, communicating with the broader community and planning on the ground works. 
+Through the ongoing development of open source analysis and data presentation tools (including pdf and web-hosted mapping tools) we are identifying new restoration opportunities, clarifying restoration benefits, communicating with the broader community and implementing on the ground works. 
 
 <br>
 
