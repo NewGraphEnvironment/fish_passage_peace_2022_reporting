@@ -1,0 +1,6 @@
+
+
+#  `r if(gitbook_on){knitr::asis_output("**Attachment 2 - Habitat Assessment Data**")} else knitr::asis_output("**Attachment 3 - Habitat Assessment Data**")` {-}
+
+Raw habitat assessment data including fish sampling and tagging data is at https://github.com/NewGraphEnvironment/fish_passage_peace_2022_reporting/raw/master/data/habitat_confirmations.xls
+
