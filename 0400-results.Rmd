@@ -192,7 +192,7 @@ map %>%
 
 ### Engage Partners {-}
 
-SERNbc and McLeod Lake have been actively engaging with the following groups to build awareness for the initiative, solicit input, prioritize sites, raise partnership funding and plan/implement fish passage remediations. 
+SERNbc and McLeod Lake have been actively engaging with the following groups to build awareness for the initiative, solicit input, prioritize sites, raise partnership funding and plan/implement fish passage remediations: 
 
   * McLeod Lake Indian Band members of council
   * BCTS Engineering
@@ -207,11 +207,7 @@ SERNbc and McLeod Lake have been actively engaging with the following groups to 
   * Planning foresters and biologists Ministry of Forests, Lands, Natural Resource Operations and Rural Development (restructured into Ministry of Forests and Ministry of Land, Water and Resource Stewardship)
   *  Fisheries experts
    
-The [Environmental Stewardship Initiative](https://www2.gov.bc.ca/gov/content/environment/natural-resource-stewardship/consulting-with-first-nations/collaborative-stewardship-bc/environmental-stewardship-initiative)(ESI) is a collaborative partnership between the Province and First Nations with projects designed to focus on ecosystem assessment, restoration, enhancement, research and education. To date, four regional environmental stewardship projects have been developed throughout northern British Columbia. A governance working group with representatives from all four stewardship forums provides governance oversight and guidance for the ESI. The Parsnip River watershed group is within the Regional Strategic Environmental Assessment Forum (RSEA) area. Indigenous partners for RSEA include McLeod lake, Blueberry River, Halfway River, Doig River, West Moberly, Prophet River and Sauteau.  Forum values of focus to date include old forest/forest biodiversity, water, moose, peaceful enjoyment and environmental livelihoods.
-
-<br>
-
-Working together with McLeod Lake Indian Band we are leveraging RSEA initiatives by overlaying Parsnip River watershed group fish passage planning data with the [Recreational Opportunity Spectrum Inventory data](https://catalogue.data.gov.bc.ca/dataset/recreational-opportunity-spectrum-inventory) to facilitate discussions with partners and stakeholders about how long term landscape stewardship goals of McLeod Lake Indian Band relate to stream crossing infrastructure upgrades/removals within their traditional territory.  The inventory data summarizes recreation opportunities as combinations of settings and probable human experience opportunities organized along a spectrum of classes. The spectrum is set out in terms of seven classes as follows: Primitive (P), Semi-primitive Non-motorized (SPNM), Semi-primitive Motorized (SPM), Roaded Natural (RN), Roaded Modified (RM), Rural (R), Urban (U).  The general idea is that areas classified towards the primitive end of the spectrum provide more opportunities for First Nations groups such as the McLeod Lake Indian Band to exercise their rights as indigenous people in areas less disturbed by industrial activity within their traditional territory [@unitednationsgeneralassembly2007UnitedNations].
+The [Environmental Stewardship Initiative](https://www2.gov.bc.ca/gov/content/environment/natural-resource-stewardship/consulting-with-first-nations/collaborative-stewardship-bc/environmental-stewardship-initiative) (ESI) is a collaborative partnership between the Province and First Nations with projects designed to focus on ecosystem assessment, restoration, enhancement, research and education. To date, four regional environmental stewardship projects have been developed throughout northern British Columbia. A governance working group with representatives from all four stewardship forums provides governance oversight and guidance for the ESI. The Parsnip River watershed group is within the Regional Strategic Environmental Assessment Forum (RSEA) area. Indigenous partners for RSEA include McLeod lake, Blueberry River, Halfway River, Doig River, West Moberly, Prophet River and Sauteau.  Forum values of focus to date include old forest/forest biodiversity, water, moose, peaceful enjoyment and environmental livelihoods. Working together with McLeod Lake Indian Band we are leveraging RSEA initiatives by overlaying Parsnip River watershed group fish passage planning data with the [Recreational Opportunity Spectrum Inventory data](https://catalogue.data.gov.bc.ca/dataset/recreational-opportunity-spectrum-inventory) to facilitate discussions with partners and stakeholders about how long term landscape stewardship goals of McLeod Lake Indian Band relate to stream crossing infrastructure upgrades/removals within their traditional territory.  The inventory data summarizes recreation opportunities as combinations of settings and probable human experience opportunities organized along a spectrum of classes. The spectrum is set out in terms of seven classes as follows: Primitive (P), Semi-primitive Non-motorized (SPNM), Semi-primitive Motorized (SPM), Roaded Natural (RN), Roaded Modified (RM), Rural (R), Urban (U).  Areas classified towards the primitive end of the spectrum provide more opportunities for First Nations groups such as the McLeod Lake Indian Band to exercise their rights as indigenous people in areas less disturbed by industrial activity within their traditional territory [@unitednationsgeneralassembly2007UnitedNations].
 
 <br>
 
@@ -252,7 +248,8 @@ xf <- left_join(
            utm_easting,
            utm_northing,
            gradient_gis = gradient,
-           mapsheet = dbm_mof_50k_grid) %>% 
+           mapsheet = dbm_mof_50k_grid,
+           watershed_group_code) %>% 
     # need to run rowise for our fpr function to hit each row
     rowwise() %>%
     mutate(map_link = fpr::fpr_my_mapsheet(wshd = 'parsnip', archive_date = '2022-05-27', site = id),
@@ -285,7 +282,8 @@ xf <- left_join(
          bt_spawning_km:gradient_gis,
          # bt_spawning_km,
          # bt_rearing_km_raw:gradient_gis,
-         road_name:assessment_comment)
+         road_name:assessment_comment,
+         watershed_group_code)
   # dplyr::relocate(assessment_comment, .after = last_col())
   
   
@@ -326,7 +324,8 @@ map <- sd %>%
                                          bt_spawning_km,
                                          mapsheet,
                                          image_view_url, 
-                                         assessment_comment),
+                                         assessment_comment,
+                                         watershed_group_code),
                                 feature.id = F,
                                 row.numbers = F),
     radius = 9,
@@ -337,6 +336,9 @@ map <- sd %>%
     weight = 2,
     opacity = 1.0
   ) %>% 
+  addPolygons(data = wshd_study_areas, color = "#F29A6E", weight = 1, smoothFactor = 0.5,
+              opacity = 1.0, fillOpacity = 0,
+              fillColor = "#F29A6E", label = wshd_study_areas$watershed_group_name) %>% 
   addLayersControl(
     baseGroups = c(
       "Esri.DeLorme",
@@ -359,41 +361,53 @@ map <- sd %>%
 
 
 
-checkbox_map <- bscols(
-  widths = c(2, 10),
-  filter_slider(id = "label", 
-                label = "bt_rearing_km", 
-                sharedData = sd, 
-                column = ~bt_rearing_km, 
-                round = 1),
-  # filter_checkbox("label", "bt_rearing_km", sd, ~bt_rearing_km),
-  map
+widgets <- bscols(
+  widths = c(2, 5, 5),
+  filter_checkbox("label",
+                  "Watershed Group",
+                  sd,
+                  ~watershed_group_code),
+  filter_slider(id = "label",
+                label = "Bull Trout Rearing (km)",
+                sharedData = sd,
+                column = ~bt_rearing_km,
+                round = 1,
+                max = 100),
+  filter_slider(id = "label",
+                label = "Bull Trout Spawning (km)",
+                sharedData = sd,
+                column = ~bt_spawning_km,
+                round = 1,
+                max = 45)
 )
 
 htmltools::browsable(
-  htmltools::tagList(checkbox_map,
-                     datatable(sd, 
-                               class = 'cell-border stripe',
-                               extensions=c("Scroller","Buttons","FixedColumns"), 
-                               style="bootstrap",
-                               # class="compact",
-                               width="100%",
-                               rownames = F,
-                               options=list(
-                                 deferRender=TRUE, 
-                                 scrollY=300, 
-                                 scrollX = T,
-                                 scroller=TRUE,
-                                 dom = 'Bfrtip',
-                                 buttons = list(
-                                   'copy',
-                                   list(
-                                     extend = 'collection',
-                                     buttons = c('csv'),
-                                     text = 'Download csv')),
-                               fixedColumns = list(leftColumns = 2),
-                               initComplete = JS("function(settings, json) {","$(this.api().table().container()).css({'font-size': '11px'});","}")),
-                               escape = F)
+  htmltools::tagList(
+    widgets,
+    map,
+    
+    datatable(sd, 
+              class = 'cell-border stripe',
+              extensions=c("Scroller","Buttons","FixedColumns"), 
+              style="bootstrap",
+              # class="compact",
+              width="100%",
+              rownames = F,
+              options=list(
+                deferRender=TRUE, 
+                scrollY=300, 
+                scrollX = T,
+                scroller=TRUE,
+                dom = 'Bfrtip',
+                buttons = list(
+                  'copy',
+                  list(
+                    extend = 'collection',
+                    buttons = c('csv'),
+                    text = 'Download csv')),
+                fixedColumns = list(leftColumns = 2),
+                initComplete = JS("function(settings, json) {","$(this.api().table().container()).css({'font-size': '11px'});","}")),
+              escape = F)
   ))
 
 ```
