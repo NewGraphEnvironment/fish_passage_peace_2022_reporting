@@ -10,7 +10,7 @@ The Society for Ecosystem Restoration in Northern BC (SERNbc) is working togethe
 
 <br>
 
-The project engages FWCP partners and stakeholders to clearly communicate fish passage issues in the Parsnip River watershed while collaboratively planning and executing the steps necessary to realize fish passage restorations. Work completed and ongoing aligns with the Fish and Wildlife Compensation Program Rivers, Lakes and Reservoirs Action Plan [@fishandwildlifecompensationprogram2020PeaceRegion] sub objective 6 of addressing fish passage issues in streams to enhance productivity of priority species.  Project activities undertaken address the following actions:
+The project engages FWCP partners and stakeholders to clearly communicate fish passage issues in FWCP Peace Region wtersheds watershed while collaboratively planning and executing the steps necessary to realize fish passage restorations. Work completed and ongoing aligns with the Fish and Wildlife Compensation Program Rivers, Lakes and Reservoirs Action Plan [@fishandwildlifecompensationprogram2020PeaceRegion] sub objective 6 of addressing fish passage issues in streams to enhance productivity of priority species.  Project activities undertaken address the following actions:
 
   * PEA.RLR.S06.RI.20 - Conducting engagement to prioritize options for fish passage improvement-P1 
   * PEA.RLR.S06.RI.19 - Conducting research to prioritize fish passage actions-P1
@@ -25,9 +25,12 @@ This project builds on Society for Ecosystem Restoration Northern BC (SERNbc) wo
 
 Through 2022/2023 project activities numerous project partners were engaged and we were able to identify and conduct fish passage planning/restoration activities at multiple high priority sites. 
 
-- At PSCIS crossing 125179 - a tributary to Missinka River, twin culverts that were negatively impacting fish passage were replaced with a clear-span bridge.  
-- Two crossings on the Chuchinka-Table FSR were prepared for replacement with engineering designs commissioned and construction materials purchased by Canfor with support through this project.
-- Numerous sites were assessed in the field including those identified through 2021/2022 planning activities and sites where data collected can be utilized in future years to understand the severity of connnectivity issues and help evaluate the effectiveness of investments. 
+- At PSCIS crossing 125179 - a tributary to Missinka River within the Parsnip River watershed group, twin culverts that were negatively impacting fish passage were replaced with a clear-span bridge.  
+- Two crossings on the Chuchinka-Table FSR within the Parsnip River watershed group were prepared for replacement with engineering designs commissioned and construction materials purchased by Canadian Forest Products.
+- Numerous sites were assessed in the field including those identified through 2021/2022 planning activities and sites where data collected can be utilized in future years to understand the severity of connectivity issues and help evaluate the effectiveness of restoration investments. 
+- We have been actively engaging with numerous groups to build awareness for the initiative, solicit input, prioritize sites, raise partnership funding and plan/implement fish passage remediations.
+- Field maps incorporating the newly developed sa'ba (bull trout) spawning and rearing habitat model have been developed for the Parsnip River, Carp Lake and Crooked River watershed groups to facilitate communication among project collaborators and on the ground assessments. The georeferenced  `pdf` maps are served online and were were generated using reproducible open source workflows.
+- We built an interactive dashboard to allow users to conduct background research and planning to facilitate communication and enable future field surveys in the Peace Region. The interactive interface allows screening of previously inventoried as well as modelled stream crossing locations based on watershed group as well as the likely quantity and quality of bull trout rearing and spawning habitat modelled upstream.. Historic assessment data including photos of sites can be viewed when present and users can download csv results and associated georeferenced field maps to facilitate field surveys.
 
 <br>
 
@@ -39,14 +42,14 @@ British Columbia Timber Sales is planning to deactivate the Chuchinka-Colbourne 
 
 <br>
 
-In addition to structure replacements and removals to restore connectivity, research and monitoring is an essential part of any restoration program and is necessary to ensure that we identify the best and most efficient opportunities for fish passage restoration while incorporating adaptive management informed by traditional knowledge and real-time planning/monitoring data. Recommendations going forward include:
+In addition to structure replacements and removals to restore connectivity - communications, research and monitoring are essential parts of any restoration initiative as they ensure that we identify the best and most efficient opportunities for fish passage restoration while incorporating adaptive management informed by traditional knowledge and real-time planning/monitoring data. Recommendations going forward include:
 
 - Continue to engage partners to raise funds for remediations, identify sites for restoration, conduct remedial works and assess effectiveness of works. 
-- Continue to conduct detailed assessments where blockages are present and large amounts of habitat are potentially available within the Parsnip River, Carp Lake and Crooked River watershed groups.  As timelines for remediations can be extensive, planning onerous and costs of remedial works significant, assessments within the Carp Lake and Crooked River watershed groups will provide more options for remediation and engage additional funding partners (ex. Ministry of Transportation and Infrastructure, alternative forest licensees). Additionally, identifying areas of concern near the community of McLeod Lake is expected to further engage community members and most effectively promote restoration activities.
-- Conduct baseline monitoring where sites have been prioritized and where remediations are planned. Electrofishing surveys including tagging of target species with PIT tags are recommended to understand the extent of connectivity impairments, track fish movement/health over time and inform adaptive management. Photo documentation of stream morphology near crossings is also recommended. 
+- Continue to conduct detailed assessments where blockages are present and large amounts of habitat are potentially available within the Parsnip River and neighboring watershed groups.  As timelines for remediations can be extensive, planning onerous and costs of remedial works significant, continuing assessments throughout the greater area will provide more options for remediation and engage additional funding partners (ex. Ministry of Transportation and Infrastructure, alternative forest licensees). Identifying areas of concern near the community of McLeod Lake is expected to further engage community members and most effectively promote restoration activities.
+- Conduct effectiveness monitoring where sites have been remediated, where sites have been prioritized and where remediations are planned. Electrofishing surveys including tagging of target species with PIT tags are recommended to understand the extent of connectivity impairments, track fish movement/health over time and inform adaptive management. Detailed habitat assessments and acquisition of temperature data can be considered along with photo documentation of stream morphology near crossings. 
  
-  - Of particular priority for baseline monitoring is PSCIS crossing 125231 on a tributary to the Table River as this will likely be the first remediation to be completed in 2024. 
-  - As fish were tagged with PIT tags at site 125000 on the tributary to Parsnip River located on the Chuchinka-Arctic FSR in 2022 it is recommended that the site be reassessed with electrofishing in the 2023 and/or 2024 to provide valuable information regarding how the perched culvert may be impacting fish movement and health. 
-- Conduct follow up monitoring at site 125179 in the Missinka where the bridge was installed in 2022. Electrofishing with tagging of target species is recommended along with photo documentation of stream morphology near the bridge. Fish sampling in the adjacent similar sized stream [(PSCIS crossing 125180)](https://www.newgraphenvironment.com/Parsnip_Fish_Passage/03_Parsnip_report_125180.html) containing culverts ranked as barriers can provide reference site data for comparison.
+
+
+
 
 
