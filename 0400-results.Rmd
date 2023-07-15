@@ -4,7 +4,7 @@
 
 <br>
 
-```{r map-interactive, eval= gitbook_on, fig.cap='Map of fish passage and habitat confirmation results'}
+```{r map-interactive, eval= gitbook_on, fig.cap='Map of target sites. Full screen available through button below zoom.'}
 ##make colors for the priorities
 pal <- 
    colorFactor(palette = c("red", "yellow", "grey", "black"), 
@@ -190,9 +190,40 @@ map %>%
 
 ## Identify and Communicate Connectivity Issues {-}
 
+### Engage Partners {-}
 
-### Field Planning - Interactive Dashboard {-}
-Planning for potential 2023 field survey sites is presented `r if(gitbook_on){knitr::asis_output("interactively in Figure \\@ref(fig:widget-planning-caption).")}else knitr::asis_output("in Table \\@ref(tab:tab-planning-pdf). Please note that an interactive fieldwork planning dashboard prototype has been developed for the project and is located within the online interactive version of the report located [here](https://newgraphenvironment.github.io/fish_passage_peace_2022_reporting/).")`  Georeferenced field maps containing updated modelling outputs are presented in `r if(gitbook_on){knitr::asis_output("[here](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/) and available for bulk download as [Attachment 1](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/parsnip_2022-05-27.zip).")} else knitr::asis_output("[Attachment 1](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/parsnip_2022-05-27.zip).")`
+SERNbc and McLeod Lake have been actively engaging with the following groups to build awareness for the initiative, solicit input, prioritize sites, raise partnership funding and plan/implement fish passage remediations. 
+
+  * McLeod Lake Indian Band members of council
+  * BCTS Engineering
+  * CN Rail
+  * Canadian Forest Products (Canfor)
+  * Sinclar Forest Projects Ltd. (Sinclar)
+  * Northern Engineering - Ministry of Forests
+  * BC Ministry of Transportation and Infrastructure
+  * Fish Passage Technical Working Group
+  * Coastal Gasliink
+  * British Columbia Wildlife Federation
+  * Planning foresters and biologists Ministry of Forests, Lands, Natural Resource Operations and Rural Development (restructured into Ministry of Forests and Ministry of Land, Water and Resource Stewardship)
+  *  Fisheries experts
+   
+The [Environmental Stewardship Initiative](https://www2.gov.bc.ca/gov/content/environment/natural-resource-stewardship/consulting-with-first-nations/collaborative-stewardship-bc/environmental-stewardship-initiative)(ESI) is a collaborative partnership between the Province and First Nations with projects designed to focus on ecosystem assessment, restoration, enhancement, research and education. To date, four regional environmental stewardship projects have been developed throughout northern British Columbia. A governance working group with representatives from all four stewardship forums provides governance oversight and guidance for the ESI. The Parsnip River watershed group is within the Regional Strategic Environmental Assessment Forum (RSEA) area. Indigenous partners for RSEA include McLeod lake, Blueberry River, Halfway River, Doig River, West Moberly, Prophet River and Sauteau.  Forum values of focus to date include old forest/forest biodiversity, water, moose, peaceful enjoyment and environmental livelihoods.
+
+<br>
+
+Working together with McLeod Lake Indian Band we are leveraging RSEA initiatives by overlaying Parsnip River watershed group fish passage planning data with the [Recreational Opportunity Spectrum Inventory data](https://catalogue.data.gov.bc.ca/dataset/recreational-opportunity-spectrum-inventory) to facilitate discussions with partners and stakeholders about how long term landscape stewardship goals of McLeod Lake Indian Band relate to stream crossing infrastructure upgrades/removals within their traditional territory.  The inventory data summarizes recreation opportunities as combinations of settings and probable human experience opportunities organized along a spectrum of classes. The spectrum is set out in terms of seven classes as follows: Primitive (P), Semi-primitive Non-motorized (SPNM), Semi-primitive Motorized (SPM), Roaded Natural (RN), Roaded Modified (RM), Rural (R), Urban (U).  The general idea is that areas classified towards the primitive end of the spectrum provide more opportunities for First Nations groups such as the McLeod Lake Indian Band to exercise their rights as indigenous people in areas less disturbed by industrial activity within their traditional territory [@unitednationsgeneralassembly2007UnitedNations].
+
+<br>
+
+### Mapping {-}
+
+Georeferenced field maps containing updated modelling outputs are presented in `r if(gitbook_on){knitr::asis_output("[here](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/) and available for bulk download as [Attachment 1](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/parsnip_2022-05-27.zip).")} else knitr::asis_output("[Attachment 1](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/parsnip_2022-05-27.zip).")`
+
+<br>
+
+### Interactive Dashboard {-}
+
+`r if(gitbook_on){knitr::asis_output("The interactive dashboard is presented in Figure \\@ref(fig:widget-planning-caption).")}else knitr::asis_output("A csv containing fish passage modelling data used for input into the interactive dashboard to facilitate planning for 2023 field survey sites is included as [Attachment 2](https://github.com/NewGraphEnvironment/fish_passage_peace_2022_reporting/blob/main/docs/Attachment2_planning.csv). Please note that the interactive dashboard is located within the online interactive version of the report located at https://newgraphenvironment.github.io/fish_passage_peace_2022_reporting/.")` 
 
 ```{r field-planning-prep}
 # join bcfishpass to some pscis columns for the screening table
@@ -268,7 +299,6 @@ xf <- left_join(
 #   summarise(n = n())
 
 ```
-
 
 ```{r widget-planning, eval = gitbook_on}
 # Wrap data frame in SharedData
@@ -370,12 +400,12 @@ htmltools::browsable(
 
 ```{r widget-planning-caption, fig.cap= my_caption, out.width = "0.01%",  eval = gitbook_on}
 my_photo = 'fig/pixel.png'
-my_caption= 'Field planning widget to facilitate planning for 2022 field surveys.'
+my_caption= 'Dashboard to facilitate field planning for field surveys.'
 knitr::include_graphics(my_photo, dpi = NA)
 ```
 
 
-```{r tab-planning-pdf, eval= identical(gitbook_on, FALSE)}
+```{r tab-planning-pdf, eval= F}
 
 # identical(gitbook_on, FALSE)
 my_caption = 'Field planning results to facilitate selection of restoration opportunities for 2022 field surveys.'
@@ -385,7 +415,7 @@ xf %>%
   select(id:habitat_value,
          outlet_drop,
          bt_spawning_km, 
-         bt_rearing_km = bt_rearing_km_raw,
+         bt_rearing_km,
          mapsheet,
          utm_easting,
          utm_northing,
@@ -402,16 +432,20 @@ xf %>%
 
 ## Remediations {-}
 
-### Tributary to Missinka River - PSCIS crossing 125179  
+### Tributary to Missinka River - PSCIS crossing 125179  {-}
 
 ```{r  load-data-125179}
 my_site <- 125179
 ```
-PSCIS crossing `r as.character(my_site)` is located on a tributary to Missinka River, 1km upstream of the confluence, on the Chuchinka-Missinka FSR. This crossing is located approximately 660m east of PSCIS crossing 125180 and joins this adjacent stream just before emptying into the Missinka River. A map of the watershed is provided in map attachment [93I.117](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/FishPassage_093I.116.pdf). The crossing has been remediated, with a bridge installed in the summer of 2022. 
+PSCIS crossing `r as.character(my_site)` is located on a tributary to Missinka River, 1km upstream of the confluence, on the Chuchinka-Missinka FSR. This crossing is located approximately 660m east of PSCIS crossing 125180 and joins this adjacent stream just before emptying into the Missinka River. A map of the watershed is provided in map attachment [93I.116](https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/FishPassage_093I.116.pdf). The twin culverts were replaced with a clear-span bridge in the summer of 2022. 
 
 <br>
 
-This site was first assessed by @irvine2020ParsnipRiver in 2019 with reporting available [here](https://www.newgraphenvironment.com/Parsnip_Fish_Passage/03_Parsnip_report_125179.html). At that time, there were two 1.2m diameter culverts side by side. The crossing was ranked as a high priority for follow up due to the 2km of suitable upstream high value habitat, where the presence of bull trout and rainbow trout had been previously confirmed. This watershed was classified as fisheries sensitive under the _Forest Practices and Range Act_ due to due to significant downstream fisheries values and watershed sensitivity. Furthermore, the Missinka River watershed is utilized by a possibly genetically distinct, self-sustaining dusk’ihje (Arctic grayling) population with the mainstem of the river providing critical habitat for fry and adult fish [@hagen_etal2015Criticalhabitats]. An engineering design was commissioned through SERN in 2020 with support from FWCP funding.  In 20221, SERN was able to acquire funding from the Ministry of Forests, Lands and Natural Resource Development to go towards preparation and materials for replacement of the site. In 2022/23, FWCP contributed funding towards the remediation.  Photos showing a comparison of the culvert assessment conducted in 2019 versus the completed bridge construction in 2022 are presented in `r if(gitbook_on){knitr::asis_output("Figures \\@ref(fig:photo-125179-01) - \\@ref(fig:photo-125179-02).")}else(knitr::asis_output("Figure \\@ref(fig:photo-125261-d02)."))` Overall the cost of the site was reported by Sinclar as $190,000 which is considerably lower than recent costs estimates elsewhere in the watershed due to recent inflation. Remediation details including as-built drawings have been loaded to the PSCIS data portal for upload to the province. 
+In 2018, the Missinka River watershed was designated as a fisheries sensitive watershed under the authority of the Forest and Range Practices Act due to significant downstream fisheries values and watershed sensitivity (Beaudry 2013). Special management is required in the crossing’s watershed to protect habitat for Bull Trout and Arctic Grayling and includes measures (among others) to limit equivalent clearcut area, reduce impacts to natural stream channel morphology, retain old growth attributes and maintain fish habitat/movement. 
+
+<br>
+
+The site was first assessed by @irvine2020ParsnipRiver in 2019 with reporting available [here](https://www.newgraphenvironment.com/Parsnip_Fish_Passage/03_Parsnip_report_125179.html). At that time, there were two 1.2m diameter culverts side by side. The crossing was ranked as a high priority for follow up due to the 2km of suitable upstream high value habitat, where the presence of bull trout and rainbow trout had been previously confirmed. In 2020, with support from FWCP funding, an engineering design was commissioned for the site with funding acquired from the Ministry of Forests, Lands and Natural Resource Development in 2020 for project materials (riprap and girders). In 2022/23, a 15m steel girder permanent bridge with modular timber decks was installed.  Photos showing a comparison of the culvert assessment conducted in 2019 versus the completed bridge construction in 2022 are presented in `r if(gitbook_on){knitr::asis_output("Figures \\@ref(fig:photo-125179-01) - \\@ref(fig:photo-125179-02).")}else(knitr::asis_output("Figure \\@ref(fig:photo-125261-d02)."))` Remediation details including as-built drawings have been loaded to the PSCIS data portal for upload to the province. 
 
 <br>
 
@@ -424,7 +458,7 @@ my_caption1 = paste0('Photos of crossing ', my_site, ' in 2019.')
 ```
 
 ```{r photo-125179-01, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
-grid::grid.raster(jpeg::readJPEG(my_photo1))
+knitr::include_graphics(my_photo1)
 ```
 
 <br>
@@ -436,7 +470,7 @@ my_caption2 = paste0('Photos of crossing ', my_site, ' in 2022.')
 ```
 
 ```{r photo-125179-02, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
-grid::grid.raster(jpeg::readJPEG(my_photo2))
+knitr::include_graphics(my_photo2)
 
 ```
 
@@ -490,7 +524,9 @@ knitr::include_graphics(my_photo, dpi = NA)
 
 #### Recommendations {-}
 
-It is recommended that future monitoring be conducted at this location to track the stream morphological changes and provide insight into fish migration within the system. Electrofishing with tagging of target species is recommended along with photo documentation of stream morphology near the bridge. Fish sampling in the adjacent simiiar sized stream [(PSCIS crossing 125180)](https://www.newgraphenvironment.com/Parsnip_Fish_Passage/03_Parsnip_report_125180.html) containing culverts ranked as barriers would provide reference site data for comparison.    
+It is recommended that future monitoring be conducted at this location to track the stream morphological changes and provide insight into fish migration within the system. Electrofishing with tagging of target species is recommended along with photo documentation of stream morphology near the bridge. Fish sampling in the adjacent similar sized stream [(PSCIS crossing 125180)](https://www.newgraphenvironment.com/Parsnip_Fish_Passage/03_Parsnip_report_125180.html) containing culverts ranked as barriers would provide reference site data for comparison.    
+
+<br>
 
 ## Designs {-}
 Three engineering designs for structure replacements with bridges were commissioned in 2022/23.  Additionally, British Columbia Timber Sales is planning to deactivate the Chuchinka-Colbourne FSR between the location of [125345 (Tributary to Parsnip River)](https://www.newgraphenvironment.com/Parsnip_Fish_Passage/03_Parsnip_report_125345.html) and the Chuckhinka-Anzac FSR (pers comm. Stephanie Sundquist, BCTS Planning Forester). The work was scheduled for July and August of 2022 but was delayed until 2023 due to a road washout in 2022. BCTS was able to obtain funding for the work through the Forest Carbon Initiative and the work will include a full road rehabilitation as well as decompaction and replanting.   
@@ -501,10 +537,12 @@ Sinclar Forest Group commissioned a design for PSCIS crossing 125000 on a tribut
 
 <br>
 
-Canfor Forest Products Ltd. (Canfor) has commissioned designs for two sites on the Chuchinka-Table FSR that are planned for remediation in 2024 - 2025:
+Canfor Forest Products Ltd. (Canfor) has commissioned designs for two sites on the Chuchinka-Table FSR that are planned for remediation:
 
-  1. PSCIS crossing 125231 is located on a tributary to the Table River near the 21km mark of the Chuchinka-Table FSR. The culvert is located 0.7km from the confluence of the Table River on the upstream side of the CN Railway where a crossing considered passable is located. The subject stream flows into the Table River at a point 7.9 km upstream from the confluence with the Parsnip River.  Detailed informaton regarding the site is located in the report by @irvine2020ParsnipRiver which can be found [here](https://www.newgraphenvironment.com/Parsnip_Fish_Passage/03_Parsnip_report_125231.html). 
+  1. PSCIS crossing 125231 is located on a tributary to the Table River near the 21km mark of the Chuchinka-Table FSR. The culvert is located 0.7km from the confluence of the Table River on the upstream side of the CN Railway where a crossing considered passable is located. The subject stream flows into the Table River at a point 7.9 km upstream from the confluence with the Parsnip River.  Detailed information regarding the site is located in the report by @irvine2020ParsnipRiver which can be found [here](https://www.newgraphenvironment.com/Parsnip_Fish_Passage/03_Parsnip_report_125231.html). 
   2. The second site is Fern Creek (PSCIS 125261) located at km 2.1 of the Chuchinka-Table FSR.  This site was prioritized through the interactive  dashboard included in the 2021 reporting from this project [@irvine2022PEAF22F3577DCARestoring] and 2022 field surveys. Details are presented in [Fern Creek - PSCIS crossing 125261]. FWCP funds ($45,000) from 2022/2023 ficsal were used by Canfor to purchase materials for future construction at both sites. In addition to designs, Canfor  has contracted DWB Engineering to complete by  to complete 
+  
+  <br>
 
 
 ## Habitat Confirmation Assessments {-}
@@ -557,7 +595,6 @@ was `r fpr::fpr_my_habitat_info(col_pull = 'p_h')` and conductivity was
 `r fpr::fpr_my_habitat_info(col_pull = 'conductivity_m_s_cm')`uS/cm.
 
 `r if(identical(gitbook_on, FALSE)){knitr::asis_output("\\pagebreak")}`
-<br>
 
 ```{r tab-culvert-6745, eval = T}
 fpr::fpr_table_cv_summary_memo()
@@ -594,9 +631,9 @@ habitat upstream of crossing `r as.character(my_site)` suitable for bull trout r
 `r as.character(my_site)` was ranked as a `r fpr::fpr_my_priority_info(col_pull = priority)` priority for
 proceeding to design for replacement. The culvert is considered a potential barrier but may not be a fish passage issue during all but highest flow levels. Fish sampling could be conducted to to determine fish presence upstream and downstream of the crossing.  
 
+
 `r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
 
-<br>
 
 ```{r tab-habitat-summary-6745}
 tab_hab_summary %>% 
@@ -706,10 +743,11 @@ knitr::include_graphics('fig/125000_old_growth.png')
 ```
 
 
-#### Stream Characteristics at  Crossing
 This site was reassessed in 2022, with drone survey and fish sampling conducted. At the time of survey the crossing was un-embedded, non-backwatered and ranked as a `r fpr::fpr_my_pscis_info(dat = pscis_reassessments, col_pull = barrier_result) %>% stringr::str_to_lower()` to upstream fish passage. The culvert was undersized - evidenced by the large outlet drop of 0.6m and outlet pool depth of 2m [@moe2011] (Table \@ref(tab:tab-culvert-125000)). 
 
-<br>
+
+`r if(identical(gitbook_on, FALSE)){knitr::asis_output("\\pagebreak")}`
+
 
 ```{r tab-culvert-125000, eval = T}
 fpr::fpr_table_cv_summary_memo(dat = pscis_reassessments)
@@ -741,6 +779,8 @@ fpr::fpr_table_bcfp(scroll = F)
 #### Aerial Imagery {-}  
 
 In 2019 a video survey was conducted by drone and can be viewed [here](https://www.youtube.com/watch?v=-foWvX1MSkg). In the summer of 2022, additional surveys were conducted with a remotely piloted aircraft at the crossing with resulting images stitched into an orthomosaic and 3-dimensional model `r if(gitbook_on){knitr::asis_output(" presented in Figures \\@ref(fig:ortho-caption-arctic) - \\@ref(fig:model-caption-arctic).")} else knitr::asis_output("presented [here](https://www.mapsmadeeasy.com/maps/public/0b96f06f52be467db7250b3caeeecee3) and [here](https://www.mapsmadeeasy.com/maps/public_3D/0b96f06f52be467db7250b3caeeecee3/).")`
+
+<br>
 
 ```{r ortho-arctic, eval = identical(gitbook_on, TRUE)}
 model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public/0b96f06f52be467db7250b3caeeecee3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'
@@ -807,9 +847,9 @@ fpr_plot_fish_box()
 
 <br>
 
-#### Conclusion
+#### Conclusion {-}
 
-Although at the time of reporting plans for replacement of this site had been delayed, future removal (or replacement) of the crossing is still recommended.  Additionally, re-assessment of the site with electrofishing in the 2023 and/or 2024 will provide valuable information regarding fish health and migration at the site. 
+Although at the time of reporting plans for replacement of this site had been delayed, future removal (or replacement) of the crossing is still recommended. Prelininary cost estimates for the work were estmitated at /$350,000 to /$400,000. Additionally, re-assessment of the site with electrofishing in the 2023 and/or 2024 will provide valuable information regarding fish health and migration at the site. 
  
 ### Tributary to Missinka River - PSCIS crossing 125194 {-}
 
@@ -1280,4 +1320,4 @@ knitr::include_graphics(my_photo2)
 
 ## Fish Passage Assessments {-}
 
-Fish passage assessments were conducted at 12 sites in August 2022 by Allan Irvine, R.P.Bio., Mateo Winterscheidt, B.Sc., Nathan Prince, Traditional Land Use Coordinator - McLeod Lake and Eran Spence, Forestry Referrals Officer - McLeod Lake. Assessments were conducted at four previously unassessed sites, three assessments took place as part of habitat confirmation assessments and five sites were reassessed as they had either been replaced since the data in PSCIS was last updated or because they were being scoped for habitat values while serving as training case studies for collaborating technicians. All previously assessed crossings were either fords or bridges so presented no concerns for fish passage. Detailed data with photos are presented in `r if(gitbook_on){knitr::asis_output("[Appendix - Phase 1 Fish Passage Assessment Data and Photos]")} else knitr::asis_output("[Attachment 2](https://www.newgraphenvironment.com/fish_passage_peace_2022_reporting/appendix---phase-1-fish-passage-assessment-data-and-photos.html")`.
+Fish passage assessments were conducted at 12 sites in August 2022 by Allan Irvine, R.P.Bio., Mateo Winterscheidt, B.Sc., Nathan Prince, Traditional Land Use Coordinator - McLeod Lake and Eran Spence, Forestry Referrals Officer - McLeod Lake. Assessments were conducted at four previously unassessed sites, three assessments took place as part of habitat confirmation assessments and five sites were reassessed as they had either been replaced since the data in PSCIS was last updated or because they were being scoped for habitat values while serving as training case studies for collaborating technicians. All previously assessed crossings were either fords or bridges so presented no concerns for fish passage. `r if(gitbook_on){knitr::asis_output("Detailed data with photos are presented in [Appendix - Phase 1 Fish Passage Assessment Data and Photos]")} else knitr::asis_output("Detailed fish passage assessment data with photos are presented in [Attachment 3 - Phase 1 Data and Photos]")`.
