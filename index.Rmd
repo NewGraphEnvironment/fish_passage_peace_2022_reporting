@@ -13,6 +13,10 @@ author: |
  | New Graph Environment Ltd.
  | on behalf of 
  | Society for Ecosystem Restoration in Northern BC
+ | 
+ | Prepared with financial support of the Fish and Wildlife Compensation Program on
+ | behalf of its program partners BC Hydro, the Province of BC, Fisheries and Oceans
+ | Canada, First Nations and Public Stakeholders.
 
 date: |
  |
