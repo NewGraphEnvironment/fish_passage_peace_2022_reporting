@@ -225,7 +225,7 @@ xf <- left_join(
     # need to run rowise for our fpr function to hit each row
     rowwise() %>%
     mutate(map_link = fpr::fpr_my_mapsheet(wshd = 'parsnip', archive_date = '2022-05-27', site = id),
-           map_link = paste0("<a href ='", map_link,"'target='_blank'>Field Map","</a>")) %>%
+           map_link = paste0("<a href ='", map_link,"'target='_blank'>", map_link,"</a>")) %>%
     arrange(id) %>% 
     st_transform(crs = 4326),
   
@@ -240,7 +240,7 @@ xf <- left_join(
       habitat_value_code,
       image_view_url,
       assessment_comment) %>% 
-    mutate(image_view_url = paste0("<a href ='", image_view_url,"'target='_blank'>Culvert Photos","</a>")) %>% 
+    mutate(image_view_url = paste0("<a href ='", image_view_url,"'target='_blank'>",image_view_url,"</a>")) %>% 
     st_drop_geometry(),
     
   by = c('id' = 'stream_crossing_id')) %>% 
@@ -1280,4 +1280,4 @@ knitr::include_graphics(my_photo2)
 
 ## Fish Passage Assessments {-}
 
-Fish passage assessments were conducted at 12 sites between `r format(min(pscis_phase1$date), format="%B %d %Y")` and August 18, 2022 by Allan Irvine, R.P.Bio., Mateo Winterscheidt, B.Sc., Nathan Prince, Traditional Land Use Coordinator - McLeod Lake and Eran Spence, Forestry Referrals Officer - McLeod Lake. Assessments were conducted at four previously unassessed sites, three assessments took place as part of habitat confirmation assessments and five sites were reassessed as they had either been replaced since the data in PSCIS was last updated or because they were being scoped for habitat values while serving as training case studies for collaborating technicians. All previously assessed crossings were either fords or bridges so presented no concerns for fish passage. Detailed data with photos are presented in `r if(gitbook_on){knitr::asis_output("[Appendix - Phase 1 Fish Passage Assessment Data and Photos]")} else knitr::asis_output("[Attachment 2](https://www.newgraphenvironment.com/fish_passage_peace_2022_reporting/appendix---phase-1-fish-passage-assessment-data-and-photos.html")`.
+Fish passage assessments were conducted at 12 sites in August 2022 by Allan Irvine, R.P.Bio., Mateo Winterscheidt, B.Sc., Nathan Prince, Traditional Land Use Coordinator - McLeod Lake and Eran Spence, Forestry Referrals Officer - McLeod Lake. Assessments were conducted at four previously unassessed sites, three assessments took place as part of habitat confirmation assessments and five sites were reassessed as they had either been replaced since the data in PSCIS was last updated or because they were being scoped for habitat values while serving as training case studies for collaborating technicians. All previously assessed crossings were either fords or bridges so presented no concerns for fish passage. Detailed data with photos are presented in `r if(gitbook_on){knitr::asis_output("[Appendix - Phase 1 Fish Passage Assessment Data and Photos]")} else knitr::asis_output("[Attachment 2](https://www.newgraphenvironment.com/fish_passage_peace_2022_reporting/appendix---phase-1-fish-passage-assessment-data-and-photos.html")`.
