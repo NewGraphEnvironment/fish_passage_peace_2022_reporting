@@ -123,13 +123,13 @@ tab_cost_rd_mult <- readr::read_csv(paste0(getwd(), '/data/inputs_raw/tab_cost_r
 
 
 tab_cost_rd_mult_report <- tab_cost_rd_mult %>%
-  mutate(cost_m_1000s_bridge = cost_m_1000s_bridge * 10) %>%
+  mutate(cost_m_1000s_bridge = cost_m_1000s_bridge * 15) %>%
   rename(
     Class = my_road_class,
     Surface = my_road_surface,
     `Class Multiplier` = road_class_mult,
     `Surface Multiplier` = road_surface_mult,
-    `Bridge $K/10m` = cost_m_1000s_bridge,
+    `Bridge $K/15m` = cost_m_1000s_bridge,
     `Streambed Simulation $K` = cost_embed_cv
   ) %>%
   filter(!is.na(Class)) %>%
