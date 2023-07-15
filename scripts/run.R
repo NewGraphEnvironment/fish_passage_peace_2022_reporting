@@ -5,14 +5,14 @@ preview_chapter('0100-intro.Rmd')
 ##go to the index.Rmd and change gitbook_on <- TRUE
 #################################################################################################
 
-rmarkdown::render_site(output_format = 'bookdown::gitbook',
-                       encoding = 'UTF-8')
+# rmarkdown::render_site(output_format = 'bookdown::gitbook',
+#                        encoding = 'UTF-8')
 
 
 {
   # These files are included in the gitbook version already so we move them out of the build
   files_to_move <- list.files(pattern = ".Rmd$") %>%
-    stringr::str_subset(., '2200|2300|2400', negate = F) #move the attachments out
+    stringr::str_subset(., '2400', negate = F) #move the attachments out
   files_destination <- paste0('hold/', files_to_move)
 
   ##move the files
@@ -25,9 +25,6 @@ rmarkdown::render_site(output_format = 'bookdown::gitbook',
   mapply(file.rename, from = files_destination, to = files_to_move)
 }
 
-
-
-
 #################################################################################################
 ##go to the index.Rmd and change gitbook_on <- FALSE
 #################################################################################################
@@ -39,14 +36,14 @@ filename_html <- 'Peace2022'
 
 {
 
-  # file.rename('0600-appendix.Rmd', 'hold/0600-appendix.Rmd')
+  file.rename('0600-appendix.Rmd', 'hold/0600-appendix.Rmd')
 
   ##   then make our printable pdf
   rmarkdown::render_site(output_format = 'pagedown::html_paged',
                          encoding = 'UTF-8')
 
   #move the phase 1 appendix back to main directory
-  # file.rename('hold/0600-appendix.Rmd', '0600-appendix.Rmd')
+  file.rename('hold/0600-appendix.Rmd', '0600-appendix.Rmd')
 
   # print to pdf
   pagedown::chrome_print(
