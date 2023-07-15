@@ -1,9 +1,3 @@
-# mybookdown-template 0.0.2
+# 0.0.1 (2023-07-15)
 
-  * 20220516
-  * add references.bib
-  * add `NEWS.md` file
-  * update `README.md`
-  * update logos
-  * put date on line with version numbers
-  * tighten packages and functions
+  * Initial draft for review
