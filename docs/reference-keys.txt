@@ -28,8 +28,6 @@ fig:photo-6745-01
 fig:photo-6745-02
 fig:photo-6745-03
 fig:photo-6745-04
-fig:photo-6745-05
-fig:photo-6745-06
 fig:fig-og
 tab:tab-culvert-125000
 fig:ortho-caption-arctic
@@ -61,10 +59,5 @@ fig:photo-125261-07
 fig:photo-125261-08
 background
 methods
-cost-benefit-analysis
-habitat-gain-index
 results-and-discussion
-tributary-to-missinka-river---pscis-crossing-125179
-stream-characteristics-at-crossing-1
-conclusion-1
 recommendations-1
