@@ -231,7 +231,7 @@ xf <- left_join(
     filter(is.na(pscis_status) | (pscis_status != 'HABITAT CONFIRMATION' &
              barrier_status != 'PASSABLE' &
              barrier_status != 'UNKNOWN')) %>% 
-    filter(bt_rearing_km > 1) %>%
+    filter(bt_rearing_km > 0.999) %>%
     filter(crossing_type_code != 'OBS') %>% 
     # rename(bt_rearing_km_raw = bt_rearing_km) %>%
     # mutate(bt_rearing_km = case_when(
@@ -372,6 +372,7 @@ widgets <- bscols(
                 sharedData = sd,
                 column = ~bt_rearing_km,
                 round = 1,
+                min = 0,
                 max = 100),
   filter_slider(id = "label",
                 label = "Bull Trout Spawning (km)",
@@ -414,7 +415,7 @@ htmltools::browsable(
 
 ```{r widget-planning-caption, fig.cap= my_caption, out.width = "0.01%",  eval = gitbook_on}
 my_photo = 'fig/pixel.png'
-my_caption= 'Dashboard to facilitate field planning for field surveys.'
+my_caption= 'Dashboard to facilitate field planning for field surveys. Note that only sites modelled as having 1km or more of bull trout rearing habitat (>1.5m channel width and <7.5% gradient). Full screen available through button in bottom right of map.'
 knitr::include_graphics(my_photo, dpi = NA)
 ```
 
@@ -459,7 +460,8 @@ In 2018, the Missinka River watershed was designated as a fisheries sensitive wa
 
 <br>
 
-The site was first assessed by @irvine2020ParsnipRiver in 2019 with reporting available [here](https://www.newgraphenvironment.com/Parsnip_Fish_Passage/03_Parsnip_report_125179.html). At that time, there were two 1.2m diameter culverts side by side. The crossing was ranked as a high priority for follow up due to the 2km of suitable upstream high value habitat, where the presence of bull trout and rainbow trout had been previously confirmed. In 2020, with support from FWCP funding, an engineering design was commissioned for the site with funding acquired from the Ministry of Forests, Lands and Natural Resource Development in 2020 for project materials (riprap and girders). In 2022/23, a 15m steel girder permanent bridge with modular timber decks was installed.  Photos showing a comparison of the culvert assessment conducted in 2019 versus the completed bridge construction in 2022 are presented in `r if(gitbook_on){knitr::asis_output("Figures \\@ref(fig:photo-125179-01) - \\@ref(fig:photo-125179-02).")}else(knitr::asis_output("Figure \\@ref(fig:photo-125261-d02)."))` Remediation details including as-built drawings have been loaded to the PSCIS data portal for upload to the province. 
+The site was first assessed by @irvine2020ParsnipRiver in 2019 with reporting available [here](https://www.newgraphenvironment.com/Parsnip_Fish_Passage/03_Parsnip_report_125179.html). At that time, there were two 1.2m diameter culverts side by side. The crossing was ranked as a high priority for follow up due to the 2km of suitable upstream high value habitat, where the presence of bull trout and rainbow trout had been previously confirmed. In 2020, with support from FWCP funding, an engineering design was commissioned for the site with funding acquired from the Ministry of Forests, Lands and Natural Resource Development in 2020 for project materials (riprap and girders). In the summer of 2022, a 15m steel girder permanent bridge with modular timber decks was installed. Crews visited the site in August of 2022.  Photos showing a comparison of the culvert assessment conducted in 2019 versus the completed bridge construction in 2022 are presented in `r if(gitbook_on){knitr::asis_output("Figures \\@ref(fig:photo-125179-01) - \\@ref(fig:photo-125179-02).")}else(knitr::asis_output("Figure \\@ref(fig:photo-125261-d02)."))` During the site visit aerial imagery was collected with a remotely piloted aircraft with resulting images stitched into an orthomosaic and 3-dimensional model
+`r if(gitbook_on){knitr::asis_output(" presented in Figures \\@ref(fig:ortho-caption-missinka) - \\@ref(fig:model-caption-missinka).")} else knitr::asis_output("presented [here](https://www.mapsmadeeasy.com/maps/public/8e3a0c68656c4480a66e067a6e14c0d3) and [here](https://www.mapsmadeeasy.com/maps/public_3D/8e3a0c68656c4480a66e067a6e14c0d3/).")` Bridge construction details including as-built drawings have been loaded to the PSCIS data portal for upload to the province. 
 
 <br>
 
@@ -497,13 +499,11 @@ knitr::include_graphics("fig/pixel.png")
 knitr::include_graphics(my_photo2)
 ```
 
+
 <br>
 
-In the summer of 2022, a monitoring survey was conducted with a remotely piloted aircraft at crossing `r as.character(my_site)`, with resulting images stitched into an orthomosaic and 3-dimensional model
-`r if(gitbook_on){knitr::asis_output(" presented in Figures \\@ref(fig:ortho-caption-missinka) - \\@ref(fig:model-caption-missinka).")} else knitr::asis_output("presented [here](https://www.mapsmadeeasy.com/maps/public/8e3a0c68656c4480a66e067a6e14c0d3) and [here](https://www.mapsmadeeasy.com/maps/public_3D/8e3a0c68656c4480a66e067a6e14c0d3/).")`
-
 ```{r ortho-missinka, eval = identical(gitbook_on, TRUE)}
-model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public/8e3a0c68656c4480a66e067a6e14c0d3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'
+model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public/8e3a0c68656c4480a66e067a6e14c0d3" scrolling="no" title="Maps Made Easy" width="100%" height="500" frameBorder ="0"></iframe>'
 
 knitr::asis_output(model_url)
 ```
@@ -521,7 +521,7 @@ knitr::include_graphics(my_photo, dpi = NA)
 <br>
 
 ```{r model-missinka, eval = identical(gitbook_on, TRUE)}
-model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public_3D/8e3a0c68656c4480a66e067a6e14c0d3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'
+model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public_3D/8e3a0c68656c4480a66e067a6e14c0d3" scrolling="no" title="Maps Made Easy" width="100%" height="500" frameBorder ="0"></iframe>'
 
 knitr::asis_output(model_url)
 ```
@@ -530,7 +530,7 @@ knitr::asis_output(model_url)
 ```{r model-caption-missinka, fig.cap= my_caption, out.width = "0.01%", eval = identical(gitbook_on, TRUE)}
 my_photo = 'fig/pixel.png'
 
-my_caption = paste0('3D model of newly installed bridge on a tributary to Missinka Creek. To zoom press "shift" and scroll.')
+my_caption = paste0('3D model of newly installed bridge on a tributary to Missinka Creek. ')
 
 knitr::include_graphics(my_photo, dpi = NA)
 
