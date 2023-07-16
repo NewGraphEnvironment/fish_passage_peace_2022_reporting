@@ -752,7 +752,7 @@ Plans were in place for remediation of the site in 2022/2023 and 2023/24 with fu
 
 ```{r fig-og, fig.cap='Map showing old growth management areas (green hashed polygons) beyond crossing 125000 accessed by the Chuckinka-Arctic FSR'}
 
-knitr::include_graphics('fig/125000_old_growth.png')
+knitr::include_graphics('fig/125000_trib_to_parsnip_old_growth.png')
 
 ```
 
