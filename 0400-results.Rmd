@@ -554,7 +554,8 @@ Sinclar Forest Group commissioned a design for PSCIS crossing 125000 on a tribut
 Canfor Forest Products Ltd. (Canfor) has commissioned designs for two sites on the Chuchinka-Table FSR that are planned for remediation:
 
   1. PSCIS crossing 125231 is located on a tributary to the Table River near the 21km mark of the Chuchinka-Table FSR. The culvert is located 0.7km from the confluence of the Table River on the upstream side of the CN Railway where a crossing considered passable is located. The subject stream flows into the Table River at a point 7.9 km upstream from the confluence with the Parsnip River.  Detailed information regarding the site is located in the report by @irvine2020ParsnipRiver which can be found [here](https://www.newgraphenvironment.com/Parsnip_Fish_Passage/03_Parsnip_report_125231.html). 
-  2. The second site is Fern Creek (PSCIS 125261) located at km 2.1 of the Chuchinka-Table FSR.  This site was prioritized through the interactive  dashboard included in the 2021 reporting from this project [@irvine2022PEAF22F3577DCARestoring] and 2022 field surveys. Details are presented in [Fern Creek - PSCIS crossing 125261]. FWCP funds ($45,000) from 2022/2023 ficsal were used by Canfor to purchase materials for future construction at both sites. In addition to designs, Canfor  has contracted DWB Engineering to complete by  to complete 
+  2. The second site is Fern Creek (PSCIS 125261) located at km 2.1 of the Chuchinka-Table FSR.  This site was prioritized through the interactive  dashboard included in the 2021 reporting from this project [@irvine2022PEAF22F3577DCARestoring] and 2022 field surveys. Details are presented in [Fern Creek - PSCIS crossing 125261]. FWCP funds from 2022/2023 ficsal were used by Canfor to purchase materials for future construction at both sites. In addition to designs, Canfor has contracted DWB Engineering to complete environmental management plans and permit the projects.
+
   
   <br>
 
@@ -797,7 +798,7 @@ In 2019 a video survey was conducted by drone and can be viewed [here](https://w
 <br>
 
 ```{r ortho-arctic, eval = identical(gitbook_on, TRUE)}
-model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public/0b96f06f52be467db7250b3caeeecee3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'
+model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public/0b96f06f52be467db7250b3caeeecee3" scrolling="no" title="Maps Made Easy" width="100%" height="500" frameBorder ="0"></iframe>'
 
 knitr::asis_output(model_url)
 ```
@@ -815,7 +816,7 @@ knitr::include_graphics(my_photo, dpi = NA)
 <br>
 
 ```{r model-arctic, eval = identical(gitbook_on, TRUE)}
-model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public_3D/0b96f06f52be467db7250b3caeeecee3" scrolling="no" title="Maps Made Easy" width="80%" height="400" frameBorder ="0"></iframe>'
+model_url <- '<iframe src="https://www.mapsmadeeasy.com/maps/public_3D/0b96f06f52be467db7250b3caeeecee3" scrolling="no" title="Maps Made Easy" width="100%" height="500" frameBorder ="0"></iframe>'
 
 knitr::asis_output(model_url)
 ```
