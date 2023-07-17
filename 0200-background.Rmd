@@ -65,7 +65,18 @@ Fish species recorded in the Parsnip River watershed are detailed in Table \@ref
 fiss_species_table <- readr::read_csv(paste0(getwd(), '/data/inputs_extracted/fiss_species_table.csv'))
 
 fiss_species_table %>% 
-  fpr::fpr_kable(caption_text = 'Fish species recorded in the Parsnip River watershed group.', scroll = gitbook_on)
+  fpr::fpr_kable(caption_text = 'Fish species recorded in the Parsnip River, Carp Lake, and Crooked River watershed groups.', 
+                 footnote_text = 'COSEWIC abbreviations : 
+                 SC - Special concern 
+                 DD - Data deficient
+                 NAR - Not at risk
+                 
+                 BC List definitions : 
+                 Yellow - Species that is apparently secure 
+                 Blue - Species that is of special concern
+                 Exotic - Species that have been moved beyond their natural range as a result of human activity
+                 ',
+                 scroll = gitbook_on)
 
 ```
 
