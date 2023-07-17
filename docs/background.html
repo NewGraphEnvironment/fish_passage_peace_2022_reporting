@@ -369,11 +369,22 @@ Figure 1.3: Summary discharge statistics (annual maximum, minimum, mean and stan
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="background.html#cb8-1" tabindex="-1"></a>fiss_species_table <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="fu">paste0</span>(<span class="fu">getwd</span>(), <span class="st">&#39;/data/inputs_extracted/fiss_species_table.csv&#39;</span>))</span>
 <span id="cb8-2"><a href="background.html#cb8-2" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="background.html#cb8-3" tabindex="-1"></a>fiss_species_table <span class="sc">%&gt;%</span> </span>
-<span id="cb8-4"><a href="background.html#cb8-4" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="st">&#39;Fish species recorded in the Parsnip River watershed group.&#39;</span>, <span class="at">scroll =</span> gitbook_on)</span></code></pre></div>
+<span id="cb8-4"><a href="background.html#cb8-4" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="st">&#39;Fish species recorded in the Parsnip River, Carp Lake, and Crooked River watershed groups.&#39;</span>, </span>
+<span id="cb8-5"><a href="background.html#cb8-5" tabindex="-1"></a>                 <span class="at">footnote_text =</span> <span class="st">&#39;COSEWIC abbreviations : </span></span>
+<span id="cb8-6"><a href="background.html#cb8-6" tabindex="-1"></a><span class="st">                 SC - Special concern </span></span>
+<span id="cb8-7"><a href="background.html#cb8-7" tabindex="-1"></a><span class="st">                 DD - Data deficient</span></span>
+<span id="cb8-8"><a href="background.html#cb8-8" tabindex="-1"></a><span class="st">                 NAR - Not at risk</span></span>
+<span id="cb8-9"><a href="background.html#cb8-9" tabindex="-1"></a><span class="st">                 </span></span>
+<span id="cb8-10"><a href="background.html#cb8-10" tabindex="-1"></a><span class="st">                 BC List definitions : </span></span>
+<span id="cb8-11"><a href="background.html#cb8-11" tabindex="-1"></a><span class="st">                 Yellow - Species that is apparently secure </span></span>
+<span id="cb8-12"><a href="background.html#cb8-12" tabindex="-1"></a><span class="st">                 Blue - Species that is of special concern</span></span>
+<span id="cb8-13"><a href="background.html#cb8-13" tabindex="-1"></a><span class="st">                 Exotic - Species that have been moved beyond their natural range as a result of human activity</span></span>
+<span id="cb8-14"><a href="background.html#cb8-14" tabindex="-1"></a><span class="st">                 &#39;</span>,</span>
+<span id="cb8-15"><a href="background.html#cb8-15" tabindex="-1"></a>                 <span class="at">scroll =</span> gitbook_on)</span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
-<table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
+<table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
-<span id="tab:fiss-species-table">Table 1.1: </span>Fish species recorded in the Parsnip River watershed group.
+<span id="tab:fiss-species-table">Table 1.1: </span>Fish species recorded in the Parsnip River, Carp Lake, and Crooked River watershed groups.
 </caption>
 <thead>
 <tr>
@@ -397,6 +408,15 @@ COSEWIC
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 SARA
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Parsnip
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Carp
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Crooked
 </th>
 </tr>
 </thead>
@@ -423,6 +443,47 @@ Yellow
 <td style="text-align:left;">
 –
 </td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Catostomus columbianus
+</td>
+<td style="text-align:left;">
+Bridgelip Sucker
+</td>
+<td style="text-align:left;">
+BSU
+</td>
+<td style="text-align:left;">
+Yellow
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Yes
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -445,6 +506,15 @@ Yellow
 </td>
 <td style="text-align:left;">
 –
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
 </td>
 </tr>
 <tr>
@@ -469,6 +539,15 @@ Yellow
 <td style="text-align:left;">
 –
 </td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -492,6 +571,15 @@ Yellow
 <td style="text-align:left;">
 –
 </td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -508,6 +596,15 @@ Yellow
 </td>
 <td style="text-align:left;">
 –
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Yes
 </td>
 <td style="text-align:left;">
 –
@@ -538,6 +635,15 @@ Yellow
 <td style="text-align:left;">
 –
 </td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -554,6 +660,47 @@ Yellow
 </td>
 <td style="text-align:left;">
 –
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cottus hubbsi
+</td>
+<td style="text-align:left;">
+Mottled Sculpin
+</td>
+<td style="text-align:left;">
+CBA
+</td>
+<td style="text-align:left;">
+Blue
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+SC (Nov 2010)
+</td>
+<td style="text-align:left;">
+1-SC (Jun 2003)
+</td>
+<td style="text-align:left;">
+Yes
 </td>
 <td style="text-align:left;">
 –
@@ -584,6 +731,79 @@ DD
 <td style="text-align:left;">
 –
 </td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Esox lucius
+</td>
+<td style="text-align:left;">
+Northern Pike
+</td>
+<td style="text-align:left;">
+NP
+</td>
+<td style="text-align:left;">
+Yellow
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hybognathus hankinsoni
+</td>
+<td style="text-align:left;">
+Brassy Minnow
+</td>
+<td style="text-align:left;">
+BMC
+</td>
+<td style="text-align:left;">
+No Status
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -606,6 +826,15 @@ Yellow
 </td>
 <td style="text-align:left;">
 –
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
 </td>
 </tr>
 <tr>
@@ -630,6 +859,15 @@ Yellow
 <td style="text-align:left;">
 –
 </td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -653,6 +891,15 @@ Yellow
 <td style="text-align:left;">
 –
 </td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -669,6 +916,15 @@ Yellow
 </td>
 <td style="text-align:left;">
 –
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Yes
 </td>
 <td style="text-align:left;">
 –
@@ -699,6 +955,15 @@ Unknown
 <td style="text-align:left;">
 –
 </td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -722,6 +987,15 @@ NAR (Nov 2016)
 <td style="text-align:left;">
 –
 </td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -738,6 +1012,15 @@ Yellow
 </td>
 <td style="text-align:left;">
 –
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Yes
 </td>
 <td style="text-align:left;">
 –
@@ -768,6 +1051,15 @@ Yellow
 <td style="text-align:left;">
 –
 </td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -790,6 +1082,15 @@ Yellow
 </td>
 <td style="text-align:left;">
 –
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
 </td>
 </tr>
 <tr>
@@ -814,6 +1115,15 @@ Yellow
 <td style="text-align:left;">
 –
 </td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Yes
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -837,10 +1147,19 @@ Yellow
 <td style="text-align:left;">
 –
 </td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Salvelinus confluentus
+Salvelinus confluentus pop. 26
 </td>
 <td style="text-align:left;">
 Bull Trout
@@ -852,13 +1171,22 @@ BT
 Blue
 </td>
 <td style="text-align:left;">
-Y (Jun 2006)
-</td>
-<td style="text-align:left;">
-SC (Nov 2012)
+–
 </td>
 <td style="text-align:left;">
 –
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
 </td>
 </tr>
 <tr>
@@ -883,6 +1211,15 @@ Exotic
 <td style="text-align:left;">
 –
 </td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Yes
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -905,6 +1242,15 @@ Yellow
 </td>
 <td style="text-align:left;">
 –
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
 </td>
 </tr>
 <tr>
@@ -929,6 +1275,15 @@ Yellow
 <td style="text-align:left;">
 –
 </td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -952,8 +1307,248 @@ Yellow
 <td style="text-align:left;">
 –
 </td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Chub (General)
+</td>
+<td style="text-align:left;">
+CBC
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Dace (General)
+</td>
+<td style="text-align:left;">
+DC
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Minnow (General)
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Sculpin (General)
+</td>
+<td style="text-align:left;">
+CC
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Squanga
+</td>
+<td style="text-align:left;">
+SQ
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Sucker (General)
+</td>
+<td style="text-align:left;">
+SU
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Whitefish (General)
+</td>
+<td style="text-align:left;">
+WF
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+Yes
+</td>
 </tr>
 </tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup>*</sup> COSEWIC abbreviations : <br> SC - Special concern <br> DD - Data deficient<br> NAR - Not at risk<br> <br> BC List definitions : <br> Yellow - Species that is apparently secure <br> Blue - Species that is of special concern<br> Exotic - Species that have been moved beyond their natural range as a result of human activity<br>
+</td>
+</tr>
+</tfoot>
 </table>
 </div>
 <div id="bull-trout---saba" class="section level3 unnumbered hasAnchor">
