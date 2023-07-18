@@ -36,8 +36,8 @@ fish_spp2 <- left_join(fish_spp,
                        fish_all,
                        by = c("species_code" = "Code")) %>%
   filter(!is.na(Class) & !species_code == 'TR') %>% ##mottled sculpin has some sort of error going on
-  mutate(CDCode = case_when(species_code == 'BT' ~ 'F-SACO-11', ##pacific population yo
-                            T ~ CDCode)) %>%
+  # mutate(CDCode = case_when(species_code == 'BT' ~ 'F-SACO-11', ##pacific population yo
+  #                           T ~ CDCode)) %>%
   select(species_code, species_name, Parsnip, Carp, Crooked, CDCode)
 
 fish_spp3 <- left_join(
