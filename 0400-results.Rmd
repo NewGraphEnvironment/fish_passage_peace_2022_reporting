@@ -229,10 +229,11 @@ xf <- left_join(
   bcfishpass %>% 
     st_as_sf(coords = c('utm_easting', 'utm_northing'), crs = 26910, remove = F) %>% 
     filter(is.na(pscis_status) | (pscis_status != 'HABITAT CONFIRMATION' &
-             barrier_status != 'PASSABLE' &
-             barrier_status != 'UNKNOWN')) %>% 
-    filter(bt_rearing_km > 0.999) %>%
+                                    barrier_status != 'PASSABLE' &
+                                    barrier_status != 'UNKNOWN')) %>% 
+    filter(bt_rearing_km > 0.499) %>%
     filter(crossing_type_code != 'OBS') %>% 
+    filter(is.na(barriers_anthropogenic_dnstr)) %>% 
     # rename(bt_rearing_km_raw = bt_rearing_km) %>%
     # mutate(bt_rearing_km = case_when(
     #   bt_rearing_km_raw >= 1 & bt_rearing_km_raw < 2 ~ '1-2km',
@@ -251,9 +252,8 @@ xf <- left_join(
            mapsheet = dbm_mof_50k_grid,
            watershed_group_code) %>% 
     # need to run rowise for our fpr function to hit each row
-    rowwise() %>%
-    mutate(map_link = fpr::fpr_my_mapsheet(wshd = 'parsnip', archive_date = '2022-05-27', site = id),
-           map_link = paste0("<a href ='", map_link,"'target='_blank'>", map_link,"</a>")) %>%
+    mutate(map_link = paste0('https://hillcrestgeo.ca/outgoing/fishpassage/projects/parsnip/archive/2022-05-27/FishPassage_', mapsheet, '.pdf')) %>% 
+    mutate(map_link = paste0("<a href ='", map_link,"'target='_blank'>", map_link,"</a>")) %>% 
     arrange(id) %>% 
     st_transform(crs = 4326),
   
@@ -270,7 +270,7 @@ xf <- left_join(
       assessment_comment) %>% 
     mutate(image_view_url = paste0("<a href ='", image_view_url,"'target='_blank'>",image_view_url,"</a>")) %>% 
     st_drop_geometry(),
-    
+  
   by = c('id' = 'stream_crossing_id')) %>% 
   select(id,
          stream_name,
@@ -411,11 +411,12 @@ htmltools::browsable(
               escape = F)
   ))
 
+
 ```
 
 ```{r widget-planning-caption, fig.cap= my_caption, out.width = "0.01%",  eval = gitbook_on}
 my_photo = 'fig/pixel.png'
-my_caption= 'Dashboard to facilitate field planning for field surveys. Note that only sites modelled as having 1km or more of bull trout rearing habitat (>1.5m channel width and <7.5% gradient). Full screen available through button in bottom right of map.'
+my_caption= 'Dashboard to facilitate field planning for field surveys. Note that only sites modelled with no crossings and having 0.5km or more of bull trout rearing habitat (>1.5m channel width and <7.5% gradient). Full screen available through button in bottom right of map.'
 knitr::include_graphics(my_photo, dpi = NA)
 ```
 
