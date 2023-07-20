@@ -1,4 +1,11 @@
-# 0.1.1 (2023-07-17)
+# 0.1.2 (2023-07-18)
+
+- fix map links in interactive dashboard as part of https://github.com/NewGraphEnvironment/fish_passage_peace_2022_reporting/issues/72
+- planning dashboard nly queries for crossings with no downstream crossings and 0.5km or more of bt habitat
+- update `Attachment_2.csv`
+
+
+
 
 - make interactive orthos and models span full width of screen https://github.com/NewGraphEnvironment/fish_passage_peace_2022_reporting/issues/105 
 - clean up text in design section
