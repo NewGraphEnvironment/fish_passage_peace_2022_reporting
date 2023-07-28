@@ -1,3 +1,7 @@
+# 0.1.3 (2023-07-19)
+
+* add updated study area overview map in background, included carp lake and crooked river watersheds
+
 # 0.1.2 (2023-07-18)
 
 - fix map links in interactive dashboard as part of https://github.com/NewGraphEnvironment/fish_passage_peace_2022_reporting/issues/72
