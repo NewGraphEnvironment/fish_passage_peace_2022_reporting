@@ -13,7 +13,7 @@ In 2022/2023, this collaborative project leveraged ongoing connectivity restorat
 
 
 ```{r overview-map, fig.cap = 'Overview map of Study Area',eval=T}
-knitr::include_graphics("fig/overview.jpg")
+knitr::include_graphics("fig/project_overview.png")
 ```
 
 
