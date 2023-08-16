@@ -157,7 +157,7 @@ tab_cost_rd_mult_report <- tab_cost_rd_mult %>%
 ##uses habitat value to initially screen but then refines based on what are likely not barriers to most most the time
 phase1_priorities <- pscis_all %>%
   filter(!source %ilike% 'phase2') %>%
-  select(aggregated_crossings_id, pscis_crossing_id, my_crossing_reference, utm_zone:northing, habitat_value, barrier_result, source) %>%
+  dplyr::select(aggregated_crossings_id, pscis_crossing_id, my_crossing_reference, utm_zone:northing, habitat_value, barrier_result, source) %>%
   mutate(priority_phase1 = case_when(habitat_value == 'High' & barrier_result != 'Passable' ~ 'high',
                                      habitat_value == 'Medium' & barrier_result != 'Passable' ~ 'mod',
                                      habitat_value == 'Low' & barrier_result != 'Passable' ~ 'low',

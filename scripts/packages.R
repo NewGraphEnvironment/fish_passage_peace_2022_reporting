@@ -2,7 +2,7 @@
 
 package_list <- c(
   'plotKML',  #plot kml needed to go ahead of other packages for some reason and wants to reinstall everytime.... not sure why. hash out for now
-  'raster', #load this dog before dplyr yo
+  # 'raster', #load this dog before dplyr yo
   'tidyverse',
   'readwritesqlite',
   'sf',

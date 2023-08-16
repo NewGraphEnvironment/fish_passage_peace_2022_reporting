@@ -29,7 +29,7 @@ The continental divide separates watersheds flowing north into the Arctic Ocean 
 
 <br>
 
-Construction of the 183 m high and 2134 m long W.A.C. Bennett Dam was completed in 1967 at Hudson's Hope, BC, creating the Williston Reservoir [@hirst1991Impactsoperations]. Filling of the 375km^2^ reservoir was complete in 1972 and flooded a substantial portion of the Parsnip River and major tributary valleys forming what is now known as the Peace and Parsnip reaches. The replacement of riverine habitat with an inundated reservoir environment resulted in profound changes to the ecology, resource use and human settlement patterns in these systems [@hagen_etal2015Criticalhabitats; @pearce2019FirstNations; @stamford_etal2017FWCPArctic]. Prior to the filling of the reservoir, the Pack River, into which McLeod Lake flows, was a major tributary to the Parsnip River.  The Pack River currently enters the Williston Reservoir directly as the historic location of the confluence of the two rivers lies within the reservoir's footprint.
+Construction of the 183 m high and 2134 m long W.A.C. Bennett Dam was completed in 1967 at Hudson's Hope, BC, creating the Williston Reservoir [@hirst1991Impactsoperations]. Filling of the 375km^2^ reservoir was complete in 1972 and flooded a substantial portion of the Parsnip River and major tributary valleys forming what is now known as the Peace and Parsnip reaches. The replacement of riverine habitat with an inundated reservoir environment resulted in profound changes to the ecology, resource use and human settlement patterns in these systems [@hagen_etal2015Criticalhabitats; @pearce_etal2019FirstNations; @stamford_etal2017FWCPArctic]. Prior to the filling of the reservoir, the Pack River, into which McLeod Lake flows, was a major tributary to the Parsnip River.  The Pack River currently enters the Williston Reservoir directly as the historic location of the confluence of the two rivers lies within the reservoir's footprint.
 
 
 
@@ -83,7 +83,7 @@ fiss_species_table %>%
 
 ### Bull Trout - sa'ba {-}
 
-Tse'khene Elders from the McLeod Lake Indian Band report that sa'ba (bull trout) size and abundance has decreased in all rivers and tributaries from the reservoir with more injured and diseased fish captured in recent history than was common in the past [@pearce2019FirstNations]. 
+Tse'khene Elders from the McLeod Lake Indian Band report that sa'ba (bull trout) size and abundance has decreased in all rivers and tributaries from the reservoir with more injured and diseased fish captured in recent history than was common in the past [@pearce_etal2019FirstNations] . 
 
 <br>
 
@@ -91,7 +91,7 @@ Bull Trout populations of the Williston Reservoir watershed are included within 
 
 <br>
 
-A study of sa'ba critical habitats in the Parsnip River was conducted in 2014 with the Misinchinka and Anzac systems identified as the most important systems for large bodied bull trout spawners accounting for a combined total of 65% of spawners counted.  The Table River was also highlighted as an important spawning destination accounting for an estimated 15% of the spawners.  Other watersheds identified as containing runs of large bodied bull troutspawners included the Colbourne, Reynolds, Hominka and Missinka River with potentially less than 50 spawners utilizing each sub-basin [@hagen_etal2015Criticalhabitats].  @hagen_weber2019Limitingfactors have synthesized a large body of information regarding limiting factors, enhancement potential, critical habitats and conservation status for bull trout of the Williston Reservoir and the reader is encouraged to review this work for context.  They have recommended experimental enhancements within a monitoring framework for Williston Reservoir bull trout (some spawning and rearing in Parsnip River mainstem and tributaries) which include stream fertilization, side channel development, riparian restoration and fish access improvement.  
+A study of sa'ba critical habitats in the Parsnip River was conducted in 2014 with the Misinchinka and Anzac systems identified as the most important systems for adfluvial (large bodied) bull trout spawners.  The Table River was also highlighted as an important spawning destination.  Other watersheds identified as containing runs of large bodied bull troutspawners included the Colbourne, Reynolds, Hominka and Missinka River with potentially less than 50 spawners utilizing each sub-basin [@hagen_etal2015Criticalhabitats].  @hagen_weber2019Limitingfactors have synthesized a large body of information regarding limiting factors, enhancement potential, critical habitats and conservation status for bull trout of the Williston Reservoir and the reader is encouraged to review this work for context.  They have recommended experimental enhancements within a monitoring framework for Williston Reservoir bull trout (some spawning and rearing in Parsnip River mainstem and tributaries) which include stream fertilization, side channel development, riparian restoration and fish access improvement.  
 
 <br>
 
@@ -102,7 +102,7 @@ In 2018, sub-basins of the Anzac River watershed, Homininka River, Missinka Rive
 ### Arctic Grayling - dusk'ihje{-}
 
 
-Tse'khene Elders from the McLeod Lake Indian Band report that Arctic grayling numbers have declined dramatically since the flooding of the reservoir and that few dusk'ihje (Arctic Grayling) have been caught in the territory in the past 30 years [@pearce2019FirstNations].
+Tse'khene Elders from the McLeod Lake Indian Band report that Arctic grayling numbers have declined dramatically since the flooding of the reservoir and that few dusk'ihje (Arctic Grayling) have been caught in the territory in the past 30 years [@pearce_etal2019FirstNations].
 
 <br>
 

@@ -1,5 +1,6 @@
-# 0.1.3 (2023-07-19)
+# 0.1.3 (2023-08-15)
 
+* changes as requested by fwcp
 * add updated study area overview map in background, included carp lake and crooked river watersheds
 
 # 0.1.2 (2023-07-18)
